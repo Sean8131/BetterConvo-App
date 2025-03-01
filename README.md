@@ -99,6 +99,16 @@ As a user, I want to clear my inputs and start over so that I can generate a new
 - Clicking the **"New Request"** button clears all inputs (situation, feeling, and request). 
 - The user is taken back to the **"Main Screen"**.  
 
+### User Story 7: Tracking Anonymous Usage Data
+As a **BetterConvo** admin I would like to track anonymous visits and the number of prompts made so I can gather insights on app usage without compromising user privacy.  
+
+#### Acceptance Criteria:
+- When a user visits the app, an anonymous session record is created or updated in the database.  
+- Each session is identified by a random, non-identifiable session ID (not linked to personal data).  
+- The database stores the visit count for each session.  
+- When a user generates a script, the total number of prompts made in that session is incremented.  
+- No personally identifiable information is collected or stored.  
+
 
 ## **Out of Scope**  
 - **User Accounts & Authentication** - No logins, profiles, or saved data.  
