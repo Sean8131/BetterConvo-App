@@ -20,17 +20,15 @@ Here is the initial UI sketch for **BetterConvo**:
 
 ### AI-Powered Script Generation
 - User inputs are sent to an API request.  
-- A serverless function calls the OpenAI API to generate a script.  
 - The response is displayed on the user's screen.  
 
 ### Security & Compliance
 - No user data is stored.
-- API key is secured using Vercel environment variables.  
 - A disclaimer appears when the app loads, advising users not to enter private information.  
 
 ### Deployment & Hosting
 - **Frontend:** React + TailwindCSS, deployed on Vercel.  
-- **Backend:** Vercel Serverless Functions (instead of a full Express.js backend).
+- **Backend:** MongoDB Atlas + Express JS.js
 
 ## User Stories & Acceptance Criteria
 
@@ -45,15 +43,15 @@ As a user, I want to see a disclaimer before using the app so that I understand 
 - When the user clicks the **"Accept"** button, the disclaimer disappears and the **"Main Screen"** opens.
 
 ### User Story 2: Inputting a Situation
-As a user, I want to enter my situation so that I can receive relevant guidance.
+As a user, I want to enter my situation on the **Situation Input Screen** so that I can receive relevant guidance.
 
 #### Acceptance Criteria:
-- The user can enter a text description in the situation input field.  
+- On the **Situation Input Screen**, the user can enter a text description in the situation input field.  
 - When the user clicks the **"Done"** button, they are taken back to the **"Main Screen"**.
 - If all inputs are completed, then the user is taken to the **"Generate Screen"**.
 
 ### User Story 3: Selecting a Feeling
-As a user, I want to choose from a list of feelings so that I can accurately describe my emotions.
+As a user, I want to choose from a list of feelings on the **Feelings Options Screen** so that I can accurately describe my emotions.
 
 #### Acceptance Criteria:
 - When the user clicks the feelings button, a list is displayed.
@@ -66,7 +64,7 @@ As a user, I want to choose from a list of feelings so that I can accurately des
 - If all inputs are completed, then the user is taken to the **"Generate Screen"**.
 
 ### User Story 3: Submitting a Request
-As a user, I want to specify what I need from my partner so that the response reflects my needs.
+As a user, I want to specify what I need from my partner on the **Request Input Screen** so that the GPT response reflects my needs.
 
 #### Acceptance Criteria:
 - The user can enter text in the request input field.
