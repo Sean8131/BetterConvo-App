@@ -36,15 +36,16 @@ Here is a link to the UI sketch in Excalidraw:
 
 ## User Stories & Acceptance Criteria
 
-### 1. User Sees a Disclaimer Upon Opening the App
+### User Story 1: User Sees a Disclaimer Upon Opening the App
 As a user, I want to see a disclaimer before using the app so that I understand privacy guidelines.  
 
 #### Acceptance Criteria:
-- When the app loads, a disclaimer message appears.  
-- The disclaimer advises users not to enter private information.  
+- When the app loads, the **Home Screen** displays a disclaimer message.
+- When the user clicks the **Next** button, they are taken to the **Privacy Disclaimer Screen**. 
+- The disclaimer on the **Pricacy Disclaimer Screen** advises users not to enter private information.  
 - A **"Terms of Use"** hyperlink is displayed.
 - An **"Accept"** button is displayed.
-- When the user clicks the **"Accept"** button, the disclaimer disappears and the **"Main Screen"** opens.
+- When the user clicks the **"Accept"** button, the user is taken to the **"Main Screen"**.
 
 ### User Story 2: Inputting a Situation
 As a user, I want to enter my situation on the **Situation Input Screen** so that I can receive relevant guidance.
@@ -67,7 +68,7 @@ As a user, I want to choose from a list of feelings on the **Feelings Options Sc
 - When the user clicks the **"Done"** button, they are taken back to the **"Main Screen"**.
 - If all inputs are completed, then the user is taken to the **"Generate Screen"**.
 
-### User Story 3: Submitting a Request
+### User Story 4: Submitting a Request
 As a user, I want to specify what I need from my partner on the **Request Input Screen** so that the GPT response reflects my needs.
 
 #### Acceptance Criteria:
@@ -75,7 +76,7 @@ As a user, I want to specify what I need from my partner on the **Request Input 
 - When the user clicks the **"Done"** button, they are taken back to the **"Main Screen"**.
 - If all inputs are completed, then the user is taken to the **"Generate Screen"**.
 
-### User Story 4: Generating the Script
+### User Story 5: Generating the Script
 As a user, I want to generate an NVC-based script so that I can prepare for my conversation.
 
 #### Acceptance Criteria:
@@ -84,7 +85,7 @@ As a user, I want to generate an NVC-based script so that I can prepare for my c
 - The script is displayed in a readable format.  
 - If there is an API error, the user sees an error message instead of a blank screen.
 
-### User Story 5: Regenerating a Script
+### User Story 6: Regenerating a Script
 As a user I want to regenerate a new script so that I can see an alternative response if I don’t like the first one.  
 
 #### Acceptance Criteria:  
@@ -93,7 +94,7 @@ As a user I want to regenerate a new script so that I can see an alternative res
 - The new response replaces the previous script.  
 - If the API fails, the user sees an error message instead of a blank screen.  
 
-### User Story 6: Starting a New Request
+### User Story 7: Starting a New Request
 As a user, I want to clear my inputs and start over so that I can generate a new script for a different situation.  
 
 #### Acceptance Criteria:
@@ -101,7 +102,7 @@ As a user, I want to clear my inputs and start over so that I can generate a new
 - Clicking the **"New Request"** button clears all inputs (situation, feeling, and request). 
 - The user is taken back to the **"Main Screen"**.  
 
-### User Story 7: Tracking Anonymous Usage Data
+### User Story 8: Tracking Anonymous Usage Data
 As a **BetterConvo** admin I would like to track anonymous visits and the number of prompts made so I can gather insights on app usage without compromising user privacy.  
 
 #### Acceptance Criteria:
