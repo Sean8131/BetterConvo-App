@@ -113,7 +113,6 @@ As a **BetterConvo** admin I would like to track anonymous visits and the number
 
 ## **Out of Scope**  
 - **User Accounts & Authentication** - No logins, profiles, or saved data.  
-- **Data Storage** - No database or history of user interactions.  
 - **Advanced AI Customisation** - GPT responses are based on a fixed prompt.  
 - **Multi-Turn Conversations** - The app provides a single response per request.
 - **Responsive Design** - Mobile-only design won't be optimised for desktop screens.
