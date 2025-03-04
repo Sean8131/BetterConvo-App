@@ -126,11 +126,11 @@ As a **BetterConvo** admin I would like to track anonymous visits and the number
 
 #### 2. Development Phase (Feb 27 – Mar 15, 2025)
 - Deploy BetterConvo on Vercel
-- Integrate Vercel Serverless Functions and MongoDB Atlas to handle API requests.  
+- Integrate Vercel Serverless Functions and MongoDB Atlas to handle API requests.
 - Build the UI using React and TailwindCSS.  
 
 #### 3. Testing & Debugging (Mar 16 – Mar 22, 2025)
-- Test API integration and ensure correct responses.  
+- Use Postman to test API integration and ensure correct responses.  
 - Fix UI bugs and improve error handling.  
 - Refine the AI-generated response formatting.  
 
