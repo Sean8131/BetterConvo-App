@@ -26,6 +26,7 @@ Here is a link to the wireframe in Excalidraw:
 - The response is displayed on the user's screen.  
 
 ### Security & Compliance
+- User cannot create a personal account.``
 - No personally identifiable user data is stored.
 - A disclaimer appears when the app loads, advising users not to enter private information. 
 - User can only use **BetterConvo** if the agree to the terms of use set out in the disclaimer on the **Privacy Disclaimer Screen**. 
