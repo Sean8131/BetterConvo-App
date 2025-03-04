@@ -30,8 +30,8 @@ Here is a link to the UI sketch in Excalidraw:
 - A disclaimer appears when the app loads, advising users not to enter private information.  
 
 ### Deployment & Hosting
-- **Frontend:** React + TailwindCSS, deployed on Vercel.  
-- **Backend:** MongoDB Atlas + Express JS
+- **Frontend:** React + TailwindCSS, deployed on Vercel. 
+- **Backend:** MongoDB Atlas + Vercel Serverless Functions.
 
 ## User Stories & Acceptance Criteria
 
@@ -126,7 +126,7 @@ As a **BetterConvo** admin I would like to track anonymous visits and the number
 
 #### 2. Development Phase (Feb 27 – Mar 15, 2025)
 - Build the UI using React and TailwindCSS.  
-- Integrate Express JS and MongoDB Atlas to handle API requests.  
+- Integrate Vercel Serverless Functions and MongoDB Atlas to handle API requests.  
 
 #### 3. Testing & Debugging (Mar 16 – Mar 22, 2025)
 - Test API integration and ensure correct responses.  
