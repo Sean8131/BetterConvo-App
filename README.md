@@ -9,6 +9,9 @@ Here is the initial UI sketch for **BetterConvo**:
 
 ![App UI Design](App-UI-Design.png)
 
+Here is a link to the UI sketch in Excalidraw:
+- https://excalidraw.com/#json=82hjWSvQuidX2k27gOvSB,0hjQ_4SFpRTwIEo6MgREvA
+
 
 ## Features In Scope
 
@@ -23,12 +26,12 @@ Here is the initial UI sketch for **BetterConvo**:
 - The response is displayed on the user's screen.  
 
 ### Security & Compliance
-- No user data is stored.
+- No personally identifiable user data is stored.
 - A disclaimer appears when the app loads, advising users not to enter private information.  
 
 ### Deployment & Hosting
 - **Frontend:** React + TailwindCSS, deployed on Vercel.  
-- **Backend:** MongoDB Atlas + Express JS.js
+- **Backend:** MongoDB Atlas + Express JS
 
 ## User Stories & Acceptance Criteria
 
@@ -124,7 +127,7 @@ As a **BetterConvo** admin I would like to track anonymous visits and the number
 
 #### 2. Development Phase (Feb 27 – Mar 15, 2025)
 - Build the UI using React and TailwindCSS.  
-- Integrate Vercel serverless functions to handle API requests.  
+- Integrate Express JS and MongoDB Atlas to handle API requests.  
 
 #### 3. Testing & Debugging (Mar 16 – Mar 22, 2025)
 - Test API integration and ensure correct responses.  
