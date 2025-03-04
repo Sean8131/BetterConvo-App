@@ -27,7 +27,8 @@ Here is a link to the UI sketch in Excalidraw:
 
 ### Security & Compliance
 - No personally identifiable user data is stored.
-- A disclaimer appears when the app loads, advising users not to enter private information.  
+- A disclaimer appears when the app loads, advising users not to enter private information. 
+- User can only use **BetterConvo** if the agree to the terms of use set out in the disclaimer on the **Privacy Disclaimer Screen**. 
 
 ### Deployment & Hosting
 - **Frontend:** React + TailwindCSS, deployed on Vercel. 
