@@ -3,14 +3,14 @@
 ## Objective
 **BetterConvo** is a mobile only web application that helps users prepare for courageous conversations with their partner using Nonviolent Communication (NVC). Users will input a situation, select a feeling, and enter a request. A generative AI model (GPT) will provide a suggested script to help them start their conversation with curiosity, empathy, and courage.
 
-## UI Sketch
+## User Interface
 
-Here is the initial UI sketch for **BetterConvo**:
+Here is the wireframe for **BetterConvo**:
 
-![App UI Design](App-UI-Design.png)
+![App UI Design](BetterConvoApp.png)
 
-Here is a link to the UI sketch in Excalidraw:
-- https://excalidraw.com/#json=82hjWSvQuidX2k27gOvSB,0hjQ_4SFpRTwIEo6MgREvA
+Here is a link to the wireframe in Excalidraw:
+- https://excalidraw.com/#json=Kk_OhKp71nkUXT0hdGfT6,1ZclOFjoOzkUgXgn1KlIiA
 
 
 ## Features In Scope
