@@ -85,15 +85,6 @@ As a user, I want to generate an NVC-based script so that I can prepare for my c
 - The script is displayed in a readable format.  
 - If there is an API error, the user sees an error message instead of a blank screen.
 
-### User Story 6: Regenerating a Script
-As a user I want to regenerate a new script so that I can see an alternative response if I don’t like the first one.  
-
-#### Acceptance Criteria:  
-- A **"Regenerate"** button is displayed after the script is generated.  
-- Clicking the **"Regenerate"** button sends the same user inputs to the API and retrieves a new response.  
-- The new response replaces the previous script.  
-- If the API fails, the user sees an error message instead of a blank screen.  
-
 ### User Story 7: Starting a New Request
 As a user, I want to clear my inputs and start over so that I can generate a new script for a different situation.  
 
