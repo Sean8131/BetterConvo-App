@@ -119,7 +119,7 @@ app.get("/api/generate", async (req, res) => {
 });
 
 // Determine the port to listen on (default to 3000 if not specified in .env)
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // Start the Express server and log the port number
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
