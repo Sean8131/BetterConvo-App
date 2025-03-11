@@ -50,6 +50,8 @@ app.post("/api/generate", async (req, res) => {
             "You are a communication coach using Nonviolent Communication (NVC).",
         },
         // User message includes the actual input provided by the user
+        // TODO: sanitize user input
+        // FIXME: this is broken
         {
           role: "user",
           content: `Situation: ${situation}\nFeeling: ${feeling}\nRequest: ${request}\nGenerate a response following NVC principles.`,
