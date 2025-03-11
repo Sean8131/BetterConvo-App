@@ -1,8 +1,8 @@
 // Import necessary libraries
-import express from "express";   // Express framework for building the API server
-import cors from "cors";         // Middleware to enable Cross-Origin Resource Sharing
-import dotenv from "dotenv";     // Library to load environment variables from a .env file
-import { OpenAI } from "openai";  // OpenAI Software Development Kit to interact with the GPT API
+import express from "express"; // Express framework for building the API server
+import cors from "cors"; // Middleware to enable Cross-Origin Resource Sharing
+import dotenv from "dotenv"; // Library to load environment variables from a .env file
+import { OpenAI } from "openai"; // OpenAI Software Development Kit to interact with the GPT API
 
 // Load environment variables from the .env file (e.g., API keys, port number)
 dotenv.config();
@@ -44,9 +44,16 @@ app.post("/api/generate", async (req, res) => {
       model: "gpt-4", // Specify the GPT model to use
       messages: [
         // System message sets the behavior and context for the assistant
-        { role: "system", content: "You are a communication coach using Nonviolent Communication (NVC)." },
+        {
+          role: "system",
+          content:
+            "You are a communication coach using Nonviolent Communication (NVC).",
+        },
         // User message includes the actual input provided by the user
-        { role: "user", content: `Situation: ${situation}\nFeeling: ${feeling}\nRequest: ${request}\nGenerate a response following NVC principles.` }
+        {
+          role: "user",
+          content: `Situation: ${situation}\nFeeling: ${feeling}\nRequest: ${request}\nGenerate a response following NVC principles.`,
+        },
       ],
       max_tokens: 200, // Limit the response to 200 tokens to control output length
     });
@@ -76,7 +83,7 @@ app.get("/api/generate", async (req, res) => {
   // Validate that all required query parameters are provided; if not, return a 400 error response
   if (!situation || !feeling || !reqText) {
     return res.status(400).json({
-      error: "Missing required query parameters: situation, feeling, request"
+      error: "Missing required query parameters: situation, feeling, request",
     });
   }
 
@@ -86,9 +93,16 @@ app.get("/api/generate", async (req, res) => {
       model: "gpt-4", // Specify the GPT model to use
       messages: [
         // System message defines the assistant's role and context
-        { role: "system", content: "You are a helpful communication coach using Nonviolent Communication (NVC)." },
+        {
+          role: "system",
+          content:
+            "You are a helpful communication coach using Nonviolent Communication (NVC).",
+        },
         // User message compiles the query parameters into a prompt
-        { role: "user", content: `Situation: ${situation}\nFeeling: ${feeling}\nRequest: ${reqText}\nGenerate a response following NVC principles.` }
+        {
+          role: "user",
+          content: `Situation: ${situation}\nFeeling: ${feeling}\nRequest: ${reqText}\nGenerate a response following NVC principles.`,
+        },
       ],
       max_tokens: 200, // Limit the response to 200 tokens
     });
