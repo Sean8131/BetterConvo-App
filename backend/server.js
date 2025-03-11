@@ -118,6 +118,13 @@ app.get("/api/generate", async (req, res) => {
   }
 });
 
+// Endpoint to test backend
+
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'Hello from the backend!' });
+});
+
+
 // Determine the port to listen on (default to 3000 if not specified in .env)
 const PORT = process.env.PORT || 3001;
 
