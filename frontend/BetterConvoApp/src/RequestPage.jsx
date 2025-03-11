@@ -1,14 +1,20 @@
+// Import useState hook from React, which lets us store and update stateful data in the component
 import { useState } from 'react';
 
+// Defining the RequestPage component
 export default function RequestPage() {
   // Hard-coded values for testing
   const situation = "My partner didn't reassure me when I was stressed.";
   const feeling = "Lonely";
 
-  // Allow editing the request in a textarea, but default it to something
+  // Initialize a state variable called "request" with a default string
+  // The "setRequest" function is used to update the "request" state
+  // Allows the user to edit the request in the <textarea> and for us to track those changes
   const [request, setRequest] = useState("Please be there for me and reassure me.");
 
-  // Store the API response here
+  // Initialize a state variable called "response" with an empty string
+  // The "response" state varialbe holds whatever the API sends back
+  // Once we receive a GPT-generated message, we'll store it in "response" and display it
   const [response, setResponse] = useState("");
 
   // Handler for the "Generate" button
