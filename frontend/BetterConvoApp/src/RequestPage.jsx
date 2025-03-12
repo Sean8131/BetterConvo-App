@@ -1,6 +1,9 @@
 // Import useState hook from React, which lets us store and update stateful data in the component
 import { useState } from 'react';
 
+// Import useNavigate hook from React, which returns a function that we can call to changes routes and pass state to update the next page the user is taken to 
+import { useNavigate } from "react-router-dom";
+
 // Defining the RequestPage component
 export default function RequestPage() {
   // Hard-coded values for testing
@@ -11,6 +14,9 @@ export default function RequestPage() {
   // The "setRequest" function is used to update the "request" state
   // Allows the user to edit the request in the <textarea> and for us to track those changes
   const [request, setRequest] = useState("Please be there for me and reassure me.");
+
+    // Hook for navigation between pages
+    const navigate = useNavigate();
 
   // Initialize a state variable called "response" with an empty string
   // The "response" state varialbe holds whatever the API sends back
@@ -32,8 +38,8 @@ export default function RequestPage() {
       });
 
       const data = await res.json();
-      // Set the GPT-generated message in state
-      setResponse(data.message);
+      // Navigate to the Script Response Screen, passing the generated message in the state
+      navigate("/script", {state: {response: data.message}});
     } catch (error) {
       console.error("Error generating response:", error);
       setResponse("Error generating response");
