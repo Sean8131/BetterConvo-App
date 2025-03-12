@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "f./App.css"
+import "./App.css"
 import RequestPage from "./RequestPage";
 import ScriptResponsePage from "./ScriptResponsePage";
 
