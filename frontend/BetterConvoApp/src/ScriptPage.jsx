@@ -10,6 +10,8 @@ export default function ScriptPage() {
 
   // Retrieves the current location object, which includes the state property if any data was passed during navigation.
   const location = useLocation();
+
+  // Returns the navigate function so we can change routes
   const navigate = useNavigate();
 
   // Uses optional chaining to access location.state.response. Retrieves the generated response from the navigation state. If the state exists and contains a response, the value is assigned to the response variable.
