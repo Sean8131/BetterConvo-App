@@ -72,14 +72,6 @@ export default function RequestPage() {
       <button onClick={handleGenerate}>
         Generate
       </button>
-
-      {/* Display the GPT response if we have one */}
-      {response && (
-        <div>
-          <h2>You could start with:</h2>
-          <p>{response}</p>
-        </div>
-      )}
     </div>
   );
 }

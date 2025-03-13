@@ -13,7 +13,7 @@ export default function ScriptResponsePage() {
   const navigate = useNavigate();
 
   // Uses optional chaining to access location.state.response. Retrieves the generated response from the navigation state. If the state exists and contains a response, the value is assigned to the response variable.
-  const response = location.state?.response || "No response available.";
+  const script = location.state?.response || "No response available.";
 
   // Handler for the "New Request" button to go back to the input screen
   const handleNewRequest = () => {
@@ -27,7 +27,7 @@ export default function ScriptResponsePage() {
       {/* Display the generated GPT response */}
       <div>
         <h2>You could start with:</h2>
-        <p>{response}</p>
+        <p>{script}</p>
       </div>
 
       {/* New Request button */}
