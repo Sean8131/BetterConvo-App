@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 // Component is defined as a functional component and is exported so it can be imported and used in the routing setup.
 
-export default function ScriptResponsePage() {
+export default function ScriptPage() {
 
   // Retrieves the current location object, which includes the state property if any data was passed during navigation.
   const location = useLocation();
