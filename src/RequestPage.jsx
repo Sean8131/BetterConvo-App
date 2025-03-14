@@ -13,7 +13,7 @@ export default function RequestPage() {
   // Initialize a state variable called "request" with a default string
   // The "setRequest" function is used to update the "request" state
   // Allows the user to edit the request in the <textarea> and for us to track those changes
-  const [request, setRequest] = useState("Send me a message to know you're running late late");
+  const [request, setRequest] = useState("Text me that you'll be late");
 
     // Hook for navigation between pages
     const navigate = useNavigate();
