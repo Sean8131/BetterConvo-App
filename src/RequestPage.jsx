@@ -7,13 +7,13 @@ import { useNavigate } from "react-router-dom";
 // Defining the RequestPage component
 export default function RequestPage() {
   // Hard-coded values for testing
-  const situation = "My partner didn't reassure me when I was stressed.";
-  const feeling = "Lonely";
+  const situation = "My partner picked me up late from work";
+  const feeling = "Frustrated";
 
   // Initialize a state variable called "request" with a default string
   // The "setRequest" function is used to update the "request" state
   // Allows the user to edit the request in the <textarea> and for us to track those changes
-  const [request, setRequest] = useState("Please be there for me and reassure me.");
+  const [request, setRequest] = useState("Send me a message to know you're running late late");
 
     // Hook for navigation between pages
     const navigate = useNavigate();

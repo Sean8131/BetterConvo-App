@@ -126,7 +126,7 @@ app.get('/api/test', (req, res) => {
 
 
 // Determine the port to listen on (default to 3000 if not specified in .env)
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 // Start the Express server and log the port number
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
