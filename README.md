@@ -1,7 +1,7 @@
 # BetterConvo Project Brief
 
 ## Objective
-**BetterConvo** is a mobile only web application that helps users prepare for courageous conversations with their partner using empathic communication. Users will input a situation, select a feeling, and enter a request. A generative AI model (GPT) will provide a suggested script to help them start their conversation with curiosity, empathy, and courage.
+**BetterConvo** is a mobile only web application that helps users prepare for courageous conversations with their partner using Nonviolent Communication (NVC). Users will input a situation, select a feeling, and enter a request. A generative AI model (GPT) will provide a suggested script to help them start their conversation with curiosity, empathy, and courage.
 
 ## User Interface
 
