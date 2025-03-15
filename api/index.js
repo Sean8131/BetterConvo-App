@@ -3,6 +3,7 @@ import express from "express"; // Express framework for building the API server
 import cors from "cors"; // Middleware to enable Cross-Origin Resource Sharing
 import dotenv from "dotenv"; // Library to load environment variables from a .env file
 import { OpenAI } from "openai"; // OpenAI Software Development Kit to interact with the GPT API
+import serverless from "serverless-http"; // Wrapper to convert Express app into a serverless function
 
 // Load environment variables from the .env file (e.g., API keys, port number)
 dotenv.config();
@@ -126,7 +127,11 @@ app.get('/api/test', (req, res) => {
 
 
 // Determine the port to listen on (default to 3000 if not specified in .env)
-const PORT = process.env.PORT || 3000;
+// const PORT = process.env.PORT || 3000;
 
 // Start the Express server and log the port number
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// Instead of starting the server with app.listen, export the app as a serverless function.
+export default serverless(app);
