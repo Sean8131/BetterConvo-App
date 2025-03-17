@@ -7,7 +7,7 @@
 
 Here is the wireframe for **BetterConvo**:
 
-![App UI Design](/frontend/BetterConvoApp/App%20Design.png)
+![App UI Design](app-design.png)
 
 Here is a link to the wireframe in Excalidraw:
 - https://excalidraw.com/#json=mF4-LgONg8A3Vi3xwlOVv,PQOmzOS4O_q2n5KIL39KdQ
