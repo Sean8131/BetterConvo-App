@@ -1,6 +1,10 @@
 // Import useState hook from React, which lets us store and update stateful data in the component
 import { useState } from 'react';
 
+// Import useLocation hook from React which lets us access the current location object. It contains the current URL and state passed from navigation. Here, it's used to retrive the feelings that were passed from the previous page.
+
+import { useLocation } from "react-router-dom";
+
 // Import useNavigate hook from React, which returns a function that we can call to changes routes and pass state to update the next page the user is taken to 
 import { useNavigate } from "react-router-dom";
 
