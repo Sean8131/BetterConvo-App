@@ -29,4 +29,10 @@ export default function FeelingsPage() {
   // State to track selected feelings (maximum 3)
   const [selectedFeelings, setSelectedFeelings] = useState([]);
 
+  // Handler for when a predefined feeling button is clicked.
+  // If the feeling is already selected, it toggles it off.
+  // Otherwise, it adds it if the maximum (3) has not been reached.
+  const handleFeelingClick = (feeling) => {
+    if (selectedFeelings.includes(feeling)) 
+
 }
