@@ -26,4 +26,7 @@ export default function FeelingsPage() {
   // Sort the feelings alphabetically
   predefinedFeelings.sort((a, b) => a.localeCompare(b));
 
+  // State to track selected feelings (maximum 3)
+  const [selectedFeelings, setSelectedFeelings] = useState([]);
+
 }
