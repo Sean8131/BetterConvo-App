@@ -33,7 +33,7 @@ export default function FeelingsPage() {
   // If the feeling is already selected, it toggles it off.
   // Otherwise, it adds it if the maximum (3) has not been reached.
   const handleFeelingClick = (feeling) => {
-    if (selectedFeelings.includes(feeling)) 
+    if (selectedFeelings.includes(feeling)) {
 
           // Remove the feeling if it's already selected
       setSelectedFeelings(selectedFeelings.filter((f) => f !== feeling));
@@ -63,4 +63,37 @@ export default function FeelingsPage() {
       navigate("/request", { state: { feelings: selectedFeelings } });
     };
 
+    return (
+        <div>
+          {/* Page header */}
+          <h1>BetterConvo</h1>
+          <p>How are you feeling? Please select 1-3 feelings</p>
+          
+          {/* Display predefined feelings as buttons arranged in 3 columns */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: "10px",
+              marginBottom: "20px"
+            }}
+          >
+            {predefinedFeelings.map((feeling) => (
+              <button
+                key={feeling}
+                onClick={() => handleFeelingClick(feeling)}
+                // Simple inline styling to indicate selection
+                style={{
+                  backgroundColor: selectedFeelings.includes(feeling) ? "#ccc" : ""
+                }}
+              >
+                {feeling}
+              </button>
+            ))}
+          </div>
+    
+          {/* "Next" button to proceed to the RequestPage */}
+          <button onClick={handleNext}>Next</button>
+        </div>
+      );
 }
