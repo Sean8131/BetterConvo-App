@@ -50,4 +50,13 @@ export default function FeelingsPage() {
     }
   };
 
+  // Handler for the "Next" button.
+  // Checks if at least one feeling has been selected.
+  // If so, navigates to the RequestPage and passes the selected feelings in state.
+  const handleNext = () => {
+    if (selectedFeelings.length === 0) {
+      alert("Please select at least one feeling.");
+      return;
+    }
+
 }
