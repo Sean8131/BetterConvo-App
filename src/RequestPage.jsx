@@ -10,6 +10,12 @@ import { useNavigate } from "react-router-dom";
 
 // Defining the RequestPage component
 export default function RequestPage() {
+
+    // Retrieve the feelings passed from the FeelingsPage via state
+  // If none are provided, fallback to default value
+  const location = useLocation();
+  const feelingsFromState = location.state?.feelings || [];
+  
   // Hard-coded values for testing
   const situation = "My partner picked me up late from work";
   const feeling = "Frustrated";
