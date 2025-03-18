@@ -38,5 +38,11 @@ export default function FeelingsPage() {
           // Remove the feeling if it's already selected
       setSelectedFeelings(selectedFeelings.filter((f) => f !== feeling));
     } else {
+        
+        // Check if the maximum of 3 feelings has been reached
+      if (selectedFeelings.length >= 3) {
+        alert("You can only select up to 3 feelings.");
+        return;
+      }
 
 }
