@@ -59,4 +59,8 @@ export default function FeelingsPage() {
       return;
     }
 
+      // Navigate to RequestPage with the selected feelings
+      navigate("/request", { state: { feelings: selectedFeelings } });
+    };
+
 }
