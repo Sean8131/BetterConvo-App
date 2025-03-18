@@ -57,7 +57,10 @@ app.post("/api/generate", async (req, res) => {
         // FIXME: this is broken
         {
           role: "user",
-          content: `Situation: ${situation}\nFeeling: ${feeling}\nRequest: ${request}\nGenerate a response following NVC principles.`,
+          content: `Situation: ${situation}\nFeeling: ${feeling}\nRequest: ${request}\nPlease generate a natural, flowing conversation using NVC principles.
+        Do not label any sentences with "Observation:", "Feeling:", "Need:", or "Request:".
+        Keep the output under 80 words and make it kind, empathic, curious, and collaborative.
+        Format the response so that each sentence is in its own paragraph (i.e., separate sentences with two newline characters).`,
         },
       ],
       max_tokens: 200, // Limit the response to 200 tokens to control output length
@@ -106,7 +109,10 @@ app.get("/api/generate", async (req, res) => {
         // User message compiles the query parameters into a prompt
         {
           role: "user",
-          content: `Situation: ${situation}\nFeeling: ${feeling}\nRequest: ${reqText}\nGenerate a response following NVC principles.`,
+          content: `Situation: ${situation}\nFeeling: ${feeling}\nRequest: ${request}\nPlease generate a natural, flowing conversation using NVC principles.
+        Do not label any sentences with "Observation:", "Feeling:", "Need:", or "Request:".
+        Keep the output under 80 words and make it kind, empathic, curious, and collaborative.
+        Format the response so that each sentence is in its own paragraph (i.e., separate sentences with two newline characters).`,
         },
       ],
       max_tokens: 200, // Limit the response to 200 tokens
