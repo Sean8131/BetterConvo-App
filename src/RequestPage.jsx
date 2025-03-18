@@ -15,7 +15,10 @@ export default function RequestPage() {
   // If none are provided, fallback to default value
   const location = useLocation();
   const feelingsFromState = location.state?.feelings || [];
-  
+
+  // Join the feelings array into a single string if nedded
+  const feeling = feelingsFromState.join(", ");
+
   // Hard-coded values for testing
   const situation = "My partner picked me up late from work";
   const feeling = "Frustrated";
