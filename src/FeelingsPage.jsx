@@ -23,4 +23,7 @@ export default function FeelingsPage() {
     "Curious",
   ];
 
+  // Sort the feelings alphabetically
+  predefinedFeelings.sort((a, b) => a.localeCompare(b));
+
 }
