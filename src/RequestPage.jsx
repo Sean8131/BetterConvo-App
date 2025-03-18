@@ -21,7 +21,6 @@ export default function RequestPage() {
 
   // Hard-coded values for testing
   const situation = "My partner picked me up late from work";
-  const feeling = "Frustrated";
 
   // Initialize a state variable called "request" with a default string
   // The "setRequest" function is used to update the "request" state
