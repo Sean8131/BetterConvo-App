@@ -17,7 +17,10 @@ app.use(cors());
 app.use(express.json());
 
 // Initialize the OpenAI client with the API key from environment variables
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const openai = new OpenAI({ 
+  apiKey: process.env.OPENAI_API_KEY,
+  organization: process.env.OPENAI_ORGANIZATION_ID,
+ });
 
 /**
  * POST /api/generate
