@@ -35,4 +35,8 @@ export default function FeelingsPage() {
   const handleFeelingClick = (feeling) => {
     if (selectedFeelings.includes(feeling)) 
 
+          // Remove the feeling if it's already selected
+      setSelectedFeelings(selectedFeelings.filter((f) => f !== feeling));
+    } else {
+
 }
