@@ -32,6 +32,7 @@ export default function SituationPage() {
   return (
     <div>
       <h1>BetterConvo</h1>
+      <h2>Situation</h2>
       <p>Please describe what happened in your own words:</p>
 
         <textarea
