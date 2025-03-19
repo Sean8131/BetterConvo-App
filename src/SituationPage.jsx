@@ -31,6 +31,13 @@ export default function SituationPage() {
         <div>
             <h1>BetterConvo</h1>
             <p>Please describe the situation in your own words</p>
+
+            <textarea
+                value={situation}
+                onChange={(e) => setSituation(e.target.value)}
+                rows="6"
+                style={{ width: "100%", marginBottom: "20px" }}
+            />
         </div>
     )
 }
