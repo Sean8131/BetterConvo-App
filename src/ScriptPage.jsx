@@ -29,7 +29,16 @@ export default function ScriptPage() {
       {/* Display the generated GPT response */}
       <div>
         <h2>You could start with:</h2>
+
+        <div style={{
+            border: "1px solid #ccc",
+            padding: "10px",
+            marginBottom: "20px",
+            borderRadius: "20px"
+      }}
+      >
         <p>{response}</p>
+        </div>
       </div>
 
       {/* New Request button */}
