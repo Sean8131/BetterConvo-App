@@ -67,6 +67,13 @@ export default function FeelingsPage() {
       navigate("/request", { state: { situation, feelings: selectedFeelings } });
   };
 
+  // Handler for the "Back" button
+  const handleBack = () => {
+
+    // Navigate back to the previous page in the browser history
+    navigate(-1);
+};
+
   return (
         <div>
           {/* Page header */}
@@ -97,6 +104,7 @@ export default function FeelingsPage() {
           </div>
     
           {/* "Next" button to proceed to the RequestPage */}
+          <button onClick={handleBack} style={{ marginRight: "10px" }}>Back</button>
           <button onClick={handleNext}>Next</button>
         </div>
       );
