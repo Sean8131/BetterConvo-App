@@ -1,20 +1,19 @@
 // Import useState hook from React, which lets us store and update stateful data in the component
-import { useState } from 'react';
+import { useState } from "react";
 
 // Import useLocation hook from React which lets us access the current location object. It contains the current URL and state passed from navigation. Here, it's used to retrive the feelings that were passed from the previous page.
 
 import { useLocation } from "react-router-dom";
 
-// Import useNavigate hook from React, which returns a function that we can call to changes routes and pass state to update the next page the user is taken to 
+// Import useNavigate hook from React, which returns a function that we can call to changes routes and pass state to update the next page the user is taken to
 import { useNavigate } from "react-router-dom";
 
 // Defining the RequestPage component
 export default function RequestPage() {
-
-    // Retrieve the situation and feelings passed from FeelingsPage
+  // Retrieve the situation and feelings passed from FeelingsPage
   // If none are provided, fallback to default value
   const location = useLocation();
-  const { situation, feelings} = location.state|| [];
+  const { situation, feelings } = location.state || [];
 
   // Join the feelings array into a single string if nedded
   const feeling = feelings ? feelings.join(", ") : "";
@@ -25,10 +24,10 @@ export default function RequestPage() {
   // Initialize a state variable called "request" with a default string
   // The "setRequest" function is used to update the "request" state
   // Allows the user to edit the request in the <textarea> and for us to track those changes
-  const [request, setRequest] = useState("Text me that you'll be late");
+  const [request, setRequest] = useState("");
 
-    // Hook for navigation between pages
-    const navigate = useNavigate();
+  // Hook for navigation between pages
+  const navigate = useNavigate();
 
   // Initialize a state variable called "response" with an empty string
   // The "response" state varialbe holds whatever the API sends back
@@ -51,7 +50,7 @@ export default function RequestPage() {
 
       const data = await res.json();
       // Navigate to the Script Response Screen, passing the generated message in the state
-      navigate("/script", {state: {response: data.message}});
+      navigate("/script", { state: { response: data.message } });
     } catch (error) {
       console.error("Error generating response:", error);
       setResponse("Error generating response");
@@ -60,10 +59,9 @@ export default function RequestPage() {
 
   // Handler for the "Back" button
   const handleBack = () => {
-
     // Navigate back to the previous page in the browser history
     navigate(-1);
-};
+  };
 
   return (
     <div>
@@ -71,26 +69,36 @@ export default function RequestPage() {
 
       {/* Display the hard-coded situation and feeling */}
       <div>
-        <p><strong>Situation:</strong> {situation}</p>
-        <p><strong>Feeling:</strong> {feeling}</p>
+        <p>
+          <strong>Situation:</strong> {situation}
+        </p>
+        <p>
+          <strong>Feeling:</strong> {feeling}
+        </p>
       </div>
 
       {/* Text area for the request */}
       <div>
-        <label htmlFor="request" style={{ display: "block"}}>
+        <label htmlFor="request" style={{ display: "block" }}>
           Enter your request:
         </label>
+
         <textarea
           id="request"
           value={request}
           onChange={(e) => setRequest(e.target.value)}
+     
+          rows="6"
+          style={{ width: "100%", marginBottom: "20px" }}
+          placeholder='e.g Please message me if you are running late'
         />
+
       </div>
 
-      <button onClick={handleBack} style={{ marginRight: "10px" }}>Back</button>
-      <button onClick={handleGenerate}>
-        Generate
+      <button onClick={handleBack} style={{ marginRight: "10px" }}>
+        Back
       </button>
+      <button onClick={handleGenerate}>Generate</button>
     </div>
   );
 }
