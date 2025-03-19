@@ -41,7 +41,8 @@ export default function SituationPage() {
 
             <div>
                 <button onClick={handleBack} style={{ marginRight: "10px" }}>Back</button>
+                <button onClick={handleNext}>Next</button>
             </div>
         </div>
-    )
+    );
 }
