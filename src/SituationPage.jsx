@@ -30,6 +30,7 @@ export default function SituationPage() {
     return (
         <div>
             <h1>BetterConvo</h1>
+            <p>Please describe the situation in your own words</p>
         </div>
     )
 }
