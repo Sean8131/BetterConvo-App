@@ -58,6 +58,13 @@ export default function RequestPage() {
     }
   };
 
+  // Handler for the "Back" button
+  const handleBack = () => {
+
+    // Navigate back to the previous page in the browser history
+    navigate(-1);
+};
+
   return (
     <div>
       <h1>BetterConvo</h1>
@@ -80,7 +87,7 @@ export default function RequestPage() {
         />
       </div>
 
-      {/* Generate button */}
+      <button onClick={handleBack} style={{ marginRight: "10px" }}>Back</button>
       <button onClick={handleGenerate}>
         Generate
       </button>
