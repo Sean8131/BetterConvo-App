@@ -6,6 +6,9 @@ export default function SituationPage() {
     // Hook to enable navigation between pages
     const navigate = useNavigate();
 
+    // State to store the user's situation
+    const [situation, setSituation] = useState("");
+
     // Handler for the "Next button"
     const handleNext = () => {
 
