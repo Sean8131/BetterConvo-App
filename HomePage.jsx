@@ -16,7 +16,11 @@ export default function HomePage() {
     <div>
       <h1>Welcome to BetterConvo</h1>
 
-      <div>
+      <div style={{
+        padding: "20px",
+        maxWidth: "600px",
+        margin: "0 auto"
+      }}>
         <h3>
           BetterConvo is designed to support you in preparing for courageous
           conversations using Generative AI.
