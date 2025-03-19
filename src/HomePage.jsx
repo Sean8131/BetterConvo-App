@@ -20,7 +20,7 @@ export default function HomePage() {
         margin: "0 auto",
       }}
     >
-      <h1>BetterConvo</h1>
+      <h1>Welcome to BetterConvo</h1>
 
         <h3>
           BetterConvo is designed to support you in preparing for courageous
