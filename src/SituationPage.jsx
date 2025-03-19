@@ -9,5 +9,10 @@ export default function SituationPage() {
     // Handler for the "Next button"
     const handleNext = () => {
 
+        // Validate that the user has entered a non-empty situation
+        if (!situation.trim()) {
+            alert("Please describe the situation");
+            return;
+        }
     }
 }
