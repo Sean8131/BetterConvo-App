@@ -63,11 +63,11 @@ export default function FeelingsPage() {
       return;
     }
 
-      // Navigate to RequestPage with the selected feelings
-      navigate("/request", { state: { feelings: selectedFeelings } });
-    };
+      // Navigate to RequestPage, passing both the situation and selected feelings
+      navigate("/request", { state: { situation, feelings: selectedFeelings } });
+  };
 
-    return (
+  return (
         <div>
           {/* Page header */}
           <h1>BetterConvo</h1>
