@@ -90,7 +90,7 @@ export default function RequestPage() {
      
           rows="6"
           style={{ width: "100%", marginBottom: "20px" }}
-          placeholder='e.g Please message me if you are running late'
+          placeholder='e.g I would like my partner to message me if they are running late.'
         />
 
       </div>
