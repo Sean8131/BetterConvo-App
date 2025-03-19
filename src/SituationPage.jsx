@@ -20,7 +20,7 @@ export default function SituationPage() {
             situation } });
     };
 
-    // Handler for the "Back button"
+    // Handler for the "Back" button
     const handleBack = () => {
 
         // Navigate back to the previous page in the browser history
