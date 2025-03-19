@@ -80,7 +80,7 @@ export default function RequestPage() {
       {/* Text area for the request */}
       <div>
         <label htmlFor="request" style={{ display: "block" }}>
-          Enter your request:
+          What would you like to happen?
         </label>
 
         <textarea
