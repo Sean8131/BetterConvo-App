@@ -1,44 +1,50 @@
-import {useState} from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function SituationPage() {
+  // Hook to enable navigation between pages
+  const navigate = useNavigate();
 
-    // Hook to enable navigation between pages
-    const navigate = useNavigate();
+  // State to store the user's situation
+  const [situation, setSituation] = useState("");
 
-    // State to store the user's situation
-    const [situation, setSituation] = useState("");
+  // Handler for the "Next button"
+  const handleNext = () => {
+    // Check if the situation has a minimum character count
+    if(situation.trim().length < 20) {
+        alert("Please describe the situation in at least 20 characters.");
+        return;
+    }
+    // Validate that the user has entered a non-empty situation
+    if (!situation.trim()) {
+      alert("Please describe what happened.");
+      return;
+    }
 
-    // Handler for the "Next button"
-    const handleNext = () => {
+    // Navigate to the FeelingsPage and pass the situation as state
+    navigate("/feelings", {
+      state: {
+        situation,
+      },
+    });
+  };
 
-        // Validate that the user has entered a non-empty situation
-        if (!situation.trim()) {
-            alert("Please describe what happened.");
-            return;
-        }
+  return (
+    <div>
+      <h1>BetterConvo</h1>
+      <p>Please describe what happened in your own words:</p>
 
-        // Navigate to the FeelingsPage and pass the situation as state
-        navigate("/feelings", { state: {
-            situation } });
-    };
+        <textarea
+          value={situation}
+          onChange={(e) => setSituation(e.target.value)}
+          rows="6"
+          style={{ width: "100%", marginBottom: "20px" }}
+          placeholder="e.g My partner arrived late to pick me up from work today."
+        />
 
-    return (
-        <div>
-            <h1>BetterConvo</h1>
-            <p>Please describe what happened in your own words:</p>
-
-            <textarea
-                value={situation}
-                onChange={(e) => setSituation(e.target.value)}
-                rows="6"
-                style={{ width: "100%", marginBottom: "20px" }}
-                placeholder='e.g My partner arrived late to pick me up from work today.'
-            />
-
-            <div>
-                <button onClick={handleNext}>Next</button>
-            </div>
-        </div>
-    );
+      <div>
+        <button onClick={handleNext}>Next</button>
+      </div>
+    </div>
+  );
 }

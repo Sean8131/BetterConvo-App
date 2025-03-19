@@ -87,7 +87,6 @@ export default function RequestPage() {
           id="request"
           value={request}
           onChange={(e) => setRequest(e.target.value)}
-     
           rows="6"
           style={{ width: "100%", marginBottom: "20px" }}
           placeholder='e.g I would like my partner to message me if they are running late.'
