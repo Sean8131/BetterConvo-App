@@ -12,4 +12,16 @@ export default function HomePage() {
     const handleAccept = () => {
         navigate('/situation');
     };
+
+    return(
+        <div>
+            <h1>Welcome to BetterConvo</h1>
+
+            <div>
+                <p>
+                    Privacy Disclaimer
+                </p>
+            </div>
+        </div>
+    )
 }
