@@ -19,4 +19,11 @@ export default function SituationPage() {
         navigate("/feelings", { state: {
             situation } });
     };
+
+    // Handler for the "Back button"
+    const handleBack = () => {
+
+        // Navigate back to the previous page in the browser history
+        navigate(-1);
+    };
 }
