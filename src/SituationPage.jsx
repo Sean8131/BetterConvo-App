@@ -14,7 +14,7 @@ export default function SituationPage() {
 
         // Validate that the user has entered a non-empty situation
         if (!situation.trim()) {
-            alert("Please describe the situation");
+            alert("Please describe what happened.");
             return;
         }
 
@@ -26,7 +26,7 @@ export default function SituationPage() {
     return (
         <div>
             <h1>BetterConvo</h1>
-            <p>Please describe the situation in your own words</p>
+            <p>Please describe what happened in your own words:</p>
 
             <textarea
                 value={situation}
