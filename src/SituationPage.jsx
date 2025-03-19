@@ -26,4 +26,10 @@ export default function SituationPage() {
         // Navigate back to the previous page in the browser history
         navigate(-1);
     };
+
+    return (
+        <div>
+            <h1>BetterConvo</h1>
+        </div>
+    )
 }
