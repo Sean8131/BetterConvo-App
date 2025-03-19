@@ -74,7 +74,6 @@ export default function RequestPage() {
     <div>
       <h1>BetterConvo</h1>
 
-      {/* Display the hard-coded situation and feeling */}
       <div>
         <p>
           <strong>Situation:</strong> {situation}

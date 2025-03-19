@@ -78,6 +78,7 @@ export default function FeelingsPage() {
         <div>
           {/* Page header */}
           <h1>BetterConvo</h1>
+          <h2>Feelings</h2>
           <p>How are you feeling? Please select 1-3 feelings</p>
           
           {/* Display predefined feelings as buttons arranged in 3 columns */}
