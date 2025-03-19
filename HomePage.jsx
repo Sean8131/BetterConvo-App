@@ -6,4 +6,10 @@ export default function HomePage() {
 
     // Hook to enable navigation to other routes
     const navigate = useNavigate();
+
+    // Handler for the "Accept" button
+    // Navigates to the SituationPage when clicked
+    const handleAccept = () => {
+        navigate('/situation');
+    };
 }
