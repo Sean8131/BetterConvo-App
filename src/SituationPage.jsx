@@ -38,6 +38,10 @@ export default function SituationPage() {
                 rows="6"
                 style={{ width: "100%", marginBottom: "20px" }}
             />
+
+            <div>
+                <button onClick={handleBack} style={{ marginRight: "10px" }}>Back</button>
+            </div>
         </div>
     )
 }
