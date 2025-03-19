@@ -36,6 +36,13 @@ export default function RequestPage() {
 
   // Handler for the "Generate" button
   const handleGenerate = async () => {
+
+    // Check if the situation has a minimum character count
+    if (request.trim().length < 20) {
+      alert("Please describe what you would like in at least 20 characters.");
+      return;
+    }
+
     try {
       // Send a POST request to Express backend at /api/generate
       const res = await fetch("/api/generate", {
@@ -89,9 +96,8 @@ export default function RequestPage() {
           onChange={(e) => setRequest(e.target.value)}
           rows="6"
           style={{ width: "100%", marginBottom: "20px" }}
-          placeholder='e.g I would like my partner to message me if they are running late.'
+          placeholder="e.g I would like my partner to message me if they are running late."
         />
-
       </div>
 
       <button onClick={handleBack} style={{ marginRight: "10px" }}>
