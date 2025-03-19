@@ -19,7 +19,7 @@ export default function ScriptPage() {
 
   // Handler for the "New Request" button to go back to the input screen
   const handleNewRequest = () => {
-    navigate("/");
+    navigate("/situation");
   };
 
   return (
