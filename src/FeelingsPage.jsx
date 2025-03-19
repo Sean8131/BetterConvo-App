@@ -4,6 +4,10 @@ import { useNavigate, useLocation } from 'react-router-dom';
 // Defining the FeelingsPage component
 export default function FeelingsPage() {
 
+  // Retrieve the situation from the previous page (SituationPage)
+  const location = useLocation();
+  const situation = location.state?.situation || "";
+
   // Hook for navigating to the RequestPage with state
   const navigate = useNavigate();
 
