@@ -14,5 +14,9 @@ export default function SituationPage() {
             alert("Please describe the situation");
             return;
         }
-    }
+
+        // Navigate to the FeelingsPage and pass the situation as state
+        navigate("/feelings", { state: {
+            situation } });
+    };
 }
