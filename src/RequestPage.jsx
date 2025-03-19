@@ -20,7 +20,7 @@ export default function RequestPage() {
   const feeling = feelingsFromState.join(", ");
 
   // Hard-coded values for testing
-  const situation = "My partner picked me up late from work";
+  const situation = "My partner ate all the creamed rice";
 
   // Initialize a state variable called "request" with a default string
   // The "setRequest" function is used to update the "request" state
