@@ -33,7 +33,7 @@ export default function SituationPage() {
                 onChange={(e) => setSituation(e.target.value)}
                 rows="6"
                 style={{ width: "100%", marginBottom: "20px" }}
-                placeholder='e.g "My partner arrived late to pick me up from work."'
+                placeholder='e.g My partner arrived late to pick me up from work today.'
             />
 
             <div>
