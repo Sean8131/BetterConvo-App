@@ -12,10 +12,11 @@ function App() {
       <Routes>
         {/* Landing route: HomePage */}
         <Route path="/" element={<HomePage />} />
+
+        {/* Routes */}
         <Route path="/situation" element={<SituationPage />} />
         <Route path="/feelings" element={<FeelingsPage />} />
         <Route path="/request" element={<RequestPage />} />
-        {/* Route for the Script Response Screen */}
         <Route path="/script" element={<ScriptPage />} />
       </Routes>
     </Router>
