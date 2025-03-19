@@ -22,12 +22,16 @@ export default function HomePage() {
     >
       <h1>Welcome to BetterConvo</h1>
 
-      <div>
         <h3>
           BetterConvo is designed to support you in preparing for courageous
           conversations using Generative AI.
         </h3>
-        <div>
+        <div style={{
+            border: "1px solid #ccc",
+            padding: "10px",
+            marginBottom: "20px",
+            borderRadius: "20px"
+        }}>
           <p>
             <p>
               At this stage of AI regulation, this product complies with current
@@ -46,7 +50,6 @@ export default function HomePage() {
 
             <p>For more details, please review our Terms of Use.</p>
           </p>
-        </div>
       </div>
 
       <button onClick={handleAccept}>Accept</button>
