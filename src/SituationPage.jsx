@@ -11,8 +11,8 @@ export default function SituationPage() {
   // Handler for the "Next button"
   const handleNext = () => {
     // Check if the situation has a minimum character count
-    if(situation.trim().length < 20) {
-        alert("Please describe the situation in at least 20 characters.");
+    if(situation.trim().length < 15) {
+        alert("Please describe the situation in at least 15 characters.");
         return;
     }
     // Validate that the user has entered a non-empty situation
