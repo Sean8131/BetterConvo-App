@@ -14,13 +14,13 @@ export default function RequestPage() {
     // Retrieve the situation and feelings passed from FeelingsPage
   // If none are provided, fallback to default value
   const location = useLocation();
-  const feelingsFromState = location.state?.feelings || [];
+  const { situation, feelings} = location.state|| [];
 
   // Join the feelings array into a single string if nedded
-  const feeling = feelingsFromState.join(", ");
+  const feeling = feelings ? feelings.join(", ") : "";
 
   // Hard-coded values for testing
-  const situation = "My partner ate all the creamed rice";
+  // const situation = "My partner ate all the creamed rice";
 
   // Initialize a state variable called "request" with a default string
   // The "setRequest" function is used to update the "request" state
