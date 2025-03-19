@@ -7,7 +7,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 // Component is defined as a functional component and is exported so it can be imported and used in the routing setup.
 
 export default function ScriptPage() {
-
   // Retrieves the current location object, which includes the state property if any data was passed during navigation.
   const location = useLocation();
 
@@ -23,28 +22,33 @@ export default function ScriptPage() {
   };
 
   return (
-    <div>
+    <div
+    style={{
+      padding: "20px",
+      maxWidth: "600px",
+      margin: "0 auto",
+    }}
+    >
       <h1>BetterConvo</h1>
 
       {/* Display the generated GPT response */}
       <div>
         <h2>You could start with:</h2>
 
-        <div style={{
+        <div
+          style={{
             border: "1px solid #ccc",
             padding: "10px",
             marginBottom: "20px",
-            borderRadius: "20px"
-      }}
-      >
-        <p>{response}</p>
+            borderRadius: "20px",
+          }}
+        >
+          <p>{response}</p>
         </div>
       </div>
 
       {/* New Request button */}
-      <button onClick={handleNewRequest}>
-        New Request
-      </button>
+      <button onClick={handleNewRequest}>New Request</button>
     </div>
   );
 }
