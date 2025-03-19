@@ -38,8 +38,8 @@ export default function RequestPage() {
   const handleGenerate = async () => {
 
     // Check if the situation has a minimum character count
-    if (request.trim().length < 20) {
-      alert("Please describe what you would like in at least 20 characters.");
+    if (request.trim().length < 15) {
+      alert("Please describe what you would like in at least 15 characters.");
       return;
     }
 
