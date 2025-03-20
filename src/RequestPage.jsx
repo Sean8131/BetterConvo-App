@@ -46,6 +46,9 @@ export default function RequestPage() {
       return;
     }
 
+    // Start the loading indicator and disable the button
+    setLoading(true);
+
     try {
       // Send a POST request to Express backend at /api/generate
       const res = await fetch("/api/generate", {
