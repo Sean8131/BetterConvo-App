@@ -34,6 +34,9 @@ export default function RequestPage() {
   // Once we receive a GPT-generated message, we'll store it in "response" and display it
   const [response, setResponse] = useState("");
 
+  // State for the loading indicator
+  const [loading, setLoading] = useState(false);
+
   // Handler for the "Generate" button
   const handleGenerate = async () => {
 
