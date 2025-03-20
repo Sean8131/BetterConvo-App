@@ -39,7 +39,6 @@ export default function RequestPage() {
 
   // Handler for the "Generate" button
   const handleGenerate = async () => {
-
     // Check if the situation has a minimum character count
     if (request.trim().length < 15) {
       alert("Please describe what you would like in at least 15 characters.");
@@ -68,7 +67,6 @@ export default function RequestPage() {
       console.error("Error generating response:", error);
       setResponse("Error generating response");
     } finally {
-
       // Stop the loading indicator
       setLoading(false);
     }
@@ -99,14 +97,19 @@ export default function RequestPage() {
           What would you like to happen?
         </label>
 
-        <textarea
-          id="request"
-          value={request}
-          onChange={(e) => setRequest(e.target.value)}
-          rows="6"
-          style={{ width: "100%", marginBottom: "20px" }}
-          placeholder="e.g I would like my partner to message me if they are running late."
-        />
+        {/* If loading, show the spinner; otherwise, show the textarea */}
+        {loading ? (
+          <div className="spinner"></div>
+        ) : (
+          <textarea
+            id="request"
+            value={request}
+            onChange={(e) => setRequest(e.target.value)}
+            rows="6"
+            style={{ width: "100%", marginBottom: "20px" }}
+            placeholder="e.g I would like my partner to message me if they are running late."
+          />
+        )}
       </div>
 
       <button onClick={handleBack} style={{ marginRight: "10px" }}>
