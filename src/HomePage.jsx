@@ -32,7 +32,6 @@ export default function HomePage() {
             marginBottom: "20px",
             borderRadius: "20px"
         }}>
-          <p>
             <p>
               At this stage of AI regulation, this product complies with current
               privacy laws.
@@ -49,7 +48,6 @@ export default function HomePage() {
             </p>
 
             <p>For more details, please review our Terms of Use.</p>
-          </p>
       </div>
 
       <button onClick={handleAccept}>Accept</button>

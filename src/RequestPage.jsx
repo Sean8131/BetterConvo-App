@@ -13,10 +13,14 @@ export default function RequestPage() {
   // Retrieve the situation and feelings passed from FeelingsPage
   // If none are provided, fallback to default value
   const location = useLocation();
-  const { situation, feelings } = location.state || [];
+  const { situation, feelings } = location.state || {
+    situation: "My partner forgot the bread",
+    feelings: [],
+  };
 
   // Join the feelings array into a single string if nedded
-  const feeling = feelings ? feelings.join(", ") : "";
+  const feeling =
+    feelings && feelings.length > 0 ? feelings.join(", ") : "Annoyed";
 
   // Hard-coded values for testing
   // const situation = "My partner ate all the creamed rice";
@@ -24,7 +28,7 @@ export default function RequestPage() {
   // Initialize a state variable called "request" with a default string
   // The "setRequest" function is used to update the "request" state
   // Allows the user to edit the request in the <textarea> and for us to track those changes
-  const [request, setRequest] = useState("");
+  const [request, setRequest] = useState("Please be on time");
 
   // Hook for navigation between pages
   const navigate = useNavigate();
@@ -39,17 +43,25 @@ export default function RequestPage() {
 
   // Handler for the "Generate" button
   const handleGenerate = async () => {
-    // Check if the situation has a minimum character count
-    if (request.trim().length < 15) {
-      alert("Please describe what you would like in at least 15 characters.");
+    // Validate that all required fields are provided
+    if (!situation || !feeling) {
+      alert("Please ensure the situation and feeling are properly filled out");
       return;
     }
+    // Check if the situation has a minimum character count
+    if (request.trim().length < 10) {
+      alert("Please describe what you would like in at least 10 characters.");
+      return;
+    }
+
+    // Log the payload for debugging purposes
+    console.log("Sending payload:", { situation, feeling, request });
 
     // Start the loading indicator and disable the button
     setLoading(true);
 
     try {
-      // Send a POST request to Express backend at /api/generate
+      // Send a POST request to Vercel serverless function at /api/generate
       const res = await fetch("/api/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -60,13 +72,28 @@ export default function RequestPage() {
         }),
       });
 
+      // If the response is not OK, throw an error to be caught below
+      if (!res.ok) {
+        const errorText = await res.text();
+        console.log(errorText);
+        throw new Error(`HTTP error! status: ${res.status}: ${errorText}`);
+      }
+
+      // Parse the response JSON
       const data = await res.json();
+      console.log("API response:", data);
+
       // Navigate to the Script Response Screen, passing the generated message in the state
       navigate("/script", { state: { response: data.message } });
     } catch (error) {
       console.error("Error generating response:", error);
       setResponse("Error generating response");
-    } finally {
+      alert(
+        "An error occurred while generating the response. Please try again."
+      );
+    } 
+    finally {
+
       // Stop the loading indicator
       setLoading(false);
     }
@@ -112,10 +139,16 @@ export default function RequestPage() {
         )}
       </div>
 
-      <button onClick={handleBack} style={{ marginRight: "10px" }}>
+      <button
+        onClick={handleBack}
+        style={{ marginRight: "10px" }}
+        disabled={loading}
+      >
         Back
       </button>
-      <button onClick={handleGenerate}>Generate</button>
+      <button onClick={handleGenerate} disabled={loading}>
+        Generate
+      </button>
 
       {/* Inline CSS for the spinner */}
       <style>

@@ -6,13 +6,13 @@ export default function SituationPage() {
   const navigate = useNavigate();
 
   // State to store the user's situation
-  const [situation, setSituation] = useState("");
+  const [situation, setSituation] = useState("They were late again");
 
   // Handler for the "Next button"
   const handleNext = () => {
     // Check if the situation has a minimum character count
-    if(situation.trim().length < 15) {
-        alert("Please describe the situation in at least 15 characters.");
+    if(situation.trim().length < 10) {
+        alert("Please describe the situation in at least 10 characters.");
         return;
     }
     // Validate that the user has entered a non-empty situation

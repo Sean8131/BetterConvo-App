@@ -43,7 +43,7 @@ export default function ScriptPage() {
             borderRadius: "20px",
           }}
         >
-          <p>{response}</p>
+          <div>{response}</div>
         </div>
       </div>
 
