@@ -67,6 +67,10 @@ export default function RequestPage() {
     } catch (error) {
       console.error("Error generating response:", error);
       setResponse("Error generating response");
+    } finally {
+
+      // Stop the loading indicator
+      setLoading(false);
     }
   };
 
