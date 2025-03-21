@@ -24,7 +24,7 @@ export default function ScriptPage() {
   // Handler for the "Give Feedback" button
   // This function opens the Google Form in a new tab
   const handleFeedback = () => {
-    window.open("https://docs.google.com/forms");
+    window.open("https://forms.gle/M3mHbBUp3E6sD4daA");
   };
 
   return (
