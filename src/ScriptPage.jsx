@@ -49,7 +49,7 @@ export default function ScriptPage() {
             borderRadius: "20px",
           }}
         >
-          <div>{response}</div>
+          <p>{response}</p>
         </div>
       </div>
 
@@ -58,11 +58,11 @@ export default function ScriptPage() {
 
       {/* Feedback Section */}
       <div style={{ marginTop: "20px" }}>
-        <p>
+        <h5>
           Thanks for using BetterConvo! I value your input and am always looking
           to improve the app. Please share your feedback so I can make it even
           better for you.
-        </p>
+        </h5>
         <button onClick={handleFeedback}>Give Feedback</button>
       </div>
     </div>
