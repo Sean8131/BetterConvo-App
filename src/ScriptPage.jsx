@@ -29,11 +29,11 @@ export default function ScriptPage() {
 
   return (
     <div
-    style={{
-      padding: "20px",
-      maxWidth: "600px",
-      margin: "0 auto",
-    }}
+      style={{
+        padding: "20px",
+        maxWidth: "600px",
+        margin: "0 auto",
+      }}
     >
       <h1>BetterConvo</h1>
 
@@ -55,6 +55,16 @@ export default function ScriptPage() {
 
       {/* New Request button */}
       <button onClick={handleNewRequest}>New Request</button>
+
+      {/* Feedback Section */}
+      <div style={{ marginTop: "20px" }}>
+        <p>
+          Thanks for using BetterConvo! I value your input and am always looking
+          to improve the app. Please share your feedback so I can make it even
+          better for you.
+        </p>
+        <button onClick={handleFeedback}>Give Feedback</button>
+      </div>
     </div>
   );
 }
