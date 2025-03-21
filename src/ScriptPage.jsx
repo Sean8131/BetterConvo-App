@@ -21,6 +21,12 @@ export default function ScriptPage() {
     navigate("/situation");
   };
 
+  // Handler for the "Give Feedback" button
+  // This function opens the Google Form in a new tab
+  const handleFeedback = () => {
+    window.open("https://docs.google.com/forms");
+  };
+
   return (
     <div
     style={{
