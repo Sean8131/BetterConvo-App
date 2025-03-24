@@ -58,7 +58,12 @@ export default function ScriptPage() {
 
       {/* Feedback Section */}
       <div style={{ marginTop: "20px" }}>
-        <h5>
+        <h5 style={{
+          marginBottom: 0
+        }}>A message from Sean:</h5>
+        <h5 style={{ 
+          marginTop: 10
+        }}>
           Thanks for using BetterConvo! I value your input and am always looking
           to improve the app. Please share your feedback so I can make it even
           better for you.
