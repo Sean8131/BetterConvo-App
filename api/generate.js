@@ -1,4 +1,4 @@
-import { generateResponse } from "../generateResponse";
+import { generateResponse } from "../generateResponse.js";
 
 export default async (req, res) => {
   // Destructure the required fields from the request body

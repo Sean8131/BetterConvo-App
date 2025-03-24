@@ -1,11 +1,13 @@
+import "dotenv/config"; // Library to load environment variables from a .env file
+
+// Load environment variables from the .env file (e.g., API keys, port number)
+// dotenv.config();
+
 // Import necessary libraries
 import express from "express"; // Express framework for building the API server
 import cors from "cors"; // Middleware to enable Cross-Origin Resource Sharing
-import dotenv from "dotenv"; // Library to load environment variables from a .env file
-import { OpenAI } from "openai"; // OpenAI Software Development Kit to interact with the GPT API
+import { generateResponse } from "./generateResponse.js";
 
-// Load environment variables from the .env file (e.g., API keys, port number)
-dotenv.config();
 
 // Initialize the Express application
 const app = express();
@@ -15,13 +17,6 @@ app.use(cors());
 
 // Middleware to parse incoming JSON requests
 app.use(express.json());
-
-// Initialize the OpenAI client with the API key from environment variables
-const openai = new OpenAI({ 
-  apiKey: process.env.OPENAI_API_KEY,
-  // organization: process.env.OPENAI_ORGANIZATION_ID,
- });
-
 
 /**
  * POST /api/generate
@@ -43,37 +38,11 @@ app.post("/api/generate", async (req, res) => {
   }
 
   try {
-    // Call OpenAI's chat completions endpoint to generate a response using GPT-4
-    const response = await openai.chat.completions.create({
-      model: "gpt-4", // Specify the GPT model to use
-      messages: [
-        // System message sets the behavior and context for the assistant
-        {
-          role: "system",
-          content:
-            "You are a communication coach using Nonviolent Communication (NVC).",
-        },
-        // User message includes the actual input provided by the user
-        // TODO: sanitize user input
-        // FIXME: this is broken
-        {
-          role: "user",
-          content: `Situation: ${situation}\nFeeling: ${feeling}\nRequest: ${request}\nPlease generate a natural, flowing conversation using NVC principles.
-        Do not label any sentences with "Observation:", "Feeling:", "Need:", or "Request:".
-        Keep the output under 80 words and make it kind, empathic, curious, and collaborative.
-        Format the response so that each sentence is in its own paragraph (i.e., separate sentences with two newline characters).`,
-        }
-        
-        ,
-      ],
-      max_tokens: 200, // Limit the response to 200 tokens to control output length
-    });
-
-    // Send the generated response back to the client as JSON
-    res.json({ message: response.choices[0].message.content });
+    // Call the shared generateResponse function
+    const message = await generateResponse(situation, feeling, request);
+    res.json({ message });
   } catch (error) {
-    // Log any errors that occur during the API call and return a 500 error response
-    console.error("Error generating response:", error);
+    console.error("Error in Express endpoint", error);
     res.status(500).json({ message: "Error generating response" });
   }
 });
