@@ -1,10 +1,4 @@
-import { OpenAI } from "openai"; // OpenAI Software Development Kit to interact with the GPT API
-
-// Initialize the OpenAI client with the API key from environment variables
-const openai = new OpenAI({ 
-    apiKey: process.env.OPENAI_API_KEY,
-    organization: process.env.OPENAI_ORGANIZATION_ID,
-   });
+import { generateResponse } from "../generateResponse";
 
 export default async (req, res) => {
     // Destructure the required fields from the request body
