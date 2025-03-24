@@ -78,67 +78,6 @@ app.post("/api/generate", async (req, res) => {
   }
 });
 
-/**
- * GET /api/generate
- * This endpoint is similar to the POST endpoint but uses query parameters.
- * You can test it easily in a browser.
- * Expected query parameters:
- * - situation
- * - feeling
- * - request
- */
-app.get("/api/generate", async (req, res) => {
-  // Extract query parameters from the request URL
-  const { situation, feeling, request: reqText } = req.query;
-
-  // Validate that all required query parameters are provided; if not, return a 400 error response
-  if (!situation || !feeling || !reqText) {
-    return res.status(400).json({
-      error: "Missing required query parameters: situation, feeling, request",
-    });
-  }
-
-  try {
-    // Call OpenAI's chat completions endpoint using the provided query parameters
-    const response = await openai.chat.completions.create({
-      model: "gpt-4", // Specify the GPT model to use
-      messages: [
-        // System message defines the assistant's role and context
-        {
-          role: "system",
-          content:
-            "You are a helpful communication coach using Nonviolent Communication (NVC).",
-        },
-        // User message compiles the query parameters into a prompt
-        {
-          role: "user",
-          content: `Situation: ${situation}\nFeeling: ${feeling}\nRequest: ${request}\nPlease generate a natural, flowing conversation using NVC principles.
-        Do not label any sentences with "Observation:", "Feeling:", "Need:", or "Request:".
-        Keep the output under 80 words and make it kind, empathic, curious, and collaborative.
-        Format the response so that each sentence is in its own paragraph (i.e., separate sentences with two newline characters).`,
-        }
-        
-        ,
-      ],
-      max_tokens: 200, // Limit the response to 200 tokens
-    });
-
-    // Return the generated response as JSON
-    res.json({ message: response.choices[0].message.content });
-  } catch (error) {
-    // Log errors and return a 500 error response if the API call fails
-    console.error("Error generating response:", error);
-    res.status(500).json({ error: "Error generating response" });
-  }
-});
-
-// Endpoint to test backend
-
-app.get('/api/test', (req, res) => {
-  res.json({ message: 'Hello from the backend!' });
-});
-
-
 // Determine the port to listen on (default to 3000 if not specified in .env)
 const PORT = process.env.PORT || 3000;
 
