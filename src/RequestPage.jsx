@@ -14,7 +14,7 @@ export default function RequestPage() {
   // If none are provided, fallback to default value
   const location = useLocation();
   const { situation, feelings } = location.state || {
-    situation: "My partner forgot the bread",
+    situation: "",
     feelings: [],
   };
 
@@ -28,7 +28,7 @@ export default function RequestPage() {
   // Initialize a state variable called "request" with a default string
   // The "setRequest" function is used to update the "request" state
   // Allows the user to edit the request in the <textarea> and for us to track those changes
-  const [request, setRequest] = useState("");
+  const [request, setRequest] = useState("Set a reminder in your phone");
 
   // Hook for navigation between pages
   const navigate = useNavigate();
