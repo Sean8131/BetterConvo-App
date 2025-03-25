@@ -92,7 +92,7 @@ export default function FeelingsPage() {
             }}
           >
             {predefinedFeelings.map((feeling) => (
-              <button class="rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]"
+              <button class="rounded-lg border border-transparent md:py-2 md:px-6 py-1 px-3 text-sm md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]"
                 key={feeling}
                 onClick={() => handleFeelingClick(feeling)}
                 // Simple inline styling to indicate selection
