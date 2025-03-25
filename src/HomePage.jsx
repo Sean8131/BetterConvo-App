@@ -26,8 +26,7 @@ export default function HomePage() {
           BetterConvo is designed to support you in preparing for courageous
           conversations using Generative AI.
         </h2>
-        <div class="border rounded-xl p-4 mb-4"style={{
-        }}>
+        <div class="border rounded-xl p-4 mb-4">
             <p class="text-sm mb-2">
               At this stage of AI regulation, this product complies with current
               privacy laws.

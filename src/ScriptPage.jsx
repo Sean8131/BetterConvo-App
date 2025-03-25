@@ -40,15 +40,9 @@ export default function ScriptPage() {
 
       {/* Display the generated GPT response */}
       <div>
-        <h2>You could start with:</h2>
+        <h2 class="text-lg font-semibold pb-4">You could start with:</h2>
 
-        <div
-          style={{
-            border: "1px solid #ccc",
-            padding: "10px",
-            marginBottom: "20px",
-            borderRadius: "20px",
-          }}
+        <div class="border rounded-xl p-4 mb-4"
         >
           <p>{response}</p>
         </div>
@@ -59,10 +53,10 @@ export default function ScriptPage() {
 
       {/* Feedback Section */}
       <div style={{ marginTop: "20px" }}>
-        <h5 style={{
+        <h5 class="text-lg font-semibold" style={{
           marginBottom: 0
         }}>A message from Sean:</h5>
-        <h5 style={{ 
+        <h5 class="mb-2" style={{ 
           marginTop: 10
         }}>
           Thanks for using BetterConvo! I value your input and am always looking
