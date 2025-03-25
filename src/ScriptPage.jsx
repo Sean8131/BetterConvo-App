@@ -42,7 +42,7 @@ export default function ScriptPage() {
       <div class="mx-auto max-width-sm md:w-xl p-2">
         <h2 class="text-lg font-semibold pb-4">You could start with:</h2>
 
-        <div class="border rounded-xl p-4 mb-4"
+        <div class="border rounded-xl p-4 mb-2"
         >
           <p>{response}</p>
         </div>
@@ -53,8 +53,8 @@ export default function ScriptPage() {
 
       {/* Feedback Section */}
       <div class="m-2">
-        <h5 class="text-lg font-semibold">A message from Sean:</h5>
-        <h5 class="mb-2">
+        <h5 class="text-m md:text-lg font-semibold">A message from Sean:</h5>
+        <h5 class="text-sm mb-2">
           Thanks for using BetterConvo! I value your input and am always looking
           to improve the app. Please share your feedback so I can make it even
           better for you.
