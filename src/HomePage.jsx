@@ -13,7 +13,7 @@ export default function HomePage() {
   };
 
   return (
-    <div class="mx-auto w-2xs md:w-3xl p-2">
+    <div class="mx-auto max-width-sm md:w-xl p-2">
       <h1 class="text-3xl md:text-4xl font-bold underline p-4">Welcome to BetterConvo</h1>
 
         <h2 class="text-base pb-4">

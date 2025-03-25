@@ -31,7 +31,7 @@ export default function SituationPage() {
   };
 
   return (
-    <div class="mx-auto w-2xs md:w-3xl p-2">
+    <div class="mx-auto max-width-sm md:w-xl p-2">
       <MyTitle />
       <h2 class="text-xl pb-4 font-semibold">Situation</h2>
       <p class="text-base pb-4">Please describe what happened in your own words:</p>

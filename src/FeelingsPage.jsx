@@ -76,7 +76,7 @@ export default function FeelingsPage() {
 };
 
   return (
-        <div class="mx-auto w-2xs md:w-3xl p-2">
+        <div class="mx-auto max-width-sm md:w-xl p-2">
           {/* Page header */}
             <MyTitle />
           <h2 class="text-xl font-semibold pb-4">Feelings</h2>

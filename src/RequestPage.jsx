@@ -119,7 +119,7 @@ export default function RequestPage() {
       </div>
 
       {/* Text area for the request */}
-      <div>
+      <div class="mx-auto max-width-sm md:w-xl p-2">
         <label class="text-l md:text-xl font-medium flex flex-col mb-4" htmlFor="request" >
           What would you like to happen?
         </label>

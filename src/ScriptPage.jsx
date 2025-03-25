@@ -39,7 +39,7 @@ export default function ScriptPage() {
       <MyTitle />
 
       {/* Display the generated GPT response */}
-      <div>
+      <div class="mx-auto max-width-sm md:w-xl p-2">
         <h2 class="text-lg font-semibold pb-4">You could start with:</h2>
 
         <div class="border rounded-xl p-4 mb-4"
@@ -52,18 +52,14 @@ export default function ScriptPage() {
       <button class="rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleNewRequest}>New Request</button>
 
       {/* Feedback Section */}
-      <div style={{ marginTop: "20px" }}>
-        <h5 class="text-lg font-semibold" style={{
-          marginBottom: 0
-        }}>A message from Sean:</h5>
-        <h5 class="mb-2" style={{ 
-          marginTop: 10
-        }}>
+      <div class="m-2">
+        <h5 class="text-lg font-semibold">A message from Sean:</h5>
+        <h5 class="mb-2">
           Thanks for using BetterConvo! I value your input and am always looking
           to improve the app. Please share your feedback so I can make it even
           better for you.
         </h5>
-        <button class="rounded-lg border border-transparent py-1 px-3 text-base font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleFeedback}>Give Feedback</button>
+        <button class="rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleFeedback}>Give Feedback</button>
       </div>
     </div>
   );
