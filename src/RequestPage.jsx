@@ -107,7 +107,7 @@ export default function RequestPage() {
   };
 
   return (
-    <div>
+    <div class="w-2xs">
       <MyTitle />
       <div>
         <p class="text-lg pb-4">

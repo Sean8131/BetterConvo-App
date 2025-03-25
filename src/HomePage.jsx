@@ -13,7 +13,7 @@ export default function HomePage() {
   };
 
   return (
-    <div
+    <div class="w-2xs"
       style={{
         padding: "20px",
         maxWidth: "600px",
