@@ -49,7 +49,7 @@ export default function ScriptPage() {
       </div>
 
       {/* New Request button */}
-      <button class="rounded-lg border border-transparent py-1 px-3 text-base font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleNewRequest}>New Request</button>
+      <button class="rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleNewRequest}>New Request</button>
 
       {/* Feedback Section */}
       <div style={{ marginTop: "20px" }}>

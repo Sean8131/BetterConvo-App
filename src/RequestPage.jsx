@@ -107,10 +107,10 @@ export default function RequestPage() {
   };
 
   return (
-    <div class="w-2xs">
+    <div class="mx-auto w-2xs md:w-3xl p-2">
       <MyTitle />
       <div>
-        <p class="text-lg pb-4">
+        <p class=" break-words w-full p-4 text-lg">
           <strong>Situation:</strong> {situation}
         </p>
         <p class="text-lg pb-4">
@@ -120,7 +120,7 @@ export default function RequestPage() {
 
       {/* Text area for the request */}
       <div>
-        <label class="text-lg mb-4" htmlFor="request" style={{ display: "block" }}>
+        <label class="text-l md:text-xl font-medium flex flex-col mb-4" htmlFor="request" >
           What would you like to happen?
         </label>
 
@@ -128,7 +128,7 @@ export default function RequestPage() {
         {loading ? (
           <div className="spinner"></div>
         ) : (
-          <textarea class="border rounded-xl p-4 mb-4"
+          <textarea class="border rounded-xl text-l p-4 mb-4"
             id="request"
             value={request}
             onChange={(e) => setRequest(e.target.value)}
@@ -139,14 +139,14 @@ export default function RequestPage() {
         )}
       </div>
 
-      <button class="rounded-lg border border-transparent py-1 px-3 text-base font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]"
+      <button class="rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]"
         onClick={handleBack}
         style={{ marginRight: "10px" }}
         disabled={loading}
       >
         Back
       </button>
-      <button class="rounded-lg border border-transparent py-1 px-3 text-base font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleGenerate} disabled={loading}>
+      <button class="rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleGenerate} disabled={loading}>
         Generate
       </button>
 

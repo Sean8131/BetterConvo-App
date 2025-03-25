@@ -76,7 +76,7 @@ export default function FeelingsPage() {
 };
 
   return (
-        <div>
+        <div class="mx-auto w-2xs md:w-3xl p-2">
           {/* Page header */}
             <MyTitle />
           <h2 class="text-xl font-semibold pb-4">Feelings</h2>
@@ -92,7 +92,7 @@ export default function FeelingsPage() {
             }}
           >
             {predefinedFeelings.map((feeling) => (
-              <button class="rounded-lg border border-transparent py-1 px-3 text-base font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]"
+              <button class="rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]"
                 key={feeling}
                 onClick={() => handleFeelingClick(feeling)}
                 // Simple inline styling to indicate selection
@@ -106,8 +106,8 @@ export default function FeelingsPage() {
           </div>
     
           {/* "Next" button to proceed to the RequestPage */}
-          <button class="rounded-lg border border-transparent py-1 px-3 text-base font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleBack} style={{ marginRight: "10px" }}>Back</button>
-          <button class="rounded-lg border border-transparent py-1 px-3 text-base font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleNext}>Next</button>
+          <button class="rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleBack} style={{ marginRight: "10px" }}>Back</button>
+          <button class="rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleNext}>Next</button>
         </div>
       );
 }

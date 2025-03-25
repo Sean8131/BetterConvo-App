@@ -13,13 +13,7 @@ export default function HomePage() {
   };
 
   return (
-    <div class="w-2xs"
-      style={{
-        padding: "20px",
-        maxWidth: "600px",
-        margin: "0 auto",
-      }}
-    >
+    <div class="mx-auto w-2xs md:w-3xl p-2">
       <h1 class="text-3xl md:text-4xl font-bold underline p-4">Welcome to BetterConvo</h1>
 
         <h2 class="text-base pb-4">
@@ -34,18 +28,13 @@ export default function HomePage() {
 
             <p class="text-sm mb-2">
               Please do not enter private, sensitive, or personally identifiable
-              information. It is your responsibility to ensure that you do not
-              share confidential details. By using BetterConvo, you acknowledge
-              that: your inputs are processed in real time and not stored;
-              AI-generated responses are for guidance only and should not
-              replace professional advice; you are responsible for how you use
-              the generated content in your personal conversations.
+              information.
             </p>
 
             <p class="text-sm">For more details, please review our Terms of Use.</p>
       </div>
 
-      <button class="rounded-lg border border-transparent py-1 px-3 text-base font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleAccept}>Accept</button>
+      <button class="rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleAccept}>Accept</button>
     </div>
   );
 }
