@@ -12,6 +12,7 @@
     "all": "concurrently \"npm run dev\" \"npm start\""
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.0.15",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "espress": "^0.0.0",
@@ -19,7 +20,8 @@
     "openai": "^4.86.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router-dom": "^7.3.0"
+    "react-router-dom": "^7.3.0",
+    "tailwindcss": "^4.0.15"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

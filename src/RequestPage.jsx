@@ -7,6 +7,7 @@ import { useLocation } from "react-router-dom";
 
 // Import useNavigate hook from React, which returns a function that we can call to changes routes and pass state to update the next page the user is taken to
 import { useNavigate } from "react-router-dom";
+import MyTitle from "./MyTitle";
 
 // Defining the RequestPage component
 export default function RequestPage() {
@@ -107,8 +108,7 @@ export default function RequestPage() {
 
   return (
     <div>
-      <h1>BetterConvo</h1>
-
+      <MyTitle />
       <div>
         <p>
           <strong>Situation:</strong> {situation}

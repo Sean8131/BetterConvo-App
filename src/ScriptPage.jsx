@@ -3,6 +3,7 @@
 // Import useNavigate hook from React, which returns a function we can use to change routes. Here, it's used to navigate back to the Request Input Page when the "New Request" button is pressed.
 
 import { useLocation, useNavigate } from "react-router-dom";
+import MyTitle from "./MyTitle";
 
 // Component is defined as a functional component and is exported so it can be imported and used in the routing setup.
 
@@ -35,7 +36,7 @@ export default function ScriptPage() {
         margin: "0 auto",
       }}
     >
-      <h1>BetterConvo</h1>
+      <MyTitle />
 
       {/* Display the generated GPT response */}
       <div>

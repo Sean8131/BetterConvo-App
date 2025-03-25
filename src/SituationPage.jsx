@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import MyTitle from "./MyTitle";
 
 export default function SituationPage() {
   // Hook to enable navigation between pages
@@ -31,7 +32,7 @@ export default function SituationPage() {
 
   return (
     <div>
-      <h1>BetterConvo</h1>
+      <MyTitle />
       <h2>Situation</h2>
       <p>Please describe what happened in your own words:</p>
 

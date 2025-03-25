@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import MyTitle from './MyTitle';
 
 // Defining the FeelingsPage component
 export default function FeelingsPage() {
@@ -77,7 +78,7 @@ export default function FeelingsPage() {
   return (
         <div>
           {/* Page header */}
-          <h1>BetterConvo</h1>
+            <MyTitle />
           <h2>Feelings</h2>
           <p>How are you feeling? Please select 1-3 feelings</p>
           
