@@ -31,12 +31,12 @@ export default function SituationPage() {
   };
 
   return (
-    <div>
+    <div class="w-3xs">
       <MyTitle />
-      <h2 class="text-lg pb-4 font-semibold">Situation</h2>
+      <h2 class="text-xl pb-4 font-semibold">Situation</h2>
       <p class="text-base pb-4">Please describe what happened in your own words:</p>
 
-        <textarea
+        <textarea class="border rounded-xl p-4 mb-4"
           value={situation}
           onChange={(e) => setSituation(e.target.value)}
           rows="6"

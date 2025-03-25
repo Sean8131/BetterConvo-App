@@ -79,7 +79,7 @@ export default function FeelingsPage() {
         <div>
           {/* Page header */}
             <MyTitle />
-          <h2 class="text-lg font-semibold pb-4">Feelings</h2>
+          <h2 class="text-xl font-semibold pb-4">Feelings</h2>
           <p class="text-base pb-4">How are you feeling? Please select 1-3 feelings</p>
           
           {/* Display predefined feelings as buttons arranged in 3 columns */}

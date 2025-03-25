@@ -120,7 +120,7 @@ export default function RequestPage() {
 
       {/* Text area for the request */}
       <div>
-        <label class="text-lg" htmlFor="request" style={{ display: "block" }}>
+        <label class="text-lg mb-4" htmlFor="request" style={{ display: "block" }}>
           What would you like to happen?
         </label>
 
@@ -128,7 +128,7 @@ export default function RequestPage() {
         {loading ? (
           <div className="spinner"></div>
         ) : (
-          <textarea
+          <textarea class="border rounded-xl p-4 mb-4"
             id="request"
             value={request}
             onChange={(e) => setRequest(e.target.value)}
