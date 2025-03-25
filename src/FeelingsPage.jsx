@@ -83,9 +83,9 @@ export default function FeelingsPage() {
           <p class="text-base pb-4">How are you feeling? Please select 1-3 feelings</p>
           
           {/* Display predefined feelings as buttons arranged in 3 columns */}
-          <div class="grid grid-cols-3 gap-1 md:gap-2 mb-2 md:mb-4">
+          <div class="grid grid-cols-3 gap-2 md:gap-2 mb-2 md:mb-4">
             {predefinedFeelings.map((feeling) => (
-              <button class="rounded-lg border border-transparent md:py-2 md:px-6 py-1 px-2 text-sm md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]"
+              <button class="rounded-lg border border-transparent md:py-2 md:px-6 py-1.5 px-2 text-sm md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]"
                 key={feeling}
                 onClick={() => handleFeelingClick(feeling)}
                 // Simple inline styling to indicate selection
