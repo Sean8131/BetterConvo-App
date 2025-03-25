@@ -8,7 +8,6 @@ import ScriptPage from "./ScriptPage";
 
 function App() {
   return (
-    // <div class="max-w-md md:max-w-xl">
     <Router>
       <Routes>
         {/* Landing route: HomePage */}
@@ -21,7 +20,6 @@ function App() {
         <Route path="/script" element={<ScriptPage />} />
       </Routes>
     </Router>
-    // </div>
   );
 }
 
