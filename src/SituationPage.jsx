@@ -33,8 +33,8 @@ export default function SituationPage() {
   return (
     <div>
       <MyTitle />
-      <h2>Situation</h2>
-      <p>Please describe what happened in your own words:</p>
+      <h2 class="text-lg pb-4 font-semibold">Situation</h2>
+      <p class="text-base pb-4">Please describe what happened in your own words:</p>
 
         <textarea
           value={situation}
@@ -45,7 +45,7 @@ export default function SituationPage() {
         />
 
       <div>
-        <button onClick={handleNext}>Next</button>
+        <button class="rounded-lg border border-transparent py-1 px-3 text-base font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleNext}>Next</button>
       </div>
     </div>
   );

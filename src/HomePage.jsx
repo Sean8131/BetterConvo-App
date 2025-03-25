@@ -20,24 +20,20 @@ export default function HomePage() {
         margin: "0 auto",
       }}
     >
-      <h1>Welcome to BetterConvo</h1>
+      <h1 class="text-3xl md:text-4xl font-bold underline p-4">Welcome to BetterConvo</h1>
 
-        <h3>
+        <h2 class="text-base pb-4">
           BetterConvo is designed to support you in preparing for courageous
           conversations using Generative AI.
-        </h3>
-        <div style={{
-            border: "1px solid #ccc",
-            padding: "10px",
-            marginBottom: "20px",
-            borderRadius: "20px"
+        </h2>
+        <div class="border rounded-xl p-4 mb-4"style={{
         }}>
-            <p>
+            <p class="text-sm mb-2">
               At this stage of AI regulation, this product complies with current
               privacy laws.
             </p>
 
-            <p>
+            <p class="text-sm mb-2">
               Please do not enter private, sensitive, or personally identifiable
               information. It is your responsibility to ensure that you do not
               share confidential details. By using BetterConvo, you acknowledge
@@ -47,10 +43,10 @@ export default function HomePage() {
               the generated content in your personal conversations.
             </p>
 
-            <p>For more details, please review our Terms of Use.</p>
+            <p class="text-sm">For more details, please review our Terms of Use.</p>
       </div>
 
-      <button onClick={handleAccept}>Accept</button>
+      <button class="rounded-lg border border-transparent py-1 px-3 text-base font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleAccept}>Accept</button>
     </div>
   );
 }

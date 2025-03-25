@@ -79,8 +79,8 @@ export default function FeelingsPage() {
         <div>
           {/* Page header */}
             <MyTitle />
-          <h2>Feelings</h2>
-          <p>How are you feeling? Please select 1-3 feelings</p>
+          <h2 class="text-lg font-semibold pb-4">Feelings</h2>
+          <p class="text-base pb-4">How are you feeling? Please select 1-3 feelings</p>
           
           {/* Display predefined feelings as buttons arranged in 3 columns */}
           <div
@@ -92,12 +92,12 @@ export default function FeelingsPage() {
             }}
           >
             {predefinedFeelings.map((feeling) => (
-              <button
+              <button class="rounded-lg border border-transparent py-1 px-3 text-base font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]"
                 key={feeling}
                 onClick={() => handleFeelingClick(feeling)}
                 // Simple inline styling to indicate selection
                 style={{
-                  backgroundColor: selectedFeelings.includes(feeling) ? "#ccc" : ""
+                  backgroundColor: selectedFeelings.includes(feeling) ? "#343535" : ""
                 }}
               >
                 {feeling}
@@ -106,8 +106,8 @@ export default function FeelingsPage() {
           </div>
     
           {/* "Next" button to proceed to the RequestPage */}
-          <button onClick={handleBack} style={{ marginRight: "10px" }}>Back</button>
-          <button onClick={handleNext}>Next</button>
+          <button class="rounded-lg border border-transparent py-1 px-3 text-base font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleBack} style={{ marginRight: "10px" }}>Back</button>
+          <button class="rounded-lg border border-transparent py-1 px-3 text-base font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleNext}>Next</button>
         </div>
       );
 }

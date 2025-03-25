@@ -110,17 +110,17 @@ export default function RequestPage() {
     <div>
       <MyTitle />
       <div>
-        <p>
+        <p class="text-lg pb-4">
           <strong>Situation:</strong> {situation}
         </p>
-        <p>
+        <p class="text-lg pb-4">
           <strong>Feeling:</strong> {feeling}
         </p>
       </div>
 
       {/* Text area for the request */}
       <div>
-        <label htmlFor="request" style={{ display: "block" }}>
+        <label class="text-lg" htmlFor="request" style={{ display: "block" }}>
           What would you like to happen?
         </label>
 
@@ -139,14 +139,14 @@ export default function RequestPage() {
         )}
       </div>
 
-      <button
+      <button class="rounded-lg border border-transparent py-1 px-3 text-base font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]"
         onClick={handleBack}
         style={{ marginRight: "10px" }}
         disabled={loading}
       >
         Back
       </button>
-      <button onClick={handleGenerate} disabled={loading}>
+      <button class="rounded-lg border border-transparent py-1 px-3 text-base font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleGenerate} disabled={loading}>
         Generate
       </button>
 
