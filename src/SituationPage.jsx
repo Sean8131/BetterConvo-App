@@ -7,7 +7,7 @@ export default function SituationPage() {
   const navigate = useNavigate();
 
   // State to store the user's situation
-  const [situation, setSituation] = useState("My partner forgot my birthday");
+  const [situation, setSituation] = useState("");
 
   // Handler for the "Next button"
   const handleNext = () => {
