@@ -29,13 +29,7 @@ export default function ScriptPage() {
   };
 
   return (
-    <div
-      style={{
-        padding: "20px",
-        maxWidth: "600px",
-        margin: "0 auto",
-      }}
-    >
+    <div class="mx-auto w-2xs md:w-3xl p-2">
       <MyTitle />
 
       {/* Display the generated GPT response */}
@@ -49,12 +43,12 @@ export default function ScriptPage() {
       </div>
 
       {/* New Request button */}
-      <button class="rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleNewRequest}>New Request</button>
+      <button class="mb-2 rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleNewRequest}>New Request</button>
 
       {/* Feedback Section */}
-      <div class="m-2">
-        <h5 class="text-m md:text-lg font-semibold">A message from Sean:</h5>
-        <h5 class="text-sm mb-2">
+      <div class="mb-2">
+        <h5 class="text-m md:text-lg md:font-semibold">A message from Sean:</h5>
+        <h5 class="m-2 text-sm md:text-base">
           Thanks for using BetterConvo! I value your input and am always looking
           to improve the app. Please share your feedback so I can make it even
           better for you.
