@@ -32,7 +32,7 @@ export default function FeelingsPage() {
   predefinedFeelings.sort((a, b) => a.localeCompare(b));
 
   // State to track selected feelings (maximum 3)
-  const [selectedFeelings, setSelectedFeelings] = useState([""]);
+  const [selectedFeelings, setSelectedFeelings] = useState([]);
 
   // Handler for when a predefined feeling button is clicked.
   // If the feeling is already selected, it toggles it off.
@@ -83,7 +83,7 @@ export default function FeelingsPage() {
           <p class="text-base pb-4">How are you feeling? Please select 1-3 feelings</p>
           
           {/* Display predefined feelings as buttons arranged in 3 columns */}
-          <div class="grid grid-cols-3 gap-2 md:gap-2 mb-2 md:mb-4">
+          <div class="grid grid-cols-3 gap-2 md:gap-2 mb-8 md:mb-10">
             {predefinedFeelings.map((feeling) => (
               <button class="rounded-lg border border-transparent md:py-2 md:px-6 py-1.5 px-2 text-sm md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]"
                 key={feeling}
