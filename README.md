@@ -43,7 +43,7 @@ As a user, I want to see a disclaimer before using the app so that I understand 
 #### Acceptance Criteria:
 - When the app loads, the **Home Screen** displays a disclaimer message.
 - When the user clicks the **Next** button, they are taken to the **Privacy Disclaimer Screen**. 
-- The disclaimer on the **Pricacy Disclaimer Screen** advises users not to enter private information.  
+- The disclaimer on the **Privacy Disclaimer Screen** advises users not to enter private information.  
 - A **"Terms of Use"** hyperlink is displayed.
 - An **"Accept"** button is displayed.
 - When the user clicks the **"Accept"** button, the user is taken to the **"Main Screen"**.
