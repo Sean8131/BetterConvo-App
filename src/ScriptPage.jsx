@@ -29,27 +29,27 @@ export default function ScriptPage() {
   };
 
   return (
-    <div class="mx-auto w-2xs md:w-3xl p-2">
+    <div class="mx-auto w-2xs md:w-3xl p-1">
       <MyTitle />
 
       {/* Display the generated GPT response */}
       <div class="mx-auto max-width-sm md:w-xl p-2">
         <h2 class="text-lg font-semibold pb-4">You could start with:</h2>
 
-        <div class="border rounded-xl p-4 mb-2"
+        <div class="border rounded-xl p-4 mb-2 md:mb-4"
         >
           <p>{response}</p>
         </div>
       </div>
 
       {/* New Request button */}
-      <button class="mb-2 rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleNewRequest}>New Request</button>
+      <button class="rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleNewRequest}>New Request</button>
 
       {/* Feedback Section */}
-      <div class="mb-2">
-        <h5 class="text-m md:text-lg md:font-semibold">A message from Sean:</h5>
-        <h5 class="m-2 text-sm md:text-base">
-          Thanks for using BetterConvo! I value your input and am always looking
+      <div>
+        <h5 class="text-m md:text-lg md:font-semibold mt-2 md:mt-4">A message from Sean:</h5>
+        <h5 class="m-2 mb-4 md:m-4 md:mb-5 text-sm md:text-base">
+          Thanks for using BetterConvo! I value your input and I want
           to improve the app. Please share your feedback so I can make it even
           better for you.
         </h5>
