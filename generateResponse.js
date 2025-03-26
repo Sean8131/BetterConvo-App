@@ -30,6 +30,7 @@ export async function generateResponse(situation, feeling, request) {
           role: "user",
           content: `Situation: ${situation}\nFeeling: ${feeling}\nRequest: ${request}\nPlease generate a natural, flowing conversation using NVC principles.
           Do not label any sentences with "Observation:", "Feeling:", "Need:", or "Request:".
+          Do not output any phrases that contain the words "you make me feel", "you made me feel", "that makes me feel", or indicate that someone has made someone else feel something, or indicate that the listener is responsible for the speaker's feelings (or vice versa). Both people are responsible for their own feelings.
           Keep the output under 80 words and make it kind, empathic, curious, and collaborative.
           Format the response so that each sentence is in its own paragraph (i.e., separate sentences with two newline characters).`,
         },
