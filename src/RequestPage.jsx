@@ -29,7 +29,7 @@ export default function RequestPage() {
   // Initialize a state variable called "request" with a default string
   // The "setRequest" function is used to update the "request" state
   // Allows the user to edit the request in the <textarea> and for us to track those changes
-  const [request, setRequest] = useState("");
+  const [request, setRequest] = useState("Clean up after yourself");
 
   // Hook for navigation between pages
   const navigate = useNavigate();
@@ -41,6 +41,9 @@ export default function RequestPage() {
 
   // State for the loading indicator
   const [loading, setLoading] = useState(false);
+
+  // State to hold any error message
+  const [errorMessage, setErrorMessage] = useState("");
 
   // Handler for the "Generate" button
   const handleGenerate = async () => {
@@ -60,6 +63,9 @@ export default function RequestPage() {
 
     // Start the loading indicator and disable the button
     setLoading(true);
+
+    // Clear any previous error message
+    setErrorMessage("");
 
     try {
       // Send a POST request to Vercel serverless function at /api/generate
@@ -89,12 +95,11 @@ export default function RequestPage() {
     } catch (error) {
       console.error("Error generating response:", error);
       setResponse("Error generating response");
-      alert(
+      // Set the inline error message
+      setErrorMessage(
         "An error occurred while generating the response. Please try again."
       );
-    } 
-    finally {
-
+    } finally {
       // Stop the loading indicator
       setLoading(false);
     }
@@ -120,7 +125,10 @@ export default function RequestPage() {
 
       {/* Text area for the request */}
       <div class="mx-auto max-width-sm md:w-xl p-2">
-        <label class="text-l md:text-xl font-medium flex flex-col mb-4" htmlFor="request" >
+        <label
+          class="text-l md:text-xl font-medium flex flex-col mb-4"
+          htmlFor="request"
+        >
           What would you like to happen?
         </label>
 
@@ -128,7 +136,8 @@ export default function RequestPage() {
         {loading ? (
           <div className="spinner"></div>
         ) : (
-          <textarea class="border rounded-xl text-l p-4 mb-4"
+          <textarea
+            class="border rounded-xl text-l p-4 mb-4"
             id="request"
             value={request}
             onChange={(e) => setRequest(e.target.value)}
@@ -139,16 +148,38 @@ export default function RequestPage() {
         )}
       </div>
 
-      <button class="rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]"
+      {/* Inline error message */}
+        {errorMessage && (
+          <div class="text-red-500 mb-4">{errorMessage}</div>
+        )}
+
+      <button
+        class="rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]"
         onClick={handleBack}
         style={{ marginRight: "10px" }}
         disabled={loading}
       >
         Back
       </button>
-      <button class="rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleGenerate} disabled={loading}>
+
+      {/* Replace Generate with Retry button if an error occurred */}
+      {errorMessage ? (
+        <button
+        class="rounded-lg border border-transparent text-green-400 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]"
+        onClick={handleGenerate}
+        disabled={loading}
+      >
+        Retry
+      </button>
+      ) : (
+      <button
+        class="rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]"
+        onClick={handleGenerate}
+        disabled={loading}
+      >
         Generate
       </button>
+      )}
 
       {/* Inline CSS for the spinner */}
       <style>
