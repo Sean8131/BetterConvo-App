@@ -67,6 +67,13 @@ export default function RequestPage() {
     // Clear any previous error message
     setErrorMessage("");
 
+    // Record the start time to enforce a 5 second time delay
+    const startTime = Date.now();
+
+    // Variables to capture error info without immediately updating the state
+    let errorOccurred = false;
+    let errorMsg = "";
+
     try {
       // Send a POST request to Vercel serverless function at /api/generate
       const res = await fetch("/api/generate", {
@@ -90,18 +97,41 @@ export default function RequestPage() {
       const data = await res.json();
       console.log("API response:", data);
 
+      // Ensure at least two seconds have passed before navigating 
+      const elapsed = Date.now() - startTime;
+      if (elapsed < 4000) {
+        await new Promise((resolve) => setTimeout(resolve, 4000 - elapsed));
+      }
+
       // Navigate to the Script Response Screen, passing the generated message in the state
       navigate("/script", { state: { response: data.message } });
     } catch (error) {
       console.error("Error generating response:", error);
-      setResponse("Error generating response");
-      // Set the inline error message
-      setErrorMessage(
-        "An error occurred while generating the response. Please try again."
-      );
+
+      // Capture the error message to be set after the delay
+      errorOccurred = true;
+      errorMsg = "An error occurred while generating the response. Please try again.";
+      
+      // setResponse("Error generating response");
+      // // Set the inline error message
+      // setErrorMessage(
+      //   "An error occurred while generating the response. Please try again."
+      // );
+
     } finally {
+      // Calculate elapsed time and ensure the loading indicator is visible for 4 seconds
+      const elapsedFinal = Date.now() - startTime;
+      if (elapsedFinal < 4000 ) {
+        await new Promise((resolve) => setTimeout(resolve, 4000 - elapsedFinal));
+      }
+
       // Stop the loading indicator
       setLoading(false);
+
+      // If an error occurred, update the error message after the delay
+      if (errorOccurred) {
+        setErrorMessage(errorMessage);
+      }
     }
   };
 
