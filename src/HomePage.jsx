@@ -17,12 +17,11 @@ export default function HomePage() {
       <h1 class="text-3xl md:text-4xl font-bold underline p-4">Welcome to BetterConvo</h1>
 
         <h2 class="text-base pb-4">
-          BetterConvo is designed to support you in preparing for courageous
-          conversations using Generative AI.
+        BetterConvo helps you prepare for challenging conversations so you can speak with clarity, empathy, and courage.
         </h2>
         <div class="border rounded-xl p-4 mb-4">
             <p class="text-sm mb-2">
-              At this stage of AI regulation, this product complies with current
+              This product uses Generative AI. At this stage of AI regulation, BetterConvo complies with current
               privacy laws.
             </p>
 
