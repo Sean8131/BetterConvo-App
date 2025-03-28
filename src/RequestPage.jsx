@@ -1,5 +1,5 @@
 // Import useState hook from React, which lets us store and update stateful data in the component
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 // Import useLocation hook from React which lets us access the current location object. It contains the current URL and state passed from navigation. Here, it's used to retrive the feelings that were passed from the previous page.
 
@@ -8,6 +8,7 @@ import { useLocation } from "react-router-dom";
 // Import useNavigate hook from React, which returns a function that we can call to changes routes and pass state to update the next page the user is taken to
 import { useNavigate } from "react-router-dom";
 import MyTitle from "./MyTitle";
+import BlinkingTextarea from "./BlinkingTextArea";
 
 // Defining the RequestPage component
 export default function RequestPage() {
@@ -19,9 +20,27 @@ export default function RequestPage() {
     feelings: [],
   };
 
+  // Hook for navigation between pages
+  const navigate = useNavigate();
+
+  // Use a ref to ensure the component doesn't re-render and the redirect happens only once
+  const hasRedirected = useRef(false);
+
+  // Redirect the user if required data is missing
+  useEffect(() => {
+    if ((!situation || situation.trim() === "") && !hasRedirected.current) {
+      hasRedirected.current = true; // Mark that we've already alerted and redirected
+      alert("Required informaion is missing. Please re-enter your information.");
+      navigate("/situation");
+    } else if (situation && (!feelings || feelings.length === 0) && !hasRedirected.current) {
+      hasRedirected.current = true;
+      alert("Required informaion is missing. Please re-enter your information.");
+      navigate("/feelings");
+    }
+  }, [situation, feelings, navigate]);
+
   // Join the feelings array into a single string if nedded
-  const feeling =
-    feelings && feelings.length > 0 ? feelings.join(", ") : "Annoyed";
+  const feeling = feelings.join(", ");
 
   // Initialize a state variable called "request" with a default string
   // The "setRequest" function is used to update the "request" state
@@ -174,7 +193,7 @@ export default function RequestPage() {
           <strong>Situation:</strong> {situation}
         </p>
         <p class="text-lg pb-4">
-          <strong>Feeling:</strong> {feeling}
+          <strong>{feelings.length > 1 ? "Feelings:" : "Feeling:"}</strong> {feeling}
         </p>
       </div>
 
@@ -191,15 +210,9 @@ export default function RequestPage() {
         {loading ? (
           <div className="spinner"></div>
         ) : (
-          <textarea
-            class="border rounded-xl text-l p-4 mb-4"
-            id="request"
-            value={request}
-            onChange={(e) => setRequest(e.target.value)}
-            rows="6"
-            style={{ width: "100%", marginBottom: "20px" }}
-            placeholder="e.g I would like my partner to message me if they are running late."
-          />
+          <BlinkingTextarea placeholder="Enter your request..."
+              value={request}
+              onChange={(e) => setRequest(e.target.value)}/>
         )}
       </div>
 
@@ -207,49 +220,51 @@ export default function RequestPage() {
       {errorMessage && <div class="text-red-500 mb-4">{errorMessage}</div>}
 
       {/* Button Rendering */}
+{/* Back Button */}
+<button
+  className={`rounded-lg border py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 focus:outline-none focus-visible:ring-4 ${
+    !isOnLine || loading
+      ? "!text-gray-700 !border-gray-700"
+      : "text-white border-purple-500 hover:bg-purple-100 hover:text-purple-950 hover:border-[#646cff]"
+  }`}
+  onClick={handleBack}
+  style={{ marginRight: "10px" }}
+  disabled={loading || !isOnLine}
+>
+  Back
+</button>
 
-      {/* Back Button */}
-      <button
-        class={`rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#646cff] ${!isOnLine || loading ? "text-gray-700" : "text-white"}`}
-        onClick={handleBack}
-        style={{ marginRight: "10px" }}
-        disabled={loading || !isOnLine}
-      >
-        Back
-      </button>
-
-      {!isOnLine ? (
-        // When offline, always show the Generate button as disabled
-        <button
-          class="rounded-lg border text-gray-700 border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]"
-          disabled
-        >
-          Generate
-        </button>
-        
-      ) : errorMessage ? (
-        // When an error (other than connectivity) has occurred while online, show the retry button
-        <button
-          class="rounded-lg border border-transparent text-green-400 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]"
-          onClick={handleGenerate}
-          disabled={loading}
-        >
-          Retry
-        </button>
-      ) : (
-
-        // Otherwise, show the normal Generate button
-        <button
-        class={`rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#646cff] ${loading ? "text-gray-700" : "text-white"}`}
-          onClick={handleGenerate}
-          disabled={loading}
-        >
-          Generate
-        </button>
-        
-        
-    
-      )}
+{!isOnLine ? (
+  // When offline, always show the Generate button as disabled.
+  <button
+    className="rounded-lg border border-gray-700 text-gray-700 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-not-allowed transition-colors duration-200 focus:outline-none focus-visible:ring-4"
+    disabled
+  >
+    Generate
+  </button>
+) : errorMessage ? (
+  // When there's an error (and you're online), show the Retry button.
+  <button
+    className="rounded-lg border border-green-400 text-green-400 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4"
+    onClick={handleGenerate}
+    disabled={loading}
+  >
+    Retry
+  </button>
+) : (
+  // Otherwise, show the normal Generate button.
+  <button
+    className={`rounded-lg border py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 focus:outline-none focus-visible:ring-4 ${
+      loading
+        ? "!text-gray-700 !border-gray-700"
+        : "text-white border-purple-500 hover:bg-purple-100 hover:text-purple-950 hover:border-[#646cff]"
+    }`}
+    onClick={handleGenerate}
+    disabled={loading}
+  >
+    Generate
+  </button>
+)}
 
       {/* Inline CSS for the spinner */}
       <style>

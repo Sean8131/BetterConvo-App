@@ -20,7 +20,7 @@ export default function FeelingsPage() {
     "Frustrated",
     "Grateful",
     "Upset",
-    "Overwhelmed",
+    "Hurt",
     "Worried",
     "Sad",
     "Happy",
@@ -32,7 +32,7 @@ export default function FeelingsPage() {
   predefinedFeelings.sort((a, b) => a.localeCompare(b));
 
   // State to track selected feelings (maximum 3)
-  const [selectedFeelings, setSelectedFeelings] = useState("");
+  const [selectedFeelings, setSelectedFeelings] = useState([]);
 
   // Handler for when a predefined feeling button is clicked.
   // If the feeling is already selected, it toggles it off.
@@ -80,18 +80,16 @@ export default function FeelingsPage() {
           {/* Page header */}
             <MyTitle />
           <h2 class="text-xl font-semibold pb-4">Feelings</h2>
-          <p class="text-base pb-4">How are you feeling? Please select 1-3 feelings</p>
+          <p class="text-base pb-4">How did you feel? Select 1-3 feelings</p>
           
           {/* Display predefined feelings as buttons arranged in 3 columns */}
           <div class="grid grid-cols-3 gap-2 md:gap-2 mb-8 md:mb-10">
             {predefinedFeelings.map((feeling) => (
-              <button class="rounded-lg border border-transparent md:py-2 md:px-6 py-1.5 px-2 text-sm md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]"
+              <button
                 key={feeling}
                 onClick={() => handleFeelingClick(feeling)}
-                // Simple inline styling to indicate selection
-                style={{
-                  backgroundColor: selectedFeelings.includes(feeling) ? "#343535" : ""
-                }}
+                className={`text-purple-100 hover:bg-purple-100 border-purple-200 hover:text-purple-950 rounded-lg border md:py-2 md:px-6 py-1.5 px-2 text-sm md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px ${ selectedFeelings.includes(feeling) ? "bg-purple-100 text-purple-950" : ""
+                }`}
               >
                 {feeling}
               </button>
@@ -99,8 +97,8 @@ export default function FeelingsPage() {
           </div>
     
           {/* "Next" button to proceed to the RequestPage */}
-          <button class="rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleBack} style={{ marginRight: "10px" }}>Back</button>
-          <button class="rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleNext}>Next</button>
+          <button className="text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px" onClick={handleBack} style={{ marginRight: "10px" }}>Back</button>
+          <button className="text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px" onClick={handleNext}>Next</button>
         </div>
       );
 }
