@@ -47,9 +47,6 @@ export default function RequestPage() {
   // Allows the user to edit the request in the <textarea> and for us to track those changes
   const [request, setRequest] = useState("");
 
-  // Hook for navigation between pages
-  const navigate = useNavigate();
-
   // Initialize a state variable called "response" with an empty string
   // The "response" state varialbe holds whatever the API sends back
   // Once we receive a GPT-generated message, we'll store it in "response" and display it
