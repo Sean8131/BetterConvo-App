@@ -220,7 +220,7 @@ export default function RequestPage() {
 
       {/* Back Button */}
       <button
-        class={`rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#646cff] ${!isOnLine || loading ? "text-gray-700" : "text-white"}`}
+        class={`text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px ${!isOnLine || loading ? "text-gray-700" : "text-white"}`}
         onClick={handleBack}
         style={{ marginRight: "10px" }}
         disabled={loading || !isOnLine}
@@ -250,7 +250,7 @@ export default function RequestPage() {
 
         // Otherwise, show the normal Generate button
         <button
-        class={`rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#646cff] ${loading ? "text-gray-700" : "text-white"}`}
+        class={`text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px ${loading ? "text-gray-700" : "text-white"}`}
           onClick={handleGenerate}
           disabled={loading}
         >

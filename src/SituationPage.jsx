@@ -12,7 +12,7 @@ export default function SituationPage() {
 
   // Handler for the "Next button"
   const handleNext = () => {
-    
+
     // Check if the situation has a minimum character count
     if(situation.trim().length < 10) {
         alert("Please describe the situation in at least 10 characters.");
@@ -43,7 +43,7 @@ export default function SituationPage() {
         onChange={(e) => setSituation(e.target.value)}/>
 
       <div>
-        <button class="rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleNext}>Next</button>
+        <button class="text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px" onClick={handleNext}>Next</button>
       </div>
     </div>
   );
