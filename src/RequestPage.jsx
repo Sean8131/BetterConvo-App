@@ -207,7 +207,7 @@ export default function RequestPage() {
         {loading ? (
           <div className="spinner"></div>
         ) : (
-          <BlinkingTextarea placeholder="Enter your situation..."
+          <BlinkingTextarea placeholder="Enter your request..."
               value={request}
               onChange={(e) => setRequest(e.target.value)}/>
         )}
