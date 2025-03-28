@@ -217,49 +217,51 @@ export default function RequestPage() {
       {errorMessage && <div class="text-red-500 mb-4">{errorMessage}</div>}
 
       {/* Button Rendering */}
+{/* Back Button */}
+<button
+  className={`rounded-lg border py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 focus:outline-none focus-visible:ring-4 ${
+    !isOnLine || loading
+      ? "!text-gray-700 !border-gray-700"
+      : "text-white border-purple-500 hover:bg-purple-100 hover:text-purple-950 hover:border-[#646cff]"
+  }`}
+  onClick={handleBack}
+  style={{ marginRight: "10px" }}
+  disabled={loading || !isOnLine}
+>
+  Back
+</button>
 
-      {/* Back Button */}
-      <button
-        class={`text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px ${!isOnLine || loading ? "text-gray-700" : "text-white"}`}
-        onClick={handleBack}
-        style={{ marginRight: "10px" }}
-        disabled={loading || !isOnLine}
-      >
-        Back
-      </button>
-
-      {!isOnLine ? (
-        // When offline, always show the Generate button as disabled
-        <button
-          class="rounded-lg border text-gray-700 border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]"
-          disabled
-        >
-          Generate
-        </button>
-        
-      ) : errorMessage ? (
-        // When an error (other than connectivity) has occurred while online, show the retry button
-        <button
-          class="rounded-lg border border-transparent text-green-400 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]"
-          onClick={handleGenerate}
-          disabled={loading}
-        >
-          Retry
-        </button>
-      ) : (
-
-        // Otherwise, show the normal Generate button
-        <button
-        class={`text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px ${loading ? "text-gray-700" : "text-white"}`}
-          onClick={handleGenerate}
-          disabled={loading}
-        >
-          Generate
-        </button>
-        
-        
-    
-      )}
+{!isOnLine ? (
+  // When offline, always show the Generate button as disabled.
+  <button
+    className="rounded-lg border border-gray-700 text-gray-700 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-not-allowed transition-colors duration-200 focus:outline-none focus-visible:ring-4"
+    disabled
+  >
+    Generate
+  </button>
+) : errorMessage ? (
+  // When there's an error (and you're online), show the Retry button.
+  <button
+    className="rounded-lg border border-green-400 text-green-400 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4"
+    onClick={handleGenerate}
+    disabled={loading}
+  >
+    Retry
+  </button>
+) : (
+  // Otherwise, show the normal Generate button.
+  <button
+    className={`rounded-lg border py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 focus:outline-none focus-visible:ring-4 ${
+      loading
+        ? "!text-gray-700 !border-gray-700"
+        : "text-white border-purple-500 hover:bg-purple-100 hover:text-purple-950 hover:border-[#646cff]"
+    }`}
+    onClick={handleGenerate}
+    disabled={loading}
+  >
+    Generate
+  </button>
+)}
 
       {/* Inline CSS for the spinner */}
       <style>
