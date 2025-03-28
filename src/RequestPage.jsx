@@ -1,5 +1,5 @@
 // Import useState hook from React, which lets us store and update stateful data in the component
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // Import useLocation hook from React which lets us access the current location object. It contains the current URL and state passed from navigation. Here, it's used to retrive the feelings that were passed from the previous page.
 
@@ -23,9 +23,6 @@ export default function RequestPage() {
   const feeling =
     feelings && feelings.length > 0 ? feelings.join(", ") : "Annoyed";
 
-  // Hard-coded values for testing
-  // const situation = "My partner ate all the creamed rice";
-
   // Initialize a state variable called "request" with a default string
   // The "setRequest" function is used to update the "request" state
   // Allows the user to edit the request in the <textarea> and for us to track those changes
@@ -45,13 +42,45 @@ export default function RequestPage() {
   // State to hold any error message
   const [errorMessage, setErrorMessage] = useState("");
 
-  // Handler for the "Generate" button
+  // State to track network connectivity
+  const [isOnLine, setIsOnLine] = useState(navigator.onLine);
+
+  // Effect to add event listeners for online and offline events
+  useEffect(() => {
+    const handleOnline = () => {
+      setIsOnLine(true);
+
+      // Automatically clear error message when connection is restored
+      setErrorMessage("");
+    };
+    const handleOffline = () => {
+      setIsOnLine(false);
+      setErrorMessage("No Internet Connection. Please check your connection.");
+    };
+
+    window.addEventListener("online", handleOnline);
+    window.addEventListener("offline", handleOffline);
+
+    return () => {
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", handleOffline);
+    };
+  }, []);
+
+  // Handler for the "Generate" / "Retry" button
   const handleGenerate = async () => {
+    // If offline, immediately set error message and do not proceed
+    if (!isOnLine) {
+      setErrorMessage("No Internet Connection. Please check your connection.");
+      return;
+    }
+
     // Validate that all required fields are provided
     if (!situation || !feeling) {
       alert("Please ensure the situation and feeling are properly filled out");
       return;
     }
+
     // Check if the situation has a minimum character count
     if (request.trim().length < 10) {
       alert("Please describe what you would like in at least 10 characters.");
@@ -97,7 +126,7 @@ export default function RequestPage() {
       const data = await res.json();
       console.log("API response:", data);
 
-      // Ensure at least two seconds have passed before navigating 
+      // Ensure the loading indicator remains visible for 4 seconds
       const elapsed = Date.now() - startTime;
       if (elapsed < 4000) {
         await new Promise((resolve) => setTimeout(resolve, 4000 - elapsed));
@@ -110,19 +139,15 @@ export default function RequestPage() {
 
       // Capture the error message to be set after the delay
       errorOccurred = true;
-      errorMsg = "An error occurred while generating the response. Please try again.";
-      
-      // setResponse("Error generating response");
-      // // Set the inline error message
-      // setErrorMessage(
-      //   "An error occurred while generating the response. Please try again."
-      // );
-
+      errorMsg =
+        "An error occurred while generating the response. Please try again.";
     } finally {
       // Calculate elapsed time and ensure the loading indicator is visible for 4 seconds
       const elapsedFinal = Date.now() - startTime;
-      if (elapsedFinal < 4000 ) {
-        await new Promise((resolve) => setTimeout(resolve, 4000 - elapsedFinal));
+      if (elapsedFinal < 4000) {
+        await new Promise((resolve) =>
+          setTimeout(resolve, 4000 - elapsedFinal)
+        );
       }
 
       // Stop the loading indicator
@@ -130,7 +155,7 @@ export default function RequestPage() {
 
       // If an error occurred, update the error message after the delay
       if (errorOccurred) {
-        setErrorMessage(errorMessage);
+        setErrorMessage(errorMsg);
       }
     }
   };
@@ -179,36 +204,50 @@ export default function RequestPage() {
       </div>
 
       {/* Inline error message */}
-        {errorMessage && (
-          <div class="text-red-500 mb-4">{errorMessage}</div>
-        )}
+      {errorMessage && <div class="text-red-500 mb-4">{errorMessage}</div>}
+
+      {/* Button Rendering */}
 
       <button
-        class="rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]"
+        class={`rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#646cff] ${!isOnLine || loading ? "text-gray-700" : "text-white"}`}
         onClick={handleBack}
         style={{ marginRight: "10px" }}
-        disabled={loading}
+        disabled={loading || !isOnLine}
       >
         Back
       </button>
 
-      {/* Replace Generate with Retry button if an error occurred */}
-      {errorMessage ? (
+      {!isOnLine ? (
+        // When offline, always show the Generate button as disabled
         <button
-        class="rounded-lg border border-transparent text-green-400 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]"
-        onClick={handleGenerate}
-        disabled={loading}
-      >
-        Retry
-      </button>
+          class="rounded-lg border text-gray-700 border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]"
+          disabled
+        >
+          Generate
+        </button>
+        
+      ) : errorMessage ? (
+        // When an error (other than connectivity) has occurred while online, show the retry button
+        <button
+          class="rounded-lg border border-transparent text-green-400 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]"
+          onClick={handleGenerate}
+          disabled={loading}
+        >
+          Retry
+        </button>
       ) : (
-      <button
-        class="rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]"
-        onClick={handleGenerate}
-        disabled={loading}
-      >
-        Generate
-      </button>
+
+        // Otherwise, show the normal Generate button
+        <button
+        class={`rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#646cff] ${loading ? "text-gray-700" : "text-white"}`}
+          onClick={handleGenerate}
+          disabled={loading}
+        >
+          Generate
+        </button>
+        
+        
+    
       )}
 
       {/* Inline CSS for the spinner */}
