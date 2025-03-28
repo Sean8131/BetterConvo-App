@@ -1,5 +1,5 @@
 // Import useState hook from React, which lets us store and update stateful data in the component
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 // Import useLocation hook from React which lets us access the current location object. It contains the current URL and state passed from navigation. Here, it's used to retrive the feelings that were passed from the previous page.
 
@@ -19,17 +19,32 @@ export default function RequestPage() {
     feelings: [],
   };
 
+  // Hook for navigation between pages
+  const navigate = useNavigate();
+
+  // Use a ref to ensure the component doesn't re-render and the redirect happens only once
+  const hasRedirected = useRef(false);
+
+  // Redirect the user if required data is missing
+  useEffect(() => {
+    if ((!situation || situation.trim() === "") && !hasRedirected.current) {
+      hasRedirected.current = true; // Mark that we've already alerted and redirected
+      alert("Required informaion is missing. Please re-enter your information.");
+      navigate("/situation");
+    } else if (situation && (!feelings || feelings.length === 0) && !hasRedirected.current) {
+      hasRedirected.current = true;
+      alert("Required informaion is missing. Please re-enter your information.");
+      navigate("/feelings");
+    }
+  }, [situation, feelings, navigate]);
+
   // Join the feelings array into a single string if nedded
-  const feeling =
-    feelings && feelings.length > 0 ? feelings.join(", ") : "Annoyed";
+  const feeling = feelings.join(", ");
 
   // Initialize a state variable called "request" with a default string
   // The "setRequest" function is used to update the "request" state
   // Allows the user to edit the request in the <textarea> and for us to track those changes
-  const [request, setRequest] = useState("Clean up after yourself");
-
-  // Hook for navigation between pages
-  const navigate = useNavigate();
+  const [request, setRequest] = useState("");
 
   // Initialize a state variable called "response" with an empty string
   // The "response" state varialbe holds whatever the API sends back

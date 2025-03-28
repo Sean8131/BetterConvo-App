@@ -20,7 +20,7 @@ export default function FeelingsPage() {
     "Frustrated",
     "Grateful",
     "Upset",
-    "Overwhelmed",
+    "Hurt",
     "Worried",
     "Sad",
     "Happy",
