@@ -9,7 +9,7 @@ export default function BlinkingTextarea({
   return (
     <div className="relative">
       <textarea
-        className="border rounded-xl p-4 w-full mb-2 md:mb-4 focus:outline-purple-300"
+        className="border rounded-xl p-4 w-full mb-2 md:mb-4 focus:outline-purple-300 focus:outline-1"
         value={value}
         onChange={onChange}
         onFocus={() => setFocused(true)}
