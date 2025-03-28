@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MyTitle from "./MyTitle";
+import BlinkingTextarea from "./BlinkingTextArea";
 
 export default function SituationPage() {
   // Hook to enable navigation between pages
@@ -11,6 +12,7 @@ export default function SituationPage() {
 
   // Handler for the "Next button"
   const handleNext = () => {
+    
     // Check if the situation has a minimum character count
     if(situation.trim().length < 10) {
         alert("Please describe the situation in at least 10 characters.");
@@ -36,13 +38,9 @@ export default function SituationPage() {
       <h2 class="text-xl pb-4 font-semibold">Situation</h2>
       <p class="text-base pb-4">Describe what happened in your own words:</p>
 
-        <textarea class="border rounded-xl p-4 mb-4"
-          value={situation}
-          onChange={(e) => setSituation(e.target.value)}
-          rows="6"
-          style={{ width: "100%", marginBottom: "20px" }}
-          placeholder="Enter your situation..."
-        />
+        <BlinkingTextarea placeholder="Enter your situation..."
+        value={situation}
+        onChange={(e) => setSituation(e.target.value)}/>
 
       <div>
         <button class="rounded-lg border border-transparent py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px focus-visible:ring-[#646cff]" onClick={handleNext}>Next</button>

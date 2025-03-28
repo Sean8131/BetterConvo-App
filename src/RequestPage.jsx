@@ -8,6 +8,7 @@ import { useLocation } from "react-router-dom";
 // Import useNavigate hook from React, which returns a function that we can call to changes routes and pass state to update the next page the user is taken to
 import { useNavigate } from "react-router-dom";
 import MyTitle from "./MyTitle";
+import BlinkingTextarea from "./BlinkingTextArea";
 
 // Defining the RequestPage component
 export default function RequestPage() {
@@ -206,15 +207,9 @@ export default function RequestPage() {
         {loading ? (
           <div className="spinner"></div>
         ) : (
-          <textarea
-            class="border rounded-xl text-l p-4 mb-4"
-            id="request"
-            value={request}
-            onChange={(e) => setRequest(e.target.value)}
-            rows="6"
-            style={{ width: "100%", marginBottom: "20px" }}
-            placeholder="Enter your request..."
-          />
+          <BlinkingTextarea placeholder="Enter your situation..."
+              value={request}
+              onChange={(e) => setRequest(e.target.value)}/>
         )}
       </div>
 
