@@ -7,7 +7,7 @@ export default function SituationPage() {
   const navigate = useNavigate();
 
   // State to store the user's situation
-  const [situation, setSituation] = useState("My son doesn't clean up in the kitchen when he makes a mess");
+  const [situation, setSituation] = useState("");
 
   // Handler for the "Next button"
   const handleNext = () => {
@@ -34,14 +34,14 @@ export default function SituationPage() {
     <div class="mx-auto max-width-sm md:w-xl p-2">
       <MyTitle />
       <h2 class="text-xl pb-4 font-semibold">Situation</h2>
-      <p class="text-base pb-4">Please describe what happened in your own words:</p>
+      <p class="text-base pb-4">Describe what happened in your own words:</p>
 
         <textarea class="border rounded-xl p-4 mb-4"
           value={situation}
           onChange={(e) => setSituation(e.target.value)}
           rows="6"
           style={{ width: "100%", marginBottom: "20px" }}
-          placeholder="e.g My partner arrived late to pick me up from work today."
+          placeholder="Enter your situation..."
         />
 
       <div>

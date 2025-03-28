@@ -189,7 +189,7 @@ export default function RequestPage() {
           <strong>Situation:</strong> {situation}
         </p>
         <p class="text-lg pb-4">
-          <strong>Feeling:</strong> {feeling}
+          <strong>{feelings.length > 1 ? "Feelings:" : "Feeling:"}</strong> {feeling}
         </p>
       </div>
 
@@ -213,7 +213,7 @@ export default function RequestPage() {
             onChange={(e) => setRequest(e.target.value)}
             rows="6"
             style={{ width: "100%", marginBottom: "20px" }}
-            placeholder="e.g I would like my partner to message me if they are running late."
+            placeholder="Enter your request..."
           />
         )}
       </div>
