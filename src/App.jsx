@@ -11,11 +11,11 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Landing route: HomePage */}
-        <Route path="/" element={<HomePage />} />
+        {/* Landing route: PrivacyPage */}
+        <Route path="/" element={<PrivacyPage />} />
 
         {/* Routes */}
-        <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/homepage" element={<HomePage />} />
         <Route path="/situation" element={<SituationPage />} />
         <Route path="/feelings" element={<FeelingsPage />} />
         <Route path="/request" element={<RequestPage />} />
