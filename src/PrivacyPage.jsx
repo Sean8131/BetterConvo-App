@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 // Define HomePage funcional component
-export default function HomePage() {
+export default function PrivacyPage() {
   // Hook to enable navigation to other routes
   const navigate = useNavigate();
 
@@ -14,7 +14,9 @@ export default function HomePage() {
 
   return (
     <div class="mx-auto max-width-sm md:w-xl p-2">
-      <h1 class="text-3xl md:text-4xl font-bold underline p-4">Welcome to BetterConvo</h1>
+      <h1 class="text-3xl md:text-4xl font-bold underline p-4">BetterConvo</h1>
+
+      <h2 class="text-xl md:text-2xl mb-4 font-semibold">Privacy Statement</h2>
 
         <h2 class="text-xl md:text-2xl mb-4 font-semibold">
         BetterConvo helps you prepare for challenging conversations so you can speak with clarity, empathy, and courage.

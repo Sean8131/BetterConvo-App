@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css"
 import HomePage from "./HomePage";
+import PrivacyPage from "./PrivacyPage";
 import SituationPage from "./SituationPage";
 import FeelingsPage from './FeelingsPage';
 import RequestPage from "./RequestPage";
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
 
         {/* Routes */}
+        <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/situation" element={<SituationPage />} />
         <Route path="/feelings" element={<FeelingsPage />} />
         <Route path="/request" element={<RequestPage />} />
