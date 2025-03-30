@@ -9,7 +9,7 @@ export default function HomePage() {
   // Handler for the "Accept" button
   // Navigates to the SituationPage when clicked
   const handleAccept = () => {
-    navigate("/privacy");
+    navigate("/situation");
   };
 
   return (
