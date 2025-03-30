@@ -23,13 +23,15 @@ export default function HomePage() {
         </h2>
 
       <p class="mb-4">
-        Follow the prompts on the next three pages. The app with ask you to
+        Follow the prompts on the next three pages. 
+      </p>
+      <p class="mb-4">The app will ask you to
         provide:
       </p>
 
       <p class>
         <div class="flex justify-center">
-          <ul class="mb-4 text-left">
+          <ul class="font-medium mb-4 text-left">
             <ol>1. A description of your situation</ol>
             <ol>2. Your feelings about what happened</ol>
             <ol>3. What you would like to happen next </ol>
@@ -37,7 +39,7 @@ export default function HomePage() {
         </div>
       </p>
       <p class="mb-4">
-        BetterConvo will then provide a script to help you start the conversation in a mindful way.
+        The app will then provide a script to help you start the conversation in a mindful way.
       </p>
 
       <button
