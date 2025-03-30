@@ -18,9 +18,6 @@ export default function PrivacyPage() {
 
       <h2 class="text-xl md:text-2xl mb-4 font-semibold">Privacy Statement</h2>
 
-        <h2 class="text-xl md:text-2xl mb-4 font-semibold">
-        BetterConvo helps you prepare for challenging conversations so you can speak with clarity, empathy, and courage.
-        </h2>
         <div class="border rounded-xl p-4 mb-4">
             <p class="text-sm mb-2">
               This product uses Generative AI. At this stage of AI regulation, BetterConvo complies with current
@@ -30,6 +27,14 @@ export default function PrivacyPage() {
             <p class="text-sm mb-2">
               Please do not enter private, sensitive, or personally identifiable
               information.
+            </p>
+
+            <p class="text-sm mb-2">
+            It is your responsibility to ensure that you do not share confidential details.
+By using BetterConvo, you acknowledge that:
+Your inputs are processed in real time and not stored.
+AI-generated responses are for guidance only and should not replace professional advice.
+You are responsible for how you use the generated content in your personal conversations.
             </p>
 
             <p class="text-sm">For more details, please review our Terms of Use.</p>
