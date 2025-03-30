@@ -14,13 +14,39 @@ export default function HomePage() {
 
   return (
     <div class="mx-auto max-width-sm md:w-xl p-2">
-      <h1 class="text-3xl md:text-4xl font-bold underline p-4">Welcome to BetterConvo</h1>
+      <h1 class="text-3xl md:text-4xl font-bold underline p-4">
+        Welcome to BetterConvo
+      </h1>
 
-        <h2 class="text-base mb-4">
+      <h2 class="text-xl md:text-2xl mb-4 font-semibold">
         BetterConvo helps you prepare for challenging conversations so you can speak with clarity, empathy, and courage.
         </h2>
 
-      <button className="text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px" onClick={handleAccept}>Accept</button>
+      <p class="mb-4">
+        Follow the prompts on the next three pages. The app with ask you to
+        provide:
+      </p>
+
+      <p class>
+        <div class="flex justify-center">
+          <ul class="mb-4 text-left">
+            <ol>1. A description of your situation</ol>
+            <ol>2. Your feelings about what happened</ol>
+            <ol>3. What you would like to happen next </ol>
+          </ul>
+        </div>
+      </p>
+      <p class="mb-4">
+        BetterConvo will then provide a brief script for how you may approach
+        the conversation in a mindful way.
+      </p>
+
+      <button
+        className="text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px"
+        onClick={handleAccept}
+      >
+        Next
+      </button>
     </div>
   );
 }
