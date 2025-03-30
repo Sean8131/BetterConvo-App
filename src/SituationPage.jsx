@@ -37,7 +37,7 @@ export default function SituationPage() {
       <MyTitle />
       <h2 class="text-xl md:text-2xl mb-4 font-semibold">Situation</h2>
       <p class="font-medium text-base mb-2 md:mb-4 md:text-lg">Describe what happened:</p>
-      <p class="font-light text italic text-base md:text-lg mb-4 md:mb-6 ">e.g My partner picked me up late from work</p>
+      <p class="font-light text italic text-base md:text-lg mb-6 md:mb-8 ">e.g My partner picked me up late from work</p>
 
         <BlinkingTextarea placeholder="Enter your situation..."
         value={situation}
