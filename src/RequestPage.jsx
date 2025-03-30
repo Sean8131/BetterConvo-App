@@ -45,7 +45,7 @@ export default function RequestPage() {
   // Initialize a state variable called "request" with a default string
   // The "setRequest" function is used to update the "request" state
   // Allows the user to edit the request in the <textarea> and for us to track those changes
-  const [request, setRequest] = useState("Next time, send me a message to let me know you're running late");
+  const [request, setRequest] = useState("");
 
   // Initialize a state variable called "response" with an empty string
   // The "response" state varialbe holds whatever the API sends back
