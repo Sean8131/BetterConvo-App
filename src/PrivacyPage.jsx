@@ -19,7 +19,7 @@ export default function PrivacyPage() {
       <h2 class="text-xl md:text-2xl mb-4 font-semibold">Privacy Statement</h2>
 
         
-        <div class="border rounded-xl p-4 mb-4">
+        <div class="border rounded-xl p-4 mb-6">
         <p class="text-sm mb-2">
             This product uses Generative AI. 
             </p>
