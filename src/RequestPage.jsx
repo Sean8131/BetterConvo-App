@@ -198,7 +198,7 @@ export default function RequestPage() {
       </div>
 
       {/* Text area for the request */}
-      <div class="mx-auto max-width-sm md:w-xl p-2">
+      <div class="mx-auto max-width-sm md:w-xl p-2 mb-4">
 
         {/* If loading, show the spinner; otherwise, show the textarea */}
         {loading ? (
