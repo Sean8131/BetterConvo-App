@@ -8,7 +8,7 @@ export default function SituationPage() {
   const navigate = useNavigate();
 
   // State to store the user's situation
-  const [situation, setSituation] = useState("");
+  const [situation, setSituation] = useState("My partner picked me up late from work and didn't let me know");
 
   // Handler for the "Next button"
   const handleNext = () => {
@@ -35,8 +35,9 @@ export default function SituationPage() {
   return (
     <div class="mx-auto max-width-sm md:w-xl p-2">
       <MyTitle />
-      <h2 class="text-xl pb-4 font-semibold">Situation</h2>
-      <p class="text-base pb-4">Describe what happened in your own words:</p>
+      <h2 class="text-xl md:text-2xl mb-4 font-semibold">Situation</h2>
+      <p class="font-medium text-base mb-4 md:text-lg">Describe what happened in your own words:</p>
+      <p class="font-light text italic text-base md:text-lg mb-4 md:mb-6 ">e.g My partner picked me up late from work today</p>
 
         <BlinkingTextarea placeholder="Enter your situation..."
         value={situation}
