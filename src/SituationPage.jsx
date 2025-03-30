@@ -35,13 +35,14 @@ export default function SituationPage() {
   return (
     <div class="mx-auto max-width-sm md:w-xl p-2">
       <MyTitle />
-      <h2 class="text-xl pb-4 font-semibold">Situation</h2>
-      <p class="text-base pb-4">Describe what happened in your own words:</p>
+      <h2 class="text-xl md:text-2xl mb-4 font-semibold">Situation</h2>
+      <p class="font-medium text-base mb-2 md:mb-4 md:text-lg">Describe what happened:</p>
+      <p class="font-light text italic text-base md:text-lg mb-6 md:mb-8 ">e.g My partner picked me up late from work</p>
 
-        <BlinkingTextarea placeholder="Enter your situation..."
+        <div class="mb-4"><BlinkingTextarea placeholder="Enter your situation..."
         value={situation}
         onChange={(e) => setSituation(e.target.value)}/>
-
+        </div>
       <div>
         <button className="text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px" onClick={handleNext}>Next</button>
       </div>

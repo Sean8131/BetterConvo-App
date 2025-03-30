@@ -186,22 +186,19 @@ export default function RequestPage() {
     <div class="mx-auto w-2xs md:w-3xl p-2">
       <MyTitle />
       <div>
-        <p class=" break-words w-full p-4 text-lg">
-          <strong>Situation:</strong> {situation}
+      <h2 class="text-xl md:text-2xl mb-4 font-semibold">Request</h2>
+      <p class="font-medium text-base mb-2 md:text-lg">What do you want?</p>
+      <p class="font-light text italic text-base md:text-lg mb-4 md:mb-4 ">e.g I want them to tell me if they're running late</p>
+        <div class="flex flex-col mb-2 md:mb-4">
+          <p class="text-slate-500 break-words w-full text-base md:text-lg mb-2">Situation: {situation}
         </p>
-        <p class="text-lg pb-4">
-          <strong>{feelings.length > 1 ? "Feelings:" : "Feeling:"}</strong> {feeling}
+        <p class="m-0 text-slate-500 text-base md:text-lg">{feelings.length > 1 ? "Feelings:" : "Feeling: "}{feeling}
         </p>
+        </div>
       </div>
 
       {/* Text area for the request */}
-      <div class="mx-auto max-width-sm md:w-xl p-2">
-        <label
-          class="text-l md:text-xl font-medium flex flex-col mb-4"
-          htmlFor="request"
-        >
-          What would you like to happen?
-        </label>
+      <div class="mx-auto max-width-sm md:w-xl p-2 mb-4">
 
         {/* If loading, show the spinner; otherwise, show the textarea */}
         {loading ? (
