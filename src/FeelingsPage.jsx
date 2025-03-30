@@ -83,7 +83,7 @@ export default function FeelingsPage() {
           <p class="font-medium text-base mb-4 md:mb-6 md:text-lg">How did you feel? Select 1-3 feelings</p>
           
           {/* Display predefined feelings as buttons arranged in 3 columns */}
-          <div class="grid grid-cols-3 gap-2 md:gap-2 mb-8 md:mb-10">
+          <div class="grid grid-cols-3 gap-3 md:gap-4 mb-8 md:mb-10">
             {predefinedFeelings.map((feeling) => (
               <button
                 key={feeling}
