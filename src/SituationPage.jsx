@@ -36,7 +36,7 @@ export default function SituationPage() {
     <div class="mx-auto max-width-sm md:w-xl p-2">
       <MyTitle />
       <h2 class="text-xl md:text-2xl mb-4 font-semibold">Situation</h2>
-      <p class="font-medium text-base mb-4 md:text-lg">Describe what happened in your own words:</p>
+      <p class="font-medium text-base mb-2 md:text-lg">Describe what happened in your own words:</p>
       <p class="font-light text italic text-base md:text-lg mb-4 md:mb-6 ">e.g My partner picked me up late from work today</p>
 
         <BlinkingTextarea placeholder="Enter your situation..."
