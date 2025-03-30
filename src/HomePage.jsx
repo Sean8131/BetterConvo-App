@@ -37,8 +37,7 @@ export default function HomePage() {
         </div>
       </p>
       <p class="mb-4">
-        BetterConvo will then provide a brief script for how you may approach
-        the conversation in a mindful way.
+        BetterConvo will then provide a script to help you start the conversation in a mindful way.
       </p>
 
       <button
