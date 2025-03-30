@@ -1,10 +1,9 @@
-import { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import MyTitle from './MyTitle';
+import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import MyTitle from "./MyTitle";
 
 // Defining the FeelingsPage component
 export default function FeelingsPage() {
-
   // Retrieve the situation from the previous page (SituationPage)
   const location = useLocation();
   const situation = location.state?.situation || "";
@@ -39,19 +38,17 @@ export default function FeelingsPage() {
   // Otherwise, it adds it if the maximum (3) has not been reached.
   const handleFeelingClick = (feeling) => {
     if (selectedFeelings.includes(feeling)) {
-
-          // Remove the feeling if it's already selected
+      // Remove the feeling if it's already selected
       setSelectedFeelings(selectedFeelings.filter((f) => f !== feeling));
     } else {
-
-        // Check if the maximum of 3 feelings has been reached
+      // Check if the maximum of 3 feelings has been reached
       if (selectedFeelings.length >= 3) {
         alert("You can only select up to 3 feelings.");
         return;
       }
 
-        // Add the selected feeling to the state
-        setSelectedFeelings([...selectedFeelings, feeling]);
+      // Add the selected feeling to the state
+      setSelectedFeelings([...selectedFeelings, feeling]);
     }
   };
 
@@ -64,51 +61,76 @@ export default function FeelingsPage() {
       return;
     }
 
-      // Navigate to RequestPage, passing both the situation and selected feelings
-      navigate("/request", { state: { situation, feelings: selectedFeelings } });
+    // Navigate to RequestPage, passing both the situation and selected feelings
+    navigate("/request", { state: { situation, feelings: selectedFeelings } });
   };
 
   // Handler for the "Back" button
   const handleBack = () => {
-
     // Navigate back to the previous page in the browser history
     navigate(-1);
-};
+  };
 
   return (
-        <div class="mx-auto max-width-sm md:w-xl p-2">
-          {/* Page header */}
-            <MyTitle />
-          <h2 class="text-xl md:text-2xl mb-4 font-semibold">Feelings</h2>
-          <p class="font-medium text-base mb-6 md:text-lg">How did you feel? Select 1-3 feelings</p>
-          
-          {/* Display predefined feelings as buttons arranged in 3 columns */}
-          <div class="grid grid-cols-3 gap-3 md:gap-4 mb-8 md:mb-10">
-            {predefinedFeelings.map((feeling) => (
-              <button
-                key={feeling}
-                onClick={(e) => {
-                  handleFeelingClick(feeling);
+    <div class="mx-auto max-width-sm md:w-xl p-2">
+      {/* Page header */}
+      <MyTitle />
+      <h2 class="text-xl md:text-2xl mb-4 font-semibold">Feelings</h2>
+      <p class="font-medium text-base mb-6 md:text-lg">
+        How did you feel? Select 1-3 feelings
+      </p>
 
-                  // Force blur after click
-                  setTimeout(() => e.target.blur(), 0);
-                }}
+      {/* Display predefined feelings as buttons arranged in 3 columns */}
+      <div class="grid grid-cols-3 gap-3 md:gap-4 mb-8 md:mb-10">
+        {predefinedFeelings.map((feeling) => (
+          <button
+            key={feeling}
+            onClick={(e) => {
+              handleFeelingClick(feeling);
 
-                // Hide default tap highlight on WebKit-based browsers
-                style={{WebkitTapHighlightColor: "transparent"}}
-                className={`text-purple-100 hover:bg-purple-400 border-purple-200 hover:text-purple-950 rounded-lg border py-2 px-3 text-sm md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px ${ selectedFeelings.includes(feeling) ? "bg-purple-100 text-purple-950" : "bg-[#1a1a1a] text-purple-100"
-                }`}
-              >
-                {feeling}
-              </button>
-            ))}
-          </div>
-    
-          {/* Navigation Buttons */}
-          <div class="flex justify-center gap-2">
-            <button className="text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px" onClick={handleBack} style={{ marginRight: "10px" }}>Back</button>
-          <button className="text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px" onClick={handleNext}>Next</button>
-          </div>
-        </div>
-      );
+              // Force blur after click
+              setTimeout(() => e.target.blur(), 0);
+            }}
+            // Hide default tap highlight on WebKit-based browsers
+            style={{ WebkitTapHighlightColor: "transparent" }}
+            className={`text-purple-100 hover:bg-purple-400 border-purple-200 hover:text-purple-950 rounded-lg border py-2 px-3 text-sm md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px ${
+              selectedFeelings.includes(feeling)
+                ? "bg-purple-100 text-purple-950"
+                : "bg-[#1a1a1a] text-purple-100"
+            }`}
+          >
+            {feeling}
+          </button>
+        ))}
+      </div>
+
+      <style>
+        {`
+          @media (hover: none) {
+            button:focus {
+              outline: none;
+              box-shadow: none;
+            }
+          }
+        `}
+      </style>
+
+      {/* Navigation Buttons */}
+      <div class="flex justify-center gap-2">
+        <button
+          className="text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px"
+          onClick={handleBack}
+          style={{ marginRight: "10px" }}
+        >
+          Back
+        </button>
+        <button
+          className="text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px"
+          onClick={handleNext}
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  );
 }
