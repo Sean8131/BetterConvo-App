@@ -93,7 +93,7 @@ export default function FeelingsPage() {
             }}
             // Hide default tap highlight on WebKit-based browsers
             style={{ WebkitTapHighlightColor: "transparent" }}
-            className={`text-purple-100 hover:bg-purple-400 border-purple-200 hover:text-purple-950 rounded-lg border py-2 px-3 text-sm md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px ${
+            className={`text-purple-100 border-purple-200  rounded-lg border py-2 px-3 text-sm md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 focus:outline-none focus-visible:ring-4px ${
               selectedFeelings.includes(feeling)
                 ? "bg-purple-100 text-purple-950"
                 : ""
