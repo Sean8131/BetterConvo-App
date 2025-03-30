@@ -38,7 +38,7 @@ export default function HomePage() {
           </ul>
         </div>
       </p>
-      <p class="mb-4">
+      <p class="mb-6">
         The app will then provide a script to help you start the conversation in a mindful way.
       </p>
 
