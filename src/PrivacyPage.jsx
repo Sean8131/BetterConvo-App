@@ -20,10 +20,14 @@ export default function PrivacyPage() {
 
         
         <div class="border rounded-xl p-4 mb-4">
+        <p class="text-sm mb-2">
+            This product uses Generative AI. 
+            </p>
             <p class="text-sm mb-2">
-              This product uses Generative AI. At this stage of AI regulation, BetterConvo complies with current
+                At this stage of AI regulation, BetterConvo complies with current
               privacy laws.
             </p>
+            
 
             <p class="text-sm mb-2">
               Please do not enter private, sensitive, or personally identifiable
