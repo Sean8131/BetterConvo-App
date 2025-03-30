@@ -68,7 +68,8 @@ export async function generateResponse(situation, feeling, request) {
 
           Use language that sounds natural and not to formal.
           
-          Do not output any quotation marks.
+          Do not output any quotation marks e.g "".
+          
           Do not label any sentences with "Observation:", "Feeling:", "Need:", or "Request:". 
           
           Do not output the words "NVC" or "Non Violent Communication".
