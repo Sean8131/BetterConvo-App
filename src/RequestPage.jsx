@@ -187,7 +187,7 @@ export default function RequestPage() {
       <MyTitle />
       <div>
       <h2 class="text-xl md:text-2xl mb-4 font-semibold">Request</h2>
-      <p class="font-medium text-base mb-2 md:text-lg">What do you want?</p>
+      <p class="font-medium text-base mb-2 md:mb-4 md:text-lg">What do you want?</p>
       <p class="font-light text italic text-base md:text-lg mb-2 md:mb-4 ">e.g Let me know you'll be late</p>
         <div class="flex flex-col mb-2 md:mb-4">
           <p class="text-slate-500 break-words w-full text-base md:text-lg mb-2 md:mb-4">Situation: {situation}
