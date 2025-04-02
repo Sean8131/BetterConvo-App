@@ -8,7 +8,7 @@ export default function SituationPage() {
   const navigate = useNavigate();
 
   // State to store the user's situation
-  const [situation, setSituation] = useState("");
+  const [situation, setSituation] = useState("friend called me fat");
 
   // Handler for the "Next button"
   const handleNext = () => {
