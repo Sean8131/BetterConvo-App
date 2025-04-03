@@ -72,7 +72,7 @@ export default function FeelingsPage() {
   };
 
   return (
-    <div class="mx-auto max-width-sm md:w-xl p-2">
+    <div class="text-left mx-auto max-width-sm md:w-xl p-2">
       {/* Page header */}
       <h2 class="text-xl md:text-2xl mb-4 font-semibold">How did you feel?</h2>
       <p class="font-medium text-base mb-6 md:text-lg">

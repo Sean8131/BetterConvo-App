@@ -34,9 +34,9 @@ export default function SituationPage() {
 
   return (
     <div class="mx-auto max-width-sm md:w-xl p-2">
-      <h2 class="text-xl md:text-2xl mb-4 font-semibold">What happened?</h2>
+      <h2 class="text-left text-xl md:text-2xl mb-4 font-semibold">What happened?</h2>
       {/* <p class="font-medium text-base mb-2 md:mb-4 md:text-lg">Describe what happened:</p> */}
-      <p class="font-light text italic text-base md:text-lg mb-6 md:mb-8 ">e.g My partner picked me up late from work</p>
+      <p class="text-left font-light text italic text-base md:text-lg mb-6 md:mb-8 ">e.g My partner picked me up late from work</p>
 
         <div class="mb-4"><BlinkingTextarea placeholder="Enter your situation..."
         value={situation}

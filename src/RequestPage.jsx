@@ -188,7 +188,7 @@ export default function RequestPage() {
       <h2 class="text-left text-xl md:text-2xl mb-4 font-semibold">What would you like to happen?</h2>
       {/* <p class="font-medium text-base mb-2 md:text-lg">What do you want?</p> */}
       {/* <p class="font-light text italic text-base md:text-lg mb-4 md:mb-4 ">e.g I want them to tell me if they're running late</p> */}
-        <div class="text-left flex flex-col mb-2 md:mb-4">
+        <div class="text-left flex flex-col mb-4 md:mb-4">
           <p class="break-words w-full text-base md:text-lg mb-2">Situation: {situation}
         </p>
         <p class="m-0 text-base md:text-lg">{feelings.length > 1 ? "Feelings:" : "Feeling: "}{feeling}
