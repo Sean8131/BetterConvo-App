@@ -14,8 +14,8 @@ export default function HomePage() {
 
   return (
     <div class="mx-auto max-width-sm md:w-xl p-2">
-      <h1 class="text-3xl md:text-4xl font-bold underline p-4">
-        Welcome to BetterConvo
+      <h1 class="text-3xl md:text-4xl font-bold p-4">
+        Welcome
       </h1>
 
       <h2 class="text-xl md:text-2xl mb-4 font-semibold">

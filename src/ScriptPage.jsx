@@ -30,30 +30,31 @@ export default function ScriptPage() {
 
   return (
     <div class="mx-auto w-2xs md:w-3xl p-1">
-      <MyTitle />
 
       {/* Display the generated GPT response */}
-      <div class="mx-auto max-width-sm md:w-xl p-2">
-        <h2 class="text-lg font-semibold pb-4">You could start with:</h2>
+      <div class="mx-auto md:w-xl p-2">
+        <h2 class="text-left text-lg font-semibold pb-4">How about saying...</h2>
 
-        <div class="border rounded-xl p-4 mb-2 md:mb-4"
+        <div class="text-left mb-2 md:mb-4"
         >
           <p>{response}</p>
         </div>
       </div>
 
       {/* New Request button */}
-      <button className="text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px" onClick={handleNewRequest}>New Request</button>
+      <div className="mt-4 flex gap-6">
+        <button className="text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px" onClick={handleNewRequest}>New Request</button>
 
       {/* Feedback Section */}
       <div>
-        <h5 class="text-m md:text-lg md:font-semibold mt-2 md:mt-4">A message from Sean:</h5>
+        {/* <h5 class="text-m md:text-lg md:font-semibold mt-2 md:mt-4">A message from Sean:</h5>
         <h5 class="m-2 mb-4 md:m-4 md:mb-5 text-sm md:text-base">
           Thanks for using BetterConvo! I value your input and I want
           to improve the app. Please share your feedback so I can make it even
           better for you.
-        </h5>
+        </h5> */}
         <button className="text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px" onClick={handleFeedback}>Give Feedback</button>
+        </div>
       </div>
     </div>
   );

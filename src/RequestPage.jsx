@@ -45,7 +45,7 @@ export default function RequestPage() {
   // Initialize a state variable called "request" with a default string
   // The "setRequest" function is used to update the "request" state
   // Allows the user to edit the request in the <textarea> and for us to track those changes
-  const [request, setRequest] = useState("be nicer to me");
+  const [request, setRequest] = useState("");
 
   // Initialize a state variable called "response" with an empty string
   // The "response" state varialbe holds whatever the API sends back
@@ -184,10 +184,9 @@ export default function RequestPage() {
 
   return (
     <div class="mx-auto w-2xs md:w-3xl p-2">
-      <MyTitle />
       <div>
-      <h2 class="text-xl md:text-2xl mb-4 font-semibold">Request</h2>
-      <p class="font-medium text-base mb-2 md:text-lg">What do you want?</p>
+      <h2 class="text-xl md:text-2xl mb-4 font-semibold">What would you like to happen?</h2>
+      {/* <p class="font-medium text-base mb-2 md:text-lg">What do you want?</p> */}
       <p class="font-light text italic text-base md:text-lg mb-4 md:mb-4 ">e.g I want them to tell me if they're running late</p>
         <div class="flex flex-col mb-2 md:mb-4">
           <p class="text-slate-500 break-words w-full text-base md:text-lg mb-2">Situation: {situation}
