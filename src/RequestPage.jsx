@@ -183,7 +183,7 @@ export default function RequestPage() {
   };
 
   return (
-    <div class="mx-auto w-2xs md:w-3xl p-2">
+    <div class="mx-auto max-width-sm md:w-xl p-2">
       <div>
       <h2 class="text-left text-xl md:text-2xl mb-4 font-semibold">What would you like to happen?</h2>
       {/* <p class="font-medium text-base mb-2 md:text-lg">What do you want?</p> */}
