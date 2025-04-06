@@ -12,10 +12,9 @@ function App() {
     <Router>
       <Routes>
         {/* Landing route: PrivacyPage */}
-        <Route path="/" element={<PrivacyPage />} />
+        <Route path="/" element={<HomePage />} />
 
         {/* Routes */}
-        <Route path="/homepage" element={<HomePage />} />
         <Route path="/situation" element={<SituationPage />} />
         <Route path="/feelings" element={<FeelingsPage />} />
         <Route path="/request" element={<RequestPage />} />
