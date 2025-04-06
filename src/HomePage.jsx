@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import MainButton from "./MainButton";
 
 // Define HomePage funcional component
 export default function HomePage() {
@@ -14,8 +15,9 @@ export default function HomePage() {
 
   return (
     <div class="mx-auto max-width-sm md:w-xl p-2">
+      <img src="/assets/BetterConvoLogo.png" alt="BetterConvo logo" className="w-28 h-auto mx-auto mb-4"></img>
       <h1 class="text-3xl md:text-4xl font-bold p-4">
-        Welcome
+        Welcome!
       </h1>
 
       <h2 class="text-xl md:text-2xl mb-4 font-semibold">
@@ -42,12 +44,7 @@ export default function HomePage() {
         The app will then provide a script to help you start the conversation in a mindful way.
       </p>
 
-      <button
-        className="text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px"
-        onClick={handleAccept}
-      >
-        Next
-      </button>
+    <MainButton label="Next" onClick={handleAccept}/>
     </div>
   );
 }
