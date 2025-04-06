@@ -23,9 +23,9 @@ const onboardingScreens = [
     image: "/assets/BetterConvo_Illustration_Textbox.png",
   },
   {
-    title: "This product uses Generative AI",
+    title: "Protecting Your Privacy",
     subtitle:
-      "Please do not enter private, sensitive, or personally identifiable information.\n\nFor more details, please review our Terms of Use.",
+      "This product uses Generative AI. Please do not enter private, sensitive, or personally identifiable information.\n\nFor more details, please review our Terms of Use.",
     image: "/assets/BetterConvo_Illustration_Lock_Privacy.png",
   },
 ];
@@ -89,7 +89,7 @@ export default function OnboardingIntro() {
           <p className="text-md max-w-sm whitespace-pre-line">
             {step === 3 ? (
               <>
-                Please do not enter personally
+                This product uses Gen AI. Do not enter personally
                 identifiable information.
                 For more details, please review our{" "}
                 <a
