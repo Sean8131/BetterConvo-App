@@ -29,7 +29,7 @@ export default function ScriptPage() {
   };
 
   return (
-    <div class="mx-auto w-2xs md:w-3xl p-1">
+    <div class="flex flex-col items-center mx-auto w-2xs md:w-3xl p-1">
 
       {/* Display the generated GPT response */}
       <div class="mx-auto md:w-xl p-2">
