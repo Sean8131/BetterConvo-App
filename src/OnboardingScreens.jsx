@@ -89,8 +89,8 @@ export default function OnboardingIntro() {
           <p className="text-md max-w-sm whitespace-pre-line">
             {step === 3 ? (
               <>
-                Please do not enter private, sensitive, or personally
-                identifiable information.{"\n\n"}
+                Please do not enter personally
+                identifiable information.
                 For more details, please review our{" "}
                 <a
                   href="/terms"
