@@ -6,15 +6,21 @@ import SituationPage from "./SituationPage";
 import FeelingsPage from './FeelingsPage';
 import RequestPage from "./RequestPage";
 import ScriptPage from "./ScriptPage";
+import OnboardingOne from "./OnboardingOne"
+import OnboardingIntro from "./OnboardingScreens";
 
 function App() {
   return (
     <Router>
       <Routes>
         {/* Landing route: PrivacyPage */}
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<OnboardingIntro />} />
 
         {/* Routes */}
+        <Route path="/one" element=
+        {<OnboardingOne />} />
+        <Route path="/onboarding" element=
+        {<OnboardingIntro />} />
         <Route path="/situation" element={<SituationPage />} />
         <Route path="/feelings" element={<FeelingsPage />} />
         <Route path="/request" element={<RequestPage />} />

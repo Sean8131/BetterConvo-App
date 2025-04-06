@@ -6,23 +6,27 @@ import MainHeader from "./MainHeader";
 import SubHeader from "./SubHeader";
 
 // Define HomePage funcional component
-export default function HomePage() {
+export default function OnboardingOne() {
   // Hook to enable navigation to other routes
   const navigate = useNavigate();
-  const showSecondaryButton = false;
+  const showSecondaryButton = true;
 
   // Handler for the "Accept" button
   // Navigates to the SituationPage when clicked
   const handleAccept = () => {
-    navigate("/one");
+    navigate("/situation");
   };
+
+  const handleSkip = () => {
+    navigate("/situation");
+  }
 
   return (
     <div class="min-h-screen flex flex-col justify-between bg-[#1B1F23] text-white p-4">
       <div className="flex-grow">
       <img 
-        src="/assets/BetterConvoLogo.png" 
-        alt="BetterConvo logo" 
+        src="/assets/OnboardingImage.png" 
+        alt="Onboarding logo" 
         className="w-fit h-auto mx-auto mb-4"
         />
       <MainHeader title="Welcome!" />
@@ -32,7 +36,7 @@ export default function HomePage() {
     <div className="flex flex-col gap-2 items-center pb-4">
     <MainButton label="Next" onClick={handleAccept} />
     {showSecondaryButton ? (
-      <SecondaryButton label="Skip" />
+      <SecondaryButton label="Skip" onClick={handleSkip} />
     ) : (
     <div className="h-[42px]" />
     )} 
