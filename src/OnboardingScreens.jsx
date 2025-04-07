@@ -97,7 +97,7 @@ export default function OnboardingIntro() {
           <img
             src={image}
             alt={title}
-            className="w-64 h-auto mb-6 object-contain transition-all duration-500 ease-in-out"
+            className="w-64 h-auto mb-6 object-contain"
           />
           <h1 className="text-2xl font-bold mb-2">{title}</h1>
           <p className="text-md max-w-sm whitespace-pre-line">
