@@ -67,7 +67,7 @@ export default function OnboardingIntro() {
       <div className="w-full flex justify-end">
         <button
           onClick={handleSkip}
-          className="text-sm text-gray-400 hover:text-white transition"
+          className="font-display text-sm text-gray-400 hover:text-white transition"
         >
           Skip
         </button>
@@ -102,7 +102,7 @@ export default function OnboardingIntro() {
             alt={title}
             className="w-64 h-auto mb-6 object-contain"
           />
-          <h1 className="text-2xl font-bold mb-2">{title}</h1>
+          <h1 className="font-display text-2xl font-bold mb-2">{title}</h1>
           <p className="text-md max-w-sm whitespace-pre-line">
             {step === 3 ? (
               <>

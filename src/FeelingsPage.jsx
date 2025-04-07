@@ -74,8 +74,8 @@ export default function FeelingsPage() {
   return (
     <div class="text-left mx-auto max-width-sm md:w-xl p-2">
       {/* Page header */}
-      <h2 class="text-xl md:text-2xl mb-4 font-semibold">How did you feel?</h2>
-      <p class="font-medium text-base mb-6 md:text-lg">
+      <h2 class="font-display text-xl md:text-2xl mb-4 font-semibold">How did you feel?</h2>
+      <p class="font-display font-medium text-base mb-6 md:text-lg">
         Select 1-3 feelings
       </p>
 
@@ -106,14 +106,14 @@ export default function FeelingsPage() {
       {/* Navigation Buttons */}
       <div class="flex justify-center gap-2">
         <button
-          className="text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px"
+          className="font-display text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px"
           onClick={handleBack}
           style={{ marginRight: "10px" }}
         >
           Back
         </button>
         <button
-          className="text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px"
+          className="font-display text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px"
           onClick={handleNext}
         >
           Next

@@ -33,9 +33,9 @@ export default function ScriptPage() {
 
       {/* Display the generated GPT response */}
       <div class="mx-auto md:w-xl p-2">
-        <h2 class="text-left text-lg font-semibold pb-4">How about saying...</h2>
+        <h2 class="font-display text-left text-xl font-semibold pb-4">How about saying...</h2>
 
-        <div class="text-left mb-2 md:mb-4"
+        <div class="text-base text-left mb-2 md:mb-4"
         >
           <p>{response}</p>
         </div>
@@ -43,7 +43,7 @@ export default function ScriptPage() {
 
       {/* New Request button */}
       <div className="mt-4 flex gap-6">
-        <button className="text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px" onClick={handleNewRequest}>New Request</button>
+        <button className="font-display text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px" onClick={handleNewRequest}>New Request</button>
 
       {/* Feedback Section */}
       <div>
@@ -53,7 +53,7 @@ export default function ScriptPage() {
           to improve the app. Please share your feedback so I can make it even
           better for you.
         </h5> */}
-        <button className="text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px" onClick={handleFeedback}>Give Feedback</button>
+        <button className="font-display text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px" onClick={handleFeedback}>Give Feedback</button>
         </div>
       </div>
     </div>

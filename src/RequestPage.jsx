@@ -184,13 +184,13 @@ export default function RequestPage() {
   return (
     <div class="mx-auto max-width-sm md:w-xl p-2">
       <div>
-      <h2 class="text-left text-xl md:text-2xl mb-4 font-semibold">What would you like to happen?</h2>
+      <h2 class="font-display text-left text-xl md:text-2xl mb-4 font-semibold">What would you like to happen?</h2>
       {/* <p class="font-medium text-base mb-2 md:text-lg">What do you want?</p> */}
       {/* <p class="font-light text italic text-base md:text-lg mb-4 md:mb-4 ">e.g I want them to tell me if they're running late</p> */}
         <div class="text-left flex flex-col mb-4 md:mb-4">
-          <p class="break-words w-full text-base md:text-lg mb-2">Situation: {situation}
+          <p class="font-display break-words w-full text-base md:text-lg mb-2">Situation: {situation}
         </p>
-        <p class="m-0 text-base md:text-lg">{feelings.length > 1 ? "Feelings: " : "Feeling: "}{feeling}
+        <p class="font-display m-0 text-base md:text-lg">{feelings.length > 1 ? "Feelings: " : "Feeling: "}{feeling}
         </p>
         </div>
       </div>

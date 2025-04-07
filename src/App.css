@@ -7,3 +7,11 @@ Base styles for the root element
 }
 
 @import "tailwindcss";
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-display {
+  font-family: 'Work Sans', 'Inter', sans-serif;
+}
