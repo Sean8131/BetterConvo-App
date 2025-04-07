@@ -76,12 +76,23 @@ export default function OnboardingIntro() {
       {/* Middle: Main content */}
       <AnimatePresence mode="wait" initial={false}>
         <motion.div
+          className="flex flex-col items-center justify-center text-center flex-grow overflow-hidden px-2"
           key={step}
           initial={{ x: direction * 300, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: -direction * 300, opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col items-center justify-center text-center flex-grow overflow-hidden px-2"
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          onDragEnd={(e, info) => {
+            if (info.offset.x < -100 && step < onboardingScreens.length - 1) {
+              setDirection(1);
+              setStep(step + 1);
+            } else if (info.offset.x > 100 && step > 0) {
+              setDirection(-1);
+              setStep(step - 1);
+            }
+          }}
         >
           <img
             src={image}
