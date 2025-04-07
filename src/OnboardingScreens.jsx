@@ -61,7 +61,9 @@ export default function OnboardingIntro() {
   const { title, subtitle, image } = onboardingScreens[step];
 
   return (
-    <div className="min-h-screen flex flex-col justify-between items-center text-white bg-[#1B1F23] p-6 overflow-hidden">
+    <div className="min-h-screen flex flex-col justify-between items-center text-white bg-[#1B1F23] p-4 overflow-hidden">
+
+      {/* Top: Skip */}
       <div className="w-full flex justify-end">
         <button
           onClick={handleSkip}
@@ -71,6 +73,7 @@ export default function OnboardingIntro() {
         </button>
       </div>
 
+      {/* Middle: Main content */}
       <AnimatePresence mode="wait" initial={false}>
         <motion.div
           key={step}
@@ -78,7 +81,7 @@ export default function OnboardingIntro() {
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: -direction * 300, opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col items-center text-center mt-4"
+          className="flex flex-col items-center text-center flex-grow overflow-hidden px-2"
         >
           <img
             src={image}
@@ -109,7 +112,8 @@ export default function OnboardingIntro() {
         </motion.div>
       </AnimatePresence>
 
-      <div className="w-full flex flex-col items-center gap-4 mb-8">
+      {/* Bottom: Progress dots + button */}      
+      <div className="flex flex-col items-center gap-4 pt-4 pb-6">
         <div className="flex gap-2 mb-2">
           {onboardingScreens.map((_, index) => (
             <div
