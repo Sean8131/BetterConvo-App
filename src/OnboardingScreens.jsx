@@ -85,12 +85,15 @@ export default function OnboardingIntro() {
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           onDragEnd={(e, info) => {
-            if (info.offset.x < -100 && step < onboardingScreens.length - 1) {
+            const swipeThreshold = 100;
+            const swipe = info.offset.x;
+
+            if (swipe < -swipeThreshold && step < onboardingScreens.length - 1) {
               setDirection(1);
-              setStep(step + 1);
-            } else if (info.offset.x > 100 && step > 0) {
+              requestAnimationFrame(() => setStep(step + 1));
+            } else if (swipe > swipeThreshold && step > 0) {
               setDirection(-1);
-              setStep(step - 1);
+              requestAnimationFrame(() => setStep(step - 1));
             }
           }}
         >
