@@ -49,7 +49,7 @@ export default function OnboardingIntro() {
       navigate("/situation");
     } else {
       setDirection(1);
-      setStep(step + 1);
+      requestAnimationFrame(() => setStep(step + 1));
     }
   };
 
