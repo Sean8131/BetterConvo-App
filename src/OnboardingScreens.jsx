@@ -61,7 +61,7 @@ export default function OnboardingIntro() {
   const { title, subtitle, image } = onboardingScreens[step];
 
   return (
-    <div className="min-h-screen flex flex-col justify-between items-center text-white bg-[#1B1F23] p-4 overflow-hidden">
+    <div className="h-dvh flex flex-col justify-between items-center text-white bg-[#1B1F23] p-4 overflow-hidden">
 
       {/* Top: Skip */}
       <div className="w-full flex justify-end">
@@ -81,12 +81,12 @@ export default function OnboardingIntro() {
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: -direction * 300, opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col items-center text-center flex-grow overflow-hidden px-2"
+          className="flex flex-col items-center justify-center text-center flex-grow overflow-hidden px-2"
         >
           <img
             src={image}
             alt={title}
-            className="w-64 h-auto mb-6 transition-all duration-500 ease-in-out"
+            className="w-64 h-auto mb-6 object-contain transition-all duration-500 ease-in-out"
           />
           <h1 className="text-2xl font-bold mb-2">{title}</h1>
           <p className="text-md max-w-sm whitespace-pre-line">
