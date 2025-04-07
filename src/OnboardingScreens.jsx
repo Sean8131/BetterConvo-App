@@ -107,8 +107,8 @@ export default function OnboardingIntro() {
             {step === 3 ? (
               <>
                 This product uses Gen AI. Don't enter personally
-                identifiable information.
-                For more info, please read our{" "}
+                identifiable info.
+                For more details, please read our{" "}
                 <a
                   href="/terms"
                   className="underline text-blue-400 hover:text-blue-300"
