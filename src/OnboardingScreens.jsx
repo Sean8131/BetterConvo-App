@@ -106,9 +106,9 @@ export default function OnboardingIntro() {
           <p className="text-md max-w-sm whitespace-pre-line">
             {step === 3 ? (
               <>
-                This product uses Gen AI. Do not enter personally
+                This product uses Gen AI. Don't enter personally
                 identifiable information.
-                For more details, please review our{" "}
+                For more info, please read our{" "}
                 <a
                   href="/terms"
                   className="underline text-blue-400 hover:text-blue-300"

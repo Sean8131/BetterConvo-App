@@ -7,7 +7,6 @@ import { useLocation } from "react-router-dom";
 
 // Import useNavigate hook from React, which returns a function that we can call to changes routes and pass state to update the next page the user is taken to
 import { useNavigate } from "react-router-dom";
-import MyTitle from "./MyTitle";
 import BlinkingTextarea from "./BlinkingTextArea";
 
 // Defining the RequestPage component
@@ -191,7 +190,7 @@ export default function RequestPage() {
         <div class="text-left flex flex-col mb-4 md:mb-4">
           <p class="break-words w-full text-base md:text-lg mb-2">Situation: {situation}
         </p>
-        <p class="m-0 text-base md:text-lg">{feelings.length > 1 ? "Feelings:" : "Feeling: "}{feeling}
+        <p class="m-0 text-base md:text-lg">{feelings.length > 1 ? "Feelings: " : "Feeling: "}{feeling}
         </p>
         </div>
       </div>
