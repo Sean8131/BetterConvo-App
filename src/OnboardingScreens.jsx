@@ -49,7 +49,7 @@ export default function OnboardingIntro() {
       navigate("/situation");
     } else {
       setDirection(1);
-      setStep(step + 1);
+      requestAnimationFrame(() => setStep(step + 1));
     }
   };
 
@@ -61,7 +61,9 @@ export default function OnboardingIntro() {
   const { title, subtitle, image } = onboardingScreens[step];
 
   return (
-    <div className="min-h-screen flex flex-col justify-between items-center text-white bg-[#1B1F23] p-6 overflow-hidden">
+    <div className="h-dvh flex flex-col justify-between items-center text-white bg-[#1B1F23] p-4 overflow-hidden">
+
+      {/* Top: Skip */}
       <div className="w-full flex justify-end">
         <button
           onClick={handleSkip}
@@ -71,27 +73,42 @@ export default function OnboardingIntro() {
         </button>
       </div>
 
+      {/* Middle: Main content */}
       <AnimatePresence mode="wait" initial={false}>
         <motion.div
+          className="flex flex-col items-center justify-center text-center flex-grow overflow-hidden px-2"
           key={step}
           initial={{ x: direction * 300, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: -direction * 300, opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col items-center text-center mt-4"
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          onDragEnd={(e, info) => {
+            const swipeThreshold = 100;
+            const swipe = info.offset.x;
+
+            if (swipe < -swipeThreshold && step < onboardingScreens.length - 1) {
+              setDirection(1);
+              requestAnimationFrame(() => setStep(step + 1));
+            } else if (swipe > swipeThreshold && step > 0) {
+              setDirection(-1);
+              requestAnimationFrame(() => setStep(step - 1));
+            }
+          }}
         >
           <img
             src={image}
             alt={title}
-            className="w-64 h-auto mb-6 transition-all duration-500 ease-in-out"
+            className="w-64 h-auto mb-6 object-contain"
           />
           <h1 className="text-2xl font-bold mb-2">{title}</h1>
           <p className="text-md max-w-sm whitespace-pre-line">
             {step === 3 ? (
               <>
-                This product uses Gen AI. Do not enter personally
+                This product uses Gen AI. Don't enter personally
                 identifiable information.
-                For more details, please review our{" "}
+                For more info, please read our{" "}
                 <a
                   href="/terms"
                   className="underline text-blue-400 hover:text-blue-300"
@@ -109,7 +126,8 @@ export default function OnboardingIntro() {
         </motion.div>
       </AnimatePresence>
 
-      <div className="w-full flex flex-col items-center gap-4 mb-8">
+      {/* Bottom: Progress dots + button */}      
+      <div className="flex flex-col items-center gap-4 pt-4 pb-6">
         <div className="flex gap-2 mb-2">
           {onboardingScreens.map((_, index) => (
             <div
