@@ -30,7 +30,7 @@ export default function TermsOfUse() {
   Please avoid including anything that could be traced back to you or someone else.
 </p>
 
-<ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+<ul className="list-disc ml-6 mt-2 space-y-1 text-base">
   <li>Full names (yours or others)</li>
   <li>Email addresses or phone numbers</li>
   <li>Social media handles or usernames</li>
