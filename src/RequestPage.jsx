@@ -203,9 +203,9 @@ export default function RequestPage() {
           <div className="spinner"></div>
         ) : (
            <TextArea
-                  placeholder="Explain what happened"
-                  value={situation}
-                  onChange={(e) => setSituation(e.target.value)}
+                  placeholder="Describe what you want to happen..."
+                  value={request}
+                  onChange={(e) => setRequest(e.target.value)}
                   />
         )}
       </div>
