@@ -37,12 +37,12 @@ export default function SituationPage() {
     <div class="h-dvh flex flex-col justify-between p-4 bg-[#1B1F23] text-white">
       {/* Top: Header and textarea */}
       <div className="flex-grow max-w-xl w-full mx-auto mt-30">
-        <h2 class="font-display text-white text-left text-xl md:text-2xl mb-4 font-semibold">
+        <h2 class="font-display text-white text-left text-2xl md:text-3xl mb-6 font-semibold">
           What happened?
         </h2>
         <ExampleText text="e.g My partner picked me up late from work" />
 
-        <div class="mb-4">
+        <div>
           <TextArea
             placeholder="Explain what happened..."
             value={situation}
