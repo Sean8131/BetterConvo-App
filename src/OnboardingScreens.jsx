@@ -61,7 +61,7 @@ export default function OnboardingIntro() {
   const { title, subtitle, image } = onboardingScreens[step];
 
   return (
-    <div className="h-dvh flex flex-col justify-between items-center text-white bg-[#1B1F23] p-4 overflow-hidden">
+    <div className="h-dvh flex flex-col justify-between items-center text-white bg-[#1C2124] p-4 overflow-hidden">
 
       {/* Top: Skip */}
       <div className="w-full flex justify-end">
