@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 Base styles for the root element
 #root {
   max-width: 1280px;
@@ -5,8 +7,6 @@ Base styles for the root element
   padding: 2rem;
   text-align: center;
 }
-
-@import "tailwindcss";
 
 body {
   font-family: 'Inter', sans-serif;
