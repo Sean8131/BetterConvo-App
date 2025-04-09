@@ -37,7 +37,9 @@ export default function OnboardingIntro() {
   const isLast = step === onboardingScreens.length - 1;
 
   useEffect(() => {
-    const hasOnboarded = localStorage.getItem("hasOnboarded");
+    // Disabled localStorage for now
+    // const hasOnboarded = localStorage.getItem("hasOnboarded");
+    const hasOnboarded = false;
     if (hasOnboarded === "true") {
       navigate("/situation");
     }
