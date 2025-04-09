@@ -3,6 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import MainButton from "./MainButton";
 
+// Config flag to turn onboarding on and off
+// Set to false to re-enablel onboarding
+const SKIP_ONBOARDING = false;
+
 const onboardingScreens = [
   {
     title: "Welcome to BetterConvo",
@@ -37,10 +41,8 @@ export default function OnboardingIntro() {
   const isLast = step === onboardingScreens.length - 1;
 
   useEffect(() => {
-    // Disabled localStorage for now
-    // const hasOnboarded = localStorage.getItem("hasOnboarded");
-    const hasOnboarded = false;
-    if (hasOnboarded === "true") {
+    const hasOnboarded = localStorage.getItem("hasOnboarded");
+    if (SKIP_ONBOARDING && hasOnboarded === "true") {
       navigate("/situation");
     }
   }, [navigate]);
