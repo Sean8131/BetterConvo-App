@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import MainButton from "./MainButton";
+import SkipButton from "./SkipButton";
 
 // Config flag to turn onboarding on and off
 // Set to false to re-enablel onboarding
@@ -65,16 +66,15 @@ export default function OnboardingIntro() {
   const { title, subtitle, image } = onboardingScreens[step];
 
   return (
-    <div className="h-dvh flex flex-col justify-between items-center text-white bg-[#1C2124] p-4 overflow-hidden">
+    <motion.div 
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 2.0 }}
+    className="h-dvh flex flex-col justify-between items-center text-white bg-[#1C2124] p-4 overflow-hidden">
 
       {/* Top: Skip */}
       <div className="w-full flex justify-end">
-        <button
-          onClick={handleSkip}
-          className="font-display text-sm text-gray-400 hover:text-white transition"
-        >
-          Skip
-        </button>
+      <SkipButton show={!isLast} onClick={handleSkip} />
       </div>
 
       {/* Middle: Main content */}
@@ -147,6 +147,6 @@ export default function OnboardingIntro() {
           onClick={handleNext}
         />
       </div>
-    </div>
+    </motion.div>
   );
 }
