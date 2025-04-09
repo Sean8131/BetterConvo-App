@@ -143,7 +143,7 @@ export default function OnboardingIntro() {
           ))}
         </div>
         <MainButton
-          label={isLast ? "Let’s begin" : "Next"}
+          label={isLast ? "Let’s begin 🚀" : "Next"}
           onClick={handleNext}
         />
       </div>
