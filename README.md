@@ -111,7 +111,7 @@ As a **BetterConvo** admin I would like to track anonymous visits and the number
 - **Multi-Turn Conversations** - The app provides a single response per request.
 - **Responsive Design** - Mobile-only design won't be optimised for desktop screens.
 
-## BetterConvo Project Timeline (4.5 Weeks)
+## BetterConvo Project Timeline (7 Weeks)
 
 ###  Project Start: February 26, 2025
 
@@ -133,16 +133,67 @@ As a **BetterConvo** admin I would like to track anonymous visits and the number
 - Ensure compliance with scope and project requirements.  
 - Polish UI and optimise performance.  
 
-#### 5. Final Submission (Mar 31, 2025)
+#### 5. Final Submission (April 21, 2025)
 - Submit the completed project for evaluation.  
 
 #### 6. Presentation/Demo Day (TBD)
 - Prepare for and present BetterConvo. 
 
-## Privacy Disclaimer Text (Remove later)
-- It is your responsibility to ensure that you do not share confidential details.
-- By using BetterConvo, you acknowledge that: 
-- Your inputs are processed in real time and not stored. 
-- AI-generated responses are for guidance only and 
-should not replace professional advice.
-- You are responsible for how you use the generated content in your personal conversations. 
+# BetterConvo – New Machine Setup Checklist
+
+This guide helps you get the BetterConvo app up and running on a new machine quickly and reliably.
+
+## 1. Clone the Repository
+```shell
+git clone git@github.com:Sean8131/BetterConvo-App.git
+cd BetterConvo-App
+```
+
+## 2. Install Dependencies
+```shell
+npm install
+```
+This will install all frontend dependencies defined in `package.json`, including:
+- React
+- Vite
+- TailwindCSS
+- framer-motion
+- react-router-dom
+
+## 3. Set Up Environment Variables
+If required, duplicate the example file:
+```shell
+cp .env.example .env
+```
+Then edit `.env` and update any necessary keys (e.g. PORT, OPENAI_API_KEY).
+
+## 4. Run the Development Server
+```shell
+npm run dev
+```
+Then open your browser to:
+```
+http://localhost:5173/
+```
+
+## 5. Optional Global Tools
+You might want to install:
+```shell
+npm install -g vercel
+npm install -g nodemon
+```
+
+## 6. Backend Setup (if applicable)
+If you're also working on the Express.js backend in `/` and have installed nodemon:
+```shell
+cd BetterConvo-App
+npm install
+npm run all
+```
+
+## 7. Recommended VSCode Extensions
+- Prettier
+- Tailwind CSS IntelliSense
+
+## You're All Set!
+You should now be able to develop, test, and run BetterConvo locally.

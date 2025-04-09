@@ -34,7 +34,7 @@ export default function SituationPage() {
   };
 
   return (
-    <div class="h-dvh flex flex-col justify-between p-4 bg-[#1B1F23] text-white">
+    <div class="h-dvh flex flex-col justify-between p-4 bg-[#1C2124] text-white">
       {/* Top: Header and textarea */}
       <div className="flex-grow max-w-xl w-full mx-auto mt-30">
         <h2 class="font-display text-white text-left text-2xl md:text-3xl mb-6 font-semibold">
