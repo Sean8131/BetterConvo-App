@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import MainButton from "./MainButton";
 import SkipButton from "./SkipButton";
+import PageLayout from "./PageLayout";
 
 // Config flag to turn onboarding on and off
 // Set to false to re-enablel onboarding
@@ -66,87 +67,80 @@ export default function OnboardingIntro() {
   const { title, subtitle, image } = onboardingScreens[step];
 
   return (
-    <motion.div 
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    transition={{ duration: 2.0 }}
-    className="h-dvh flex flex-col justify-between items-center text-white bg-[#1C2124] p-4 overflow-hidden">
-
-      {/* Top: Skip */}
-      <div className="w-full flex justify-end">
-      <SkipButton show={!isLast} onClick={handleSkip} />
-      </div>
-
-      {/* Middle: Main content */}
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.div
-          className="flex flex-col items-center justify-center text-center flex-grow overflow-hidden px-2"
-          key={step}
-          initial={{ x: direction * 300, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: -direction * 300, opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
-          onDragEnd={(e, info) => {
-            const swipeThreshold = 100;
-            const swipe = info.offset.x;
-
-            if (swipe < -swipeThreshold && step < onboardingScreens.length - 1) {
-              setDirection(1);
-              requestAnimationFrame(() => setStep(step + 1));
-            } else if (swipe > swipeThreshold && step > 0) {
-              setDirection(-1);
-              requestAnimationFrame(() => setStep(step - 1));
-            }
-          }}
-        >
-          <img
-            src={image}
-            alt={title}
-            className="w-64 h-auto mb-6 object-contain"
+    <PageLayout
+  footer={
+    <div className="flex flex-col items-center gap-4">
+      <div className="flex gap-2 mb-2">
+        {onboardingScreens.map((_, index) => (
+          <div
+            key={index}
+            className={`h-2 w-2 rounded-full ${
+              index === step ? "bg-white" : "bg-gray-600"
+            }`}
           />
-          <h1 className="font-display text-2xl font-bold mb-2">{title}</h1>
-          <p className="text-md max-w-sm whitespace-pre-line">
-            {step === 3 ? (
-              <>
-                This product uses Gen AI. Don't enter personally
-                identifiable info.
-                For more details, please read our{" "}
-                <a
-                  href="/terms"
-                  className="underline text-blue-400 hover:text-blue-300"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Terms of Use
-                </a>
-                .
-              </>
-            ) : (
-              subtitle
-            )}
-          </p>
-        </motion.div>
-      </AnimatePresence>
-
-      {/* Bottom: Progress dots + button */}      
-      <div className="flex flex-col items-center gap-4 pt-4 pb-6">
-        <div className="flex gap-2 mb-2">
-          {onboardingScreens.map((_, index) => (
-            <div
-              key={index}
-              className={`h-2 w-2 rounded-full ${
-                index === step ? "bg-white" : "bg-gray-600"
-              }`}
-            />
-          ))}
-        </div>
-        <MainButton
-          label={isLast ? "Let’s begin! 🚀" : "Next"}
-          onClick={handleNext}
-        />
+        ))}
       </div>
+      <MainButton
+        label={isLast ? "Let’s begin" : "Next"}
+        onClick={handleNext}
+      />
+    </div>
+  }
+>
+  <SkipButton show={!isLast} onClick={handleSkip} />
+  
+  {/* Main content here */}
+  <AnimatePresence mode="wait" initial={false}>
+    <motion.div
+      className="flex flex-col items-center justify-center text-center flex-grow overflow-hidden px-2"
+      key={step}
+      initial={{ x: direction * 300, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      exit={{ x: -direction * 300, opacity: 0 }}
+      transition={{ duration: 0.5 }}
+      drag="x"
+      dragConstraints={{ left: 0, right: 0 }}
+      onDragEnd={(e, info) => {
+        const swipeThreshold = 100;
+        const swipe = info.offset.x;
+
+        if (swipe < -swipeThreshold && step < onboardingScreens.length - 1) {
+          setDirection(1);
+          requestAnimationFrame(() => setStep(step + 1));
+        } else if (swipe > swipeThreshold && step > 0) {
+          setDirection(-1);
+          requestAnimationFrame(() => setStep(step - 1));
+        }
+      }}
+    >
+      <img
+        src={image}
+        alt={title}
+        className="w-64 h-auto mb-6 object-contain"
+      />
+      <h1 className="font-display text-2xl font-bold mb-2">{title}</h1>
+      <p className="text-md max-w-sm whitespace-pre-line">
+        {step === 3 ? (
+          <>
+            This product uses Gen AI. Don't enter personally
+            identifiable info.
+            For more details, please read our{" "}
+            <a
+              href="/terms"
+              className="underline text-blue-400 hover:text-blue-300"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Terms of Use
+            </a>
+            .
+          </>
+        ) : (
+          subtitle
+        )}
+      </p>
     </motion.div>
+  </AnimatePresence>
+</PageLayout>
   );
 }

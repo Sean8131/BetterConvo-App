@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function SkipButton({ show, onClick }) {
   return (
-    <div className="w-full flex justify-end h-8">
+    <div className="w-full flex justify-end h-8 p-2">
       <AnimatePresence mode="wait">
         {show && (
           <motion.button

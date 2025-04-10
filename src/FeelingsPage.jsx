@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import MyTitle from "./MyTitle";
+import PageLayout from "./PageLayout";
 
 // Defining the FeelingsPage component
 export default function FeelingsPage() {
@@ -72,7 +72,8 @@ export default function FeelingsPage() {
   };
 
   return (
-    <div class="text-left mx-auto max-width-sm md:w-xl p-2">
+    <PageLayout>
+    <div class="text-left mx-auto max-width-sm md:w-xl p-2 mt-30">
       {/* Page header */}
       <h2 class="font-display text-xl md:text-2xl mb-4 font-semibold">How did you feel?</h2>
       <p class="font-display font-medium text-base mb-6 md:text-lg">
@@ -120,5 +121,6 @@ export default function FeelingsPage() {
         </button>
       </div>
     </div>
+    </PageLayout>
   );
 }

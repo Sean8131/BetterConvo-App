@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import TextArea from "./TextArea";
 import MainButton from "./MainButton";
 import ExampleText from "./ExampleText";
+import PageLayout from "./PageLayout";
 
 export default function SituationPage() {
   // Hook to enable navigation between pages
@@ -34,6 +35,7 @@ export default function SituationPage() {
   };
 
   return (
+    <PageLayout>
     <div class="h-dvh flex flex-col justify-between p-4 bg-[#1C2124] text-white">
       {/* Top: Header and textarea */}
       <div className="flex-grow max-w-xl w-full mx-auto mt-30">
@@ -56,5 +58,6 @@ export default function SituationPage() {
         <MainButton onClick={handleNext} label="Next"></MainButton>
       </div>
     </div>
+    </PageLayout>
   );
 }
