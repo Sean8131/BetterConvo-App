@@ -9,6 +9,9 @@ import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import TextArea from "./TextArea";
 
+import PageLayout from "./PageLayout";
+import MainButton from "./MainButton";
+
 // Defining the RequestPage component
 export default function RequestPage() {
   // Retrieve the situation and feelings passed from FeelingsPage
@@ -182,102 +185,62 @@ export default function RequestPage() {
   };
 
   return (
-    <div class=" mx-auto max-width-sm md:w-xl p-2">
-      <div>
-      <h2 class="font-display text-left text-xl md:text-2xl mb-4 font-semibold">What would you like to happen?</h2>
-      {/* <p class="font-medium text-base mb-2 md:text-lg">What do you want?</p> */}
-      {/* <p class="font-light text italic text-base md:text-lg mb-4 md:mb-4 ">e.g I want them to tell me if they're running late</p> */}
-        <div class="text-left flex flex-col mb-4 md:mb-4">
-          <p class="font-display break-words w-full text-base md:text-lg mb-2">Situation: {situation}
-        </p>
-        <p class="font-display m-0 text-base md:text-lg">{feelings.length > 1 ? "Feelings: " : "Feeling: "}{feeling}
-        </p>
+    <PageLayout
+      footer={
+        <div className="flex justify-center gap-4 max-w-xl w-full mx-auto">
+      <MainButton
+        label={errorMessage ? "Retry" : "Generate"}
+        onClick={handleGenerate}
+        disabled={loading || !isOnLine}
+      />
+    </div>
+      }
+    >
+      <div className="max-w-xl w-full mx-auto px-4 mt-20">
+        <h2 className="font-display text-white text-left text-2xl md:text-3xl mb-6 font-semibold">
+          What would you like to happen?
+        </h2>
+
+        <div className="text-left flex flex-col mb-4 text-white">
+          <p className="font-display break-words text-base md:text-lg mb-2">
+            Situation: {situation}
+          </p>
+          <p className="font-display text-base md:text-lg">
+            {feelings.length > 1 ? "Feelings: " : "Feeling: "} {feeling}
+          </p>
         </div>
-      </div>
 
-      {/* Text area for the request */}
-      <div class="mt-4 mb-4">
-
-        {/* If loading, show the spinner; otherwise, show the textarea */}
         {loading ? (
-          <div className="spinner"></div>
+          <div className="spinner" />
         ) : (
-           <TextArea
-                  placeholder="Describe what you want to happen..."
-                  value={request}
-                  onChange={(e) => setRequest(e.target.value)}
-                  />
+          <TextArea
+            placeholder="Describe what you want to happen..."
+            value={request}
+            onChange={(e) => setRequest(e.target.value)}
+          />
         )}
+
+        {errorMessage && <div className="text-red-500 mt-4">{errorMessage}</div>}
       </div>
 
-      {/* Inline error message */}
-      {errorMessage && <div class="text-red-500 mb-4">{errorMessage}</div>}
-
-      {/* Button Rendering */}
-{/* Back Button */}
-<button
-  className={`rounded-lg border py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 focus:outline-none focus-visible:ring-4 ${
-    !isOnLine || loading
-      ? "!text-gray-700 !border-gray-700"
-      : "text-white border-purple-500 hover:bg-purple-100 hover:text-purple-950 hover:border-[#646cff]"
-  }`}
-  onClick={handleBack}
-  style={{ marginRight: "10px" }}
-  disabled={loading || !isOnLine}
->
-  Back
-</button>
-
-{!isOnLine ? (
-  // When offline, always show the Generate button as disabled.
-  <button
-    className="rounded-lg border border-gray-700 text-gray-700 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-not-allowed transition-colors duration-200 focus:outline-none focus-visible:ring-4"
-    disabled
-  >
-    Generate
-  </button>
-) : errorMessage ? (
-  // When there's an error (and you're online), show the Retry button.
-  <button
-    className="rounded-lg border border-green-400 text-green-400 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4"
-    onClick={handleGenerate}
-    disabled={loading}
-  >
-    Retry
-  </button>
-) : (
-  // Otherwise, show the normal Generate button.
-  <button
-    className={`rounded-lg border py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 focus:outline-none focus-visible:ring-4 ${
-      loading
-        ? "!text-gray-700 !border-gray-700"
-        : "text-white border-purple-500 hover:bg-purple-100 hover:text-purple-950 hover:border-[#646cff]"
-    }`}
-    onClick={handleGenerate}
-    disabled={loading}
-  >
-    Generate
-  </button>
-)}
-
-      {/* Inline CSS for the spinner */}
+      {/* Spinner Styles */}
       <style>
         {`
-        .spinner {
-        border: 4px solid #f3f3f3;
-        border-top: 4px solid #3498db;
-        border-radius: 50%;
-        width: 24px;
-        height: 24px;
-        animation: spin 2s linear infinite;
-        margin: 20px auto;
-        }
-        @keyframes spin {
-        0% {transform: rotate(0deg); }
-        100% {transform: rotate(360deg); }
-        }
+          .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 2s linear infinite;
+            margin: 20px auto;
+          }
+          @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
         `}
       </style>
-    </div>
+    </PageLayout>
   );
 }
