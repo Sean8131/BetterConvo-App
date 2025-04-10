@@ -68,6 +68,7 @@ export default function OnboardingIntro() {
 
   return (
     <PageLayout
+    showBack={step !== 0}
   footer={
     <div className="flex flex-col items-center gap-4">
       <div className="flex gap-2 mb-2">
