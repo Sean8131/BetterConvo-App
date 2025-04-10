@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import PageLayout from "./PageLayout";
+import MainButton from "./MainButton";
 
 // Defining the FeelingsPage component
 export default function FeelingsPage() {
@@ -72,55 +73,36 @@ export default function FeelingsPage() {
   };
 
   return (
-    <PageLayout>
-    <div class="text-left mx-auto max-width-sm md:w-xl p-2 mt-30">
-      {/* Page header */}
-      <h2 class="font-display text-xl md:text-2xl mb-4 font-semibold">How did you feel?</h2>
-      <p class="font-display font-medium text-base mb-6 md:text-lg">
-        Select 1-3 feelings
-      </p>
-
-      {/* Display predefined feelings as buttons arranged in 3 columns */}
-      <div class="grid grid-cols-3 gap-3 md:gap-4 mb-8 md:mb-10">
-        {predefinedFeelings.map((feeling) => (
-          <button
-            key={feeling}
-            onClick={(e) => {
-              handleFeelingClick(feeling);
-
-              // Force blur after click
-              setTimeout(() => e.target.blur(), 0);
-            }}
-            // Hide default tap highlight on WebKit-based browsers
-            style={{ WebkitTapHighlightColor: "transparent" }}
-            className={`text-purple-100 border-purple-200  rounded-lg border py-2 px-3 text-sm md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 ${
-              selectedFeelings.includes(feeling)
-                ? "bg-purple-100 text-purple-950"
-                : ""
-            }`}
-          >
-            {feeling}
-          </button>
-        ))}
+    <PageLayout
+      footer={
+        <div className="flex flex-col justify-center">
+          <MainButton onClick={handleNext} label="Next"></MainButton>
+        </div>
+      }
+    >
+      <div className="text-left mx-auto max-w-sm md:w-xl p-2 mt-30">
+        <h2 className="font-display text-xl md:text-2xl mb-4 font-semibold">How did you feel?</h2>
+        <p className="font-display font-medium text-base mb-6 md:text-lg">Select 1–3 feelings</p>
+  
+        <div className="grid grid-cols-3 gap-3 md:gap-4 mb-8 md:mb-10">
+          {predefinedFeelings.map((feeling) => (
+            <button
+              key={feeling}
+              onClick={(e) => {
+                handleFeelingClick(feeling);
+                setTimeout(() => e.target.blur(), 0);
+              }}
+              style={{ WebkitTapHighlightColor: "transparent" }}
+              className={`text-purple-100 border-purple-200 rounded-lg border py-2 px-3 text-sm md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 ${
+                selectedFeelings.includes(feeling) ? "bg-purple-100 text-purple-950" : ""
+              }`}
+            >
+              {feeling}
+            </button>
+          ))}
+        </div>
       </div>
-
-      {/* Navigation Buttons */}
-      <div class="flex justify-center gap-2">
-        <button
-          className="font-display text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px"
-          onClick={handleBack}
-          style={{ marginRight: "10px" }}
-        >
-          Back
-        </button>
-        <button
-          className="font-display text-purple-100 hover:bg-purple-100 hover:text-purple-950 rounded-lg border border-purple-500 py-2 px-6 text-base md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 hover:border-[#646cff] focus:outline-none focus-visible:ring-4px"
-          onClick={handleNext}
-        >
-          Next
-        </button>
-      </div>
-    </div>
     </PageLayout>
   );
+    
 }
