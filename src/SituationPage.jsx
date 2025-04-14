@@ -6,6 +6,7 @@ import ExampleText from "./ExampleText";
 import PageLayout from "./PageLayout";
 import PageFooter from "./PageFooter";
 import SecondaryButton from "./SecondaryButton";
+import MainHeader from "./MainHeader";
 
 export default function SituationPage() {
   const navigate = useNavigate();
@@ -43,9 +44,7 @@ export default function SituationPage() {
       }
     >
       <div className="max-w-xl w-full mx-auto px-4 pt-20">
-        <h2 className="font-display text-white text-left text-2xl md:text-3xl mb-6 font-semibold">
-          What happened?
-        </h2>
+        <MainHeader title="What happened?" />
         <ExampleText text="e.g My partner picked me up late from work" />
         <TextArea
           placeholder="Explain what happened..."

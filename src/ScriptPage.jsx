@@ -4,9 +4,10 @@
 
 import { useLocation, useNavigate } from "react-router-dom";
 import PageLayout from "./PageLayout";
+import PageFooter from "./PageFooter";
 import MainButton from "./MainButton";
 import SecondaryButton from "./SecondaryButton";
-import PageFooter from "./PageFooter";
+import MainHeader from "./MainHeader";
 
 // Component is defined as a functional component and is exported so it can be imported and used in the routing setup.
 
@@ -45,13 +46,10 @@ export default function ScriptPage() {
         </PageFooter>
       }
     >
-      <div className="flex flex-col items-center mx-auto w-2xs md:w-3xl p-1">
+      <div className="max-w-xl w-full mx-auto px-4 pt-10">
         {/* Display the generated GPT response */}
         <div className="mx-auto md:w-xl p-2 pt-10">
-          <h2 className="font-display text-white text-left text-2xl md:text-3xl mb-6 font-semibold">
-            How about saying...
-          </h2>
-
+        <MainHeader title="How about saying..." />
           <div className="text-base text-left mb-2 md:mb-4">
             <p>{response}</p>
           </div>

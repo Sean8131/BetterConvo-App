@@ -7,12 +7,13 @@ import { useLocation } from "react-router-dom";
 
 // Import useNavigate hook from React, which returns a function that we can call to changes routes and pass state to update the next page the user is taken to
 import { useNavigate } from "react-router-dom";
-import TextArea from "./TextArea";
 
 import PageLayout from "./PageLayout";
-import MainButton from "./MainButton";
 import PageFooter from "./PageFooter";
+import TextArea from "./TextArea";
+import MainButton from "./MainButton";
 import SecondaryButton from "./SecondaryButton";
+import MainHeader from "./MainHeader";
 
 // Defining the RequestPage component
 export default function RequestPage() {
@@ -203,11 +204,8 @@ export default function RequestPage() {
       </PageFooter>
       }
     >
-      <div className="max-w-xl w-full mx-auto px-4 mt-20">
-        <h2 className="font-display text-white text-left text-2xl md:text-3xl mb-6 font-semibold">
-          What would you like to happen?
-        </h2>
-
+      <div className="max-w-xl w-full mx-auto px-4 pt-20">
+        <MainHeader title="What would you like to happen?" />
         <div className="text-left flex flex-col mb-4 text-white">
           <p className="font-display break-words text-base md:text-lg mb-2">
             Situation: {situation}
@@ -234,13 +232,14 @@ export default function RequestPage() {
       <style>
         {`
           .spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #3498db;
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
             border-radius: 50%;
-            width: 24px;
-            height: 24px;
+            width: 72px;
+            height: 72px;
             animation: spin 2s linear infinite;
             margin: 20px auto;
+            margin-top: 80px;
           }
           @keyframes spin {
             0% { transform: rotate(0deg); }

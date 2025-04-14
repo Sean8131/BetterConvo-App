@@ -4,6 +4,9 @@ import PageLayout from "./PageLayout";
 import MainButton from "./MainButton";
 import PageFooter from "./PageFooter";
 import SecondaryButton from "./SecondaryButton";
+import MainHeader from "./MainHeader";
+import SubHeader from "./SubHeader";
+import FeelingsGrid from "./FeelingsGrid";
 
 // Defining the FeelingsPage component
 export default function FeelingsPage() {
@@ -80,36 +83,20 @@ export default function FeelingsPage() {
         <PageFooter>
           <MainButton onClick={handleNext} label="Next"></MainButton>
           <div className="h-12">
-                              <SecondaryButton 
-                                show={false}
-                                label="Give Feedback" />
-                              </div>
-          </PageFooter>
+            <SecondaryButton show={false} label="Give Feedback" />
+          </div>
+        </PageFooter>
       }
     >
-      <div className="text-left mx-auto max-w-sm md:w-xl p-2 pt-30">
-        <h2 className="font-display text-white text-left text-2xl md:text-3xl mb-6 font-semibold">How did you feel?</h2>
-        <p className="font-display font-medium text-base mb-6 md:text-lg">Select 1–3 feelings</p>
-  
-        <div className="grid grid-cols-3 gap-3 md:gap-4 mb-8 md:mb-10">
-          {predefinedFeelings.map((feeling) => (
-            <button
-              key={feeling}
-              onClick={(e) => {
-                handleFeelingClick(feeling);
-                setTimeout(() => e.target.blur(), 0);
-              }}
-              style={{ WebkitTapHighlightColor: "transparent" }}
-              className={`text-purple-100 border-purple-200 rounded-lg border py-2 px-3 text-sm md:text-xl font-medium bg-[#1a1a1a] cursor-pointer transition-colors duration-200 ${
-                selectedFeelings.includes(feeling) ? "bg-purple-100 text-purple-950" : ""
-              }`}
-            >
-              {feeling}
-            </button>
-          ))}
-        </div>
+      <div className="text-left max-w-xl w-full mx-auto px-4 pt-20">
+        <MainHeader title="How did you feel?" />
+        <SubHeader copy="Select 1-3 feelings" />
+        <FeelingsGrid
+          feelings={predefinedFeelings}
+          selectedFeelings={selectedFeelings}
+          onFeelingClick={handleFeelingClick}
+        />
       </div>
     </PageLayout>
   );
-    
 }
