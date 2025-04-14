@@ -25,6 +25,7 @@ export default function TermsOfUse() {
   return (
     <PageLayout
       showBack={false}
+      scrollable={true} // enable vertical scrolling here only
       footer={
         <PageFooter>
           <MainButton onClick={handleReturn} label="Return" />

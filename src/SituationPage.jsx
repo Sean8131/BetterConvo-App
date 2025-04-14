@@ -11,7 +11,7 @@ import MainHeader from "./MainHeader";
 export default function SituationPage() {
   const navigate = useNavigate();
   const [situation, setSituation] = useState(
-    "My flatmate didn't clean the shower when it was their turn to clean the bathroom this week"
+    ""
   );
 
   const handleNext = () => {
