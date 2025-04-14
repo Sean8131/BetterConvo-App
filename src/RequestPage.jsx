@@ -11,6 +11,8 @@ import TextArea from "./TextArea";
 
 import PageLayout from "./PageLayout";
 import MainButton from "./MainButton";
+import PageFooter from "./PageFooter";
+import SecondaryButton from "./SecondaryButton";
 
 // Defining the RequestPage component
 export default function RequestPage() {
@@ -187,13 +189,18 @@ export default function RequestPage() {
   return (
     <PageLayout
       footer={
-        <div className="flex justify-center gap-4 max-w-xl w-full mx-auto">
+        <PageFooter>
       <MainButton
         label={errorMessage ? "Retry" : "Generate"}
         onClick={handleGenerate}
         disabled={loading || !isOnLine}
       />
-    </div>
+      <div className="h-12">
+                          <SecondaryButton 
+                            show={false}
+                            label="Give Feedback" />
+                          </div>
+      </PageFooter>
       }
     >
       <div className="max-w-xl w-full mx-auto px-4 mt-20">

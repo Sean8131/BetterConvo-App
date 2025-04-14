@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import MainButton from "./MainButton";
 import PageLayout from "./PageLayout";
 import SecondaryButton from "./SecondaryButton";
+import PageFooter from "./PageFooter";
 
 // Config flag to turn onboarding on and off
 // Set to false to re-enablel onboarding
@@ -70,6 +71,7 @@ export default function OnboardingIntro() {
     <PageLayout
     showBack={false}
   footer={
+    <PageFooter>
     <div className="flex flex-col items-center gap-2">
       <div className="flex gap-2 mb-4">
         {onboardingScreens.map((_, index) => (
@@ -93,6 +95,7 @@ export default function OnboardingIntro() {
         label= "Skip" />
         </div>
     </div>
+  </PageFooter>
   }
 >
   

@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import PageLayout from "./PageLayout";
 import MainButton from "./MainButton";
+import PageFooter from "./PageFooter";
+import SecondaryButton from "./SecondaryButton";
 
 // Defining the FeelingsPage component
 export default function FeelingsPage() {
@@ -75,13 +77,18 @@ export default function FeelingsPage() {
   return (
     <PageLayout
       footer={
-        <div className="flex flex-col justify-center">
+        <PageFooter>
           <MainButton onClick={handleNext} label="Next"></MainButton>
-        </div>
+          <div className="h-12">
+                              <SecondaryButton 
+                                show={false}
+                                label="Give Feedback" />
+                              </div>
+          </PageFooter>
       }
     >
-      <div className="text-left mx-auto max-w-sm md:w-xl p-2 mt-30">
-        <h2 className="font-display text-xl md:text-2xl mb-4 font-semibold">How did you feel?</h2>
+      <div className="text-left mx-auto max-w-sm md:w-xl p-2 pt-30">
+        <h2 className="font-display text-white text-left text-2xl md:text-3xl mb-6 font-semibold">How did you feel?</h2>
         <p className="font-display font-medium text-base mb-6 md:text-lg">Select 1–3 feelings</p>
   
         <div className="grid grid-cols-3 gap-3 md:gap-4 mb-8 md:mb-10">

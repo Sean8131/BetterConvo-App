@@ -4,10 +4,14 @@ import TextArea from "./TextArea";
 import MainButton from "./MainButton";
 import ExampleText from "./ExampleText";
 import PageLayout from "./PageLayout";
+import PageFooter from "./PageFooter";
+import SecondaryButton from "./SecondaryButton";
 
 export default function SituationPage() {
   const navigate = useNavigate();
-  const [situation, setSituation] = useState("My flatmate didn't clean the shower when it was their turn to clean the bathroom this week");
+  const [situation, setSituation] = useState(
+    "My flatmate didn't clean the shower when it was their turn to clean the bathroom this week"
+  );
 
   const handleNext = () => {
     if (!situation.trim()) {
@@ -28,12 +32,17 @@ export default function SituationPage() {
   return (
     <PageLayout
       footer={
-        <div className="max-w-xl w-full mx-auto">
+        <PageFooter>
           <MainButton onClick={handleNext} label="Next" />
-        </div>
+          <div className="h-12">
+                    <SecondaryButton 
+                      show={false}
+                      label="Give Feedback" />
+                    </div>
+        </PageFooter>
       }
     >
-      <div className="max-w-xl w-full mx-auto px-4 mt-20">
+      <div className="max-w-xl w-full mx-auto px-4 pt-20">
         <h2 className="font-display text-white text-left text-2xl md:text-3xl mb-6 font-semibold">
           What happened?
         </h2>

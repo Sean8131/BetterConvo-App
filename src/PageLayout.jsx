@@ -37,10 +37,9 @@ export default function PageLayout({ children, footer, showBack = true, onBack }
       <div className="flex-grow w-full flex flex-col">
         {children}
       </div>
-
       {/* Footer */}
       {footer && (
-        <div className="w-full px-4 pt-2 pb-6">
+        <div className="w-full px-4 pt-2 pb-6 min-h-[100px] flex items-center justify-center">
           {footer}
         </div>
       )}

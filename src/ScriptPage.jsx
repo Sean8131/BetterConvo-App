@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import PageLayout from "./PageLayout";
 import MainButton from "./MainButton";
 import SecondaryButton from "./SecondaryButton";
+import PageFooter from "./PageFooter";
 
 // Component is defined as a functional component and is exported so it can be imported and used in the routing setup.
 
@@ -33,23 +34,25 @@ export default function ScriptPage() {
   return (
     <PageLayout
       footer={
-        <div className="mt-4 flex flex-col">
+        <PageFooter>
           <MainButton onClick={handleNewRequest} label="New Request" />
-          <div>
-            
-          <SecondaryButton onClick={handleFeedback} label="Give Feedback" />
+          <div className="h-12">
+          <SecondaryButton 
+            show={true} 
+            onClick={handleFeedback} 
+            label="Give Feedback" />
           </div>
-        </div>
+        </PageFooter>
       }
     >
-      <div class="flex flex-col items-center mx-auto w-2xs md:w-3xl p-1">
+      <div className="flex flex-col items-center mx-auto w-2xs md:w-3xl p-1">
         {/* Display the generated GPT response */}
-        <div class="mx-auto md:w-xl p-2">
-          <h2 class="font-display text-left text-xl font-semibold pb-4">
+        <div className="mx-auto md:w-xl p-2 pt-10">
+          <h2 className="font-display text-white text-left text-2xl md:text-3xl mb-6 font-semibold">
             How about saying...
           </h2>
 
-          <div class="text-base text-left mb-2 md:mb-4">
+          <div className="text-base text-left mb-2 md:mb-4">
             <p>{response}</p>
           </div>
         </div>
