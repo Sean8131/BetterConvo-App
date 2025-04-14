@@ -70,8 +70,8 @@ export default function OnboardingIntro() {
     <PageLayout
     showBack={false}
   footer={
-    <div className="flex flex-col items-center gap-4">
-      <div className="flex gap-2 mb-2">
+    <div className="flex flex-col items-center gap-2">
+      <div className="flex gap-2 mb-4">
         {onboardingScreens.map((_, index) => (
           <div
             key={index}
