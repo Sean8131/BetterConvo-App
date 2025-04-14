@@ -29,7 +29,7 @@ export default function PageLayout({ children, footer, showBack = true, onBack, 
       )}
 
       {/* Main content */}
-      <div className={`flex-grow w-full flex flex-col items-center ${scrollable ? 'overflow-y-auto' : 'overflow-hidden'}`}>
+      <div className={`flex-grow w-full flex flex-col items-center ${scrollable ? 'overflow-y-auto overscroll-none' : 'overflow-hidden'}`}>
         {children}
       </div>
       {/* Footer */}
