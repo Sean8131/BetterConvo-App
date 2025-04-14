@@ -7,7 +7,7 @@ import PageLayout from "./PageLayout";
 
 export default function SituationPage() {
   const navigate = useNavigate();
-  const [situation, setSituation] = useState("");
+  const [situation, setSituation] = useState("My flatmate didn't clean the shower when it was their turn to clean the bathroom this week");
 
   const handleNext = () => {
     if (!situation.trim()) {
