@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import MainButton from "./MainButton";
-import SkipButton from "./SkipButton";
 import PageLayout from "./PageLayout";
 import SecondaryButton from "./SecondaryButton";
 
@@ -69,7 +68,7 @@ export default function OnboardingIntro() {
 
   return (
     <PageLayout
-    showBack={step !== 0}
+    showBack={false}
   footer={
     <div className="flex flex-col items-center gap-4">
       <div className="flex gap-2 mb-2">
