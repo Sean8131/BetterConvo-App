@@ -5,6 +5,7 @@ import MainButton from "./MainButton";
 import PageLayout from "./PageLayout";
 import SecondaryButton from "./SecondaryButton";
 import PageFooter from "./PageFooter";
+import StepDots from "./StepDots";
 
 // Config flag to turn onboarding on and off
 // Set to false to re-enablel onboarding
@@ -72,17 +73,7 @@ export default function OnboardingIntro() {
     showBack={false}
   footer={
     <PageFooter>
-    <div className="flex flex-col items-center gap-2">
-      <div className="flex gap-2 mb-4">
-        {onboardingScreens.map((_, index) => (
-          <div
-            key={index}
-            className={`h-2 w-2 rounded-full ${
-              index === step ? "bg-white" : "bg-gray-600"
-            }`}
-          />
-        ))}
-      </div>
+    {/* <div className="flex flex-col items-center gap-2"> */}
       <MainButton
         label={isLast ? "Let’s begin! 🚀" : "Next"}
         onClick={handleNext}
@@ -94,10 +85,10 @@ export default function OnboardingIntro() {
         onClick={handleSkip}
         label= "Skip" />
         </div>
-    </div>
+    {/* </div> */}
   </PageFooter>
   }
->
+  >
   
   {/* Main content here */}
   <AnimatePresence mode="wait" initial={false}>
@@ -113,7 +104,7 @@ export default function OnboardingIntro() {
       onDragEnd={(e, info) => {
         const swipeThreshold = 100;
         const swipe = info.offset.x;
-
+        
         if (swipe < -swipeThreshold && step < onboardingScreens.length - 1) {
           setDirection(1);
           requestAnimationFrame(() => setStep(step + 1));
@@ -151,6 +142,7 @@ export default function OnboardingIntro() {
       </p>
     </motion.div>
   </AnimatePresence>
+<StepDots totalSteps={onboardingScreens.length} currentStep={step}/>
 </PageLayout>
   );
 }

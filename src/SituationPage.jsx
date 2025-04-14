@@ -35,7 +35,7 @@ export default function SituationPage() {
       footer={
         <PageFooter>
           <MainButton onClick={handleNext} label="Next" />
-          <div className="h-12">
+          <div className="h-18">
                     <SecondaryButton 
                       show={false}
                       label="Give Feedback" />

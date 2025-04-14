@@ -196,7 +196,7 @@ export default function RequestPage() {
         onClick={handleGenerate}
         disabled={loading || !isOnLine}
       />
-      <div className="h-12">
+      <div className="h-18">
                           <SecondaryButton 
                             show={false}
                             label="Give Feedback" />

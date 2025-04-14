@@ -37,7 +37,7 @@ export default function ScriptPage() {
       footer={
         <PageFooter>
           <MainButton onClick={handleNewRequest} label="New Request" />
-          <div className="h-12">
+          <div className="h-18">
           <SecondaryButton 
             show={true} 
             onClick={handleFeedback} 
