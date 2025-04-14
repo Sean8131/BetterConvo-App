@@ -23,7 +23,7 @@ export default function PageLayout({ children, footer, showBack = true, onBack }
     >
       {/* Top Back Arrow */}
       {showBack && (
-        <div className="w-full flex justify-start px-4 pt-4">
+        <div className="w-full flex justify-start pt-4">
           <BackArrow onClick={handleBack} />
         </div>
       )}
