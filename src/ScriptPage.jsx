@@ -5,6 +5,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import PageLayout from "./PageLayout";
 import MainButton from "./MainButton";
+import SecondaryButton from "./SecondaryButton";
 
 // Component is defined as a functional component and is exported so it can be imported and used in the routing setup.
 
@@ -36,7 +37,7 @@ export default function ScriptPage() {
           <MainButton onClick={handleNewRequest} label="New Request" />
           <div>
             
-          <MainButton onClick={handleFeedback} label="Give Feedback" />
+          <SecondaryButton onClick={handleFeedback} label="Give Feedback" />
           </div>
         </div>
       }

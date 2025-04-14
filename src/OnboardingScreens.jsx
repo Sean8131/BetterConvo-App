@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import MainButton from "./MainButton";
 import SkipButton from "./SkipButton";
 import PageLayout from "./PageLayout";
+import SecondaryButton from "./SecondaryButton";
 
 // Config flag to turn onboarding on and off
 // Set to false to re-enablel onboarding
@@ -82,13 +83,16 @@ export default function OnboardingIntro() {
         ))}
       </div>
       <MainButton
-        label={isLast ? "Let’s begin" : "Next"}
+        label={isLast ? "Let’s begin! 🚀" : "Next"}
         onClick={handleNext}
       />
+      <SecondaryButton
+        show={!isLast}
+        onClick={handleSkip}
+        label= "Skip" />
     </div>
   }
 >
-  <SkipButton show={!isLast} onClick={handleSkip} />
   
   {/* Main content here */}
   <AnimatePresence mode="wait" initial={false}>

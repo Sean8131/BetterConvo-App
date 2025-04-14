@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function MainButton({ label = "Open to", onClick }) {
+export default function MainButton({ label, onClick }) {
   return (
     <button
       onClick={onClick}
