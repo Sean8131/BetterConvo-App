@@ -108,9 +108,6 @@ export default function RequestPage() {
       return;
     }
 
-    // Log the payload for debugging purposes
-    console.log("Sending payload:", { situation, feeling, request });
-
     // Start the loading indicator and disable the button
     setLoading(true);
 
@@ -145,7 +142,6 @@ export default function RequestPage() {
 
       // Parse the response JSON
       const data = await res.json();
-      console.log("API response:", data);
 
       // Ensure the loading indicator remains visible for 4 seconds
       const elapsed = Date.now() - startTime;
