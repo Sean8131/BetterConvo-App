@@ -85,10 +85,13 @@ export default function OnboardingIntro() {
         label={isLast ? "Let’s begin! 🚀" : "Next"}
         onClick={handleNext}
       />
+      <div
+        className={isLast ? "invisible h-18" : ""}>
       <SecondaryButton
-        show={!isLast}
+        show={true} // always render
         onClick={handleSkip}
         label= "Skip" />
+        </div>
     </div>
   }
 >
