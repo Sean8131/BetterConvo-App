@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import BackArrow from "./BackArrow";
 
 export default function PageLayout({ children, footer, showBack = true, onBack }) {
   const navigate = useNavigate();
@@ -23,13 +24,7 @@ export default function PageLayout({ children, footer, showBack = true, onBack }
       {/* Top Back Arrow */}
       {showBack && (
         <div className="w-full flex justify-start px-4 pt-4">
-          <button
-            onClick={handleBack}
-            aria-label="Go back"
-            className="text-white hover:text-purple-300 transition text-2xl"
-          >
-            ←
-          </button>
+          <BackArrow onClick={handleBack} />
         </div>
       )}
 
