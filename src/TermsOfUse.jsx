@@ -1,13 +1,37 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { use } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import PageLayout from "./PageLayout";
+import PageFooter from "./PageFooter";
+import MainButton from "./MainButton";
+
 
 const handleContact = () => {
-    window.open("https://forms.gle/M3mHbBUp3E6sD4daA");
-  };
+  window.open("https://forms.gle/M3mHbBUp3E6sD4daA");
+};
 
 export default function TermsOfUse() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const cameFromOnboarding = location.state?.fromOnboarding ?? false;
+  
+  const handleReturn = () => {
+    if (cameFromOnboarding) {
+      navigate("/onboarding", { state: {step: 3 } });
+    } else {
+      navigate(-1);
+    }
+  };
   return (
-    <div className="min-h-screen bg-[#1B1F23] text-white px-4 py-8 max-w-xl mx-auto">
+    <PageLayout
+      showBack={false}
+      footer={
+        <PageFooter>
+          <MainButton onClick={handleReturn} label="Return" />
+        </PageFooter>
+      }
+    >
+    <div className="bg-[#1B1F23] text-white px-4 py-8 max-w-xl mx-auto">
       <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center">
         Terms of Use
       </h1>
@@ -96,5 +120,6 @@ export default function TermsOfUse() {
             </a>
       </p>
     </div>
+    </PageLayout>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import MainButton from "./MainButton";
 import PageLayout from "./PageLayout";
@@ -39,9 +39,12 @@ const onboardingScreens = [
 ];
 
 export default function OnboardingIntro() {
-  const [step, setStep] = useState(0);
-  const [direction, setDirection] = useState(1);
   const navigate = useNavigate();
+  const location = useLocation();
+  const startingStep = location.state?.step ?? 0;
+  const fromTerms = location.state?.fromTerms ?? false;
+  const [step, setStep] = useState(startingStep);
+  const [direction, setDirection] = useState(1);
   const isLast = step === onboardingScreens.length - 1;
 
   useEffect(() => {
@@ -95,10 +98,10 @@ export default function OnboardingIntro() {
     <motion.div
       className="flex flex-col items-center justify-center text-center flex-grow overflow-hidden px-2"
       key={step}
-      initial={{ x: direction * 300, opacity: 0 }}
+      initial={ fromTerms ? { opacity: 0 } : { x: direction * 300, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: -direction * 300, opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={ fromTerms ? {duration: 6.5 } : { duration: 0.5 }}
       drag="x"
       dragConstraints={{ left: 0, right: 0 }}
       onDragEnd={(e, info) => {
@@ -126,14 +129,12 @@ export default function OnboardingIntro() {
             This product uses Gen AI. Don't enter personally
             identifiable info.
             For more details, please read our{" "}
-            <a
-              href="/terms"
-              className="underline text-blue-400 hover:text-blue-300"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Terms of Use
-            </a>
+            <span
+        onClick={() => navigate("/terms", { state: { fromOnboarding: true } })}
+        className="underline text-blue-400 hover:text-blue-300 cursor-pointer"
+      >
+        Terms of Use
+      </span>
             .
           </>
         ) : (
