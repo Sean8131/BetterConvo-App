@@ -24,10 +24,16 @@ export default async function handler(req, res) {
     });
 
     const usage = {
+        ...req.body,
       timestamp: utcDate,
       timestamp_nzt: nzString,
-      ...req.body,
     };
+
+    if (!usage.timestamp) {
+        console.warn("Usage object missing timestamp before insert");
+    }
+
+    console.log("Logging usage:", usage);
 
     const result = await cachedDb.collection('usage_logs').insertOne(usage);
 
