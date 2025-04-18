@@ -1,36 +1,36 @@
-import express from 'express';
-import { connectDB } from '../db.js';
-import { Timestamp } from 'mongodb';
+import { MongoClient } from 'mongodb';
 
-const DEBUG = false;
+const uri = process.env.MONGO_URI;
+const client = new MongoClient(uri);
+let cachedDb = null;
 
-const router = express.Router();
+export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ message: 'Method Not Allowed' });
+  }
 
-router.post('/', async (req, res) => {
-    try {
-        const db = await connectDB();
-        const collection = db.collection('usage_logs');
-
-        const utcDate = new Date();
-
-        const nzString = utcDate.toLocaleString("en-NZ", {
-            timeZone: "Pacific/Auckland"
-        });
-
-        const usage = {
-            timestamp: utcDate, // UTC
-            timestamp_nzt: nzString, // readable NZ time
-            ...req.body,
-        };
-
-        if (DEBUG) console.log("Tracking usage:", usage);
-
-        await collection.insertOne(usage);
-        res.status(201).json({success: true});
-    } catch (err) {
-        console.error('Failed to log usage:', err);
-        res.status(500).json({ success: false, error: err.message});
+  try {
+    if (!cachedDb) {
+      await client.connect();
+      cachedDb = client.db('betterconvo'); // MongoDB database
     }
-});
 
-export default router;
+    const utcDate = new Date();
+    const nzString = utcDate.toLocaleString("en-NZ", {
+      timeZone: "Pacific/Auckland"
+    });
+
+    const usage = {
+      timestamp: utcDate,
+      timestamp_nzt: nzString,
+      ...req.body,
+    };
+
+    const result = await cachedDb.collection('usage_logs').insertOne(usage);
+
+    res.status(201).json({ success: true, insertedId: result.insertedId });
+  } catch (error) {
+    console.error('Error logging usage:', error);
+    res.status(500).json({ success: false, error: error.message });
+  }
+}

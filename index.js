@@ -8,7 +8,7 @@ import express from "express"; // Express framework for building the API server
 import cors from "cors"; // Middleware to enable Cross-Origin Resource Sharing
 import { generateResponse } from "./generateResponse.js";
 import testConnection from './api/testConnection.js'
-import trackRoute from './api/track.js';
+import trackRoute from './track.js';
 
 
 // Initialize the Express application
