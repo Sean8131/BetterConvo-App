@@ -5,6 +5,7 @@ if (!uri) throw new Error("MONGO_URI is not defined");
 
 let cachedClient = null;
 let cachedDb = null;
+const DEBUG = false;
 
 async function connectToDatabase() {
   if (cachedDb) return cachedDb;
@@ -42,7 +43,7 @@ export default async function handler(req, res) {
       console.warn("⚠️ Usage object missing timestamp before insert");
     }
 
-    console.log("📥 Logging usage:", usage);
+    if (DEBUG) console.log("📥 Logging usage:", usage);
 
     const result = await collection.insertOne(usage);
 
