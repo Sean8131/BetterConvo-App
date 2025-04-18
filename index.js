@@ -8,6 +8,7 @@ import express from "express"; // Express framework for building the API server
 import cors from "cors"; // Middleware to enable Cross-Origin Resource Sharing
 import { generateResponse } from "./generateResponse.js";
 import testConnection from './api/testConnection.js'
+import trackRoute from './api/track.js';
 
 
 // Initialize the Express application
@@ -16,6 +17,7 @@ const app = express();
 // Enable CORS to allow requests from different origins (e.g., frontend app)
 app.use(cors());
 app.use('/api/test-db', testConnection);
+app.use('/api/track', trackRoute);
 
 // Middleware to parse incoming JSON requests
 app.use(express.json());
@@ -43,9 +45,9 @@ app.post("/api/generate", async (req, res) => {
     // Call the shared generateResponse function
     const message = await generateResponse(situation, feeling, request);
     res.json({ message });
-  } catch (error) {
-    console.error("Error in Express endpoint", error);
-    res.status(500).json({ message: "Error generating response" });
+  } catch (err) {
+    console.error("Error in /api/generate", err.stack || err);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 

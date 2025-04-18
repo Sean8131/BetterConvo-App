@@ -1,5 +1,6 @@
 import { OpenAI } from "openai"; // OpenAI Software Development Kit to interact with the GPT API
 
+const DEBUG = false;
 // Initialize the OpenAI client with the API key from environment variables
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -13,6 +14,7 @@ export async function generateResponse(situation, feeling, request) {
   }
 
   try {
+    if (DEBUG) console.log("Calling OpenAI with:", { situation, feeling, request});
     // Call OpenAI's chat completions endpoint to generate a response using GPT-4
     const response = await openai.chat.completions.create({
       model: "gpt-4", // Specify the GPT model to use

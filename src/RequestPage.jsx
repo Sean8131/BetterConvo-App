@@ -15,6 +15,8 @@ import MainButton from "./MainButton";
 import SecondaryButton from "./SecondaryButton";
 import MainHeader from "./MainHeader";
 
+const DEBUG = false;
+
 // Defining the RequestPage component
 export default function RequestPage() {
   // Retrieve the situation and feelings passed from FeelingsPage
@@ -122,6 +124,8 @@ export default function RequestPage() {
     let errorMsg = "";
 
     try {
+
+      if (DEBUG) console.log("Step 1: Sending request to /api/generate");
       // Send a POST request to Vercel serverless function at /api/generate
       const res = await fetch("/api/generate", {
         method: "POST",
@@ -133,15 +137,38 @@ export default function RequestPage() {
         }),
       });
 
+      if (DEBUG) console.log("Step 2: Received response from /api/generate");
+
       // If the response is not OK, throw an error to be caught below
       if (!res.ok) {
         const errorText = await res.text();
+        console.log("Step2.1: Error response text:", errorText);
         console.log(errorText);
         throw new Error(`HTTP error! status: ${res.status}: ${errorText}`);
       }
 
       // Parse the response JSON
       const data = await res.json();
+      if (DEBUG) console.log("Step 3: Parsed GPT response:", data);
+
+      // Track usage after successful generation
+      const session_id = localStorage.getItem('session_id');
+      if (DEBUG) console.log("Step 4: Sending usage data");
+
+      await fetch('/api/track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'generated_script',
+          step: 'request',
+          session_id: session_id,
+          details: {
+            prompt_length: situation.length + feeling.length + request.length,
+          }
+        })
+      });
+
+      if (DEBUG) console.log("Step 5: Usage data sent");
 
       // Ensure the loading indicator remains visible for 4 seconds
       const elapsed = Date.now() - startTime;
