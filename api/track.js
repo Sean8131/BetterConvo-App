@@ -1,11 +1,22 @@
 import { MongoClient } from 'mongodb';
 
 const uri = process.env.MONGO_URI;
-if (!uri) {
-    throw new Error("MONGO_URI environment variable is not defined");
-}
-const client = new MongoClient(uri);
+if (!uri) throw new Error("MONGO_URI is not defined");
+
+let cachedClient = null;
 let cachedDb = null;
+
+async function connectToDatabase() {
+  if (cachedDb) return cachedDb;
+
+  if (!cachedClient) {
+    cachedClient = new MongoClient(uri);
+    await cachedClient.connect();
+  }
+
+  cachedDb = cachedClient.db('betterconvo');
+  return cachedDb;
+}
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -13,33 +24,31 @@ export default async function handler(req, res) {
   }
 
   try {
-    if (!cachedDb) {
-      await client.connect();
-      cachedDb = client.db('betterconvo'); // MongoDB database
-    }
+    const db = await connectToDatabase();
+    const collection = db.collection('usage_logs');
 
     const utcDate = new Date();
-    const nzString = utcDate.toLocaleString("en-NZ", {
-      timeZone: "Pacific/Auckland"
+    const nzString = utcDate.toLocaleString('en-NZ', {
+      timeZone: 'Pacific/Auckland',
     });
 
     const usage = {
-        ...req.body,
+      ...req.body,
       timestamp: utcDate,
       timestamp_nzt: nzString,
     };
 
     if (!usage.timestamp) {
-        console.warn("Usage object missing timestamp before insert");
+      console.warn("⚠️ Usage object missing timestamp before insert");
     }
 
-    console.log("Logging usage:", usage);
+    console.log("📥 Logging usage:", usage);
 
-    const result = await cachedDb.collection('usage_logs').insertOne(usage);
+    const result = await collection.insertOne(usage);
 
-    res.status(201).json({ success: true, insertedId: result.insertedId });
+    return res.status(201).json({ success: true, insertedId: result.insertedId });
   } catch (error) {
-    console.error('Error logging usage:', error);
-    res.status(500).json({ success: false, error: error.message });
+    console.error('Error in /api/track:', error.stack || error);
+    return res.status(500).json({ success: false, error: error.message });
   }
 }
