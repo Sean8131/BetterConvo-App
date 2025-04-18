@@ -11,8 +11,15 @@ router.post('/', async (req, res) => {
         const db = await connectDB();
         const collection = db.collection('usage_logs');
 
+        const utcDate = new Date();
+
+        const nzString = utcDate.toLocaleString("en-NZ", {
+            timeZone: "Pacific/Auckland"
+        });
+
         const usage = {
-            Timestamp: new Date(),
+            timestamp: utcDate, // UTC
+            timestamp_nzt: nzString, // readable NZ time
             ...req.body,
         };
 
