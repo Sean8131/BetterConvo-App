@@ -6,8 +6,5 @@
                 `You used ${request.method}`
             });
         }
-        // Your serverless function logic goes here
-        // Example: Return a simple response
-        // response.status(200).json({ message: 'Hello from Vercel Function!' });
       };
 

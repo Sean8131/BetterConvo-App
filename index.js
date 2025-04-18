@@ -7,6 +7,7 @@ import "dotenv/config"; // Library to load environment variables from a .env fil
 import express from "express"; // Express framework for building the API server
 import cors from "cors"; // Middleware to enable Cross-Origin Resource Sharing
 import { generateResponse } from "./generateResponse.js";
+import testConnection from './api/testConnection.js'
 
 
 // Initialize the Express application
@@ -14,6 +15,7 @@ const app = express();
 
 // Enable CORS to allow requests from different origins (e.g., frontend app)
 app.use(cors());
+app.use('/api/test-db', testConnection);
 
 // Middleware to parse incoming JSON requests
 app.use(express.json());
