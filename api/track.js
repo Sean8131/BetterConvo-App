@@ -40,10 +40,10 @@ export default async function handler(req, res) {
     };
 
     if (!usage.timestamp) {
-      console.warn("⚠️ Usage object missing timestamp before insert");
+      console.warn("Usage object missing timestamp before insert");
     }
 
-    if (DEBUG) console.log("📥 Logging usage:", usage);
+    if (DEBUG) console.log("Logging usage:", usage);
 
     const result = await collection.insertOne(usage);
 
