@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
 import "./App.css"
-import SituationPage from "./SituationPage";
-import FeelingsPage from './FeelingsPage';
-import RequestPage from "./RequestPage";
-import ScriptPage from "./ScriptPage";
-import OnboardingIntro from "./OnboardingScreens";
-import TermsOfUse from "./TermsOfUse";
+import SituationPage from "./components/SituationPage";
+import FeelingsPage from './components/FeelingsPage';
+import RequestPage from "./components/RequestPage";
+import ScriptPage from "./components/ScriptPage";
+import OnboardingIntro from "./components/OnboardingScreens";
+import TermsOfUse from "./components/TermsOfUse";
 import { useEffect } from "react";
 
 function App() {
@@ -20,7 +20,6 @@ useEffect(() => {
   return (
     <Router>
       <Routes>
-        {/* Landing route: PrivacyPage */}
         <Route path="/" element={<OnboardingIntro />} />
 
         {/* Routes */}

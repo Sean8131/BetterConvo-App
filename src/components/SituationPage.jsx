@@ -11,7 +11,7 @@ import MainHeader from "./MainHeader";
 export default function SituationPage() {
   const navigate = useNavigate();
   const [situation, setSituation] = useState(
-    ""
+    "My friend talks over me"
   );
 
   const handleNext = () => {

@@ -37,7 +37,7 @@ export default function FeelingsPage() {
   predefinedFeelings.sort((a, b) => a.localeCompare(b));
 
   // State to track selected feelings (maximum 3)
-  const [selectedFeelings, setSelectedFeelings] = useState([]);
+  const [selectedFeelings, setSelectedFeelings] = useState(["Annoyed"]);
 
   // Handler for when a predefined feeling button is clicked.
   // If the feeling is already selected, it toggles it off.
