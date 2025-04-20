@@ -20,8 +20,10 @@ export default function PageLayout({ children, footer, showBack = true, onBack, 
     <div className="h-[calc(var(--vh,_1vh)_*_100)] bg-[#1C2124] text-white flex flex-col justify-start max-w-xl w-full mx-auto">
   {/* Top Back Arrow */}
   {showBack && (
-    <div className="w-full flex justify-start px-4 pt-4 sticky top-0 z-10 bg-[#1C2124]">
+    <div className="w-full px-4 pt-4 sticky top-0 z-10 bg-[#1C2124]">
+      <div className="w-10">
       <BackArrow onClick={handleBack} />
+      </div>
     </div>
   )}
 
