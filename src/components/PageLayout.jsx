@@ -21,11 +21,11 @@ export default function PageLayout({ children, footer, showBack = true, onBack, 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="h-[calc(var(--vh)_*_100)] touch-none overscroll-none bg-[#1C2124] text-white flex flex-col justify-between"
+      className="h-[calc(var(--vh)_*_100)] touch-none overscroll-none bg-[#1C2124] text-white flex flex-col justify-start"
     >
       {/* Top Back Arrow */}
       {showBack && (
-        <div className="w-full flex justify-start pt-4">
+        <div className="w-full flex justify-start pt-4 sticky top-0 z-10 bg-[#1C2124]">
           <BackArrow onClick={handleBack} />
         </div>
       )}

@@ -3,14 +3,18 @@ import { useEffect } from "react";
 export default function useLockViewportHeight() {
   useEffect(() => {
     const setHeight = () => {
-      document.documentElement.style.setProperty(
-        "--vh",
-        `${window.innerHeight * 0.01}px`
-      );
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
     };
 
     setHeight();
-    window.addEventListener("resize", setHeight);
-    return () => window.removeEventListener("resize", setHeight);
+
+    window.addEventListener('resize', setHeight);
+    window.addEventListener('orientationchange', setHeight); // useful on mobile
+
+    return () => {
+      window.removeEventListener('resize', setHeight);
+      window.removeEventListener('orientationchange', setHeight);
+    };
   }, []);
 }
