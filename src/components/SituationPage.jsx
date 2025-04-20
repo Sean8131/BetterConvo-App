@@ -43,7 +43,7 @@ export default function SituationPage() {
         </PageFooter>
       }
     >
-      <div className="max-w-xl w-full mx-auto px-4 pt-20">
+      <div className="text-left max-w-xl w-full mx-auto px-4 pt-20">
         <MainHeader title="What happened?" />
         <ExampleText text="e.g My partner picked me up late from work" />
         <TextArea

@@ -227,7 +227,7 @@ export default function RequestPage() {
       </PageFooter>
       }
     >
-      <div className="max-w-xl w-full mx-auto px-4 pt-20">
+      <div className="text-left max-w-xl w-full mx-auto px-4 pt-20">
         <MainHeader title="What would you like to happen?" />
         <div className="text-left flex flex-col mb-4 text-white">
           <p className="font-display break-words text-base md:text-lg mb-2">
