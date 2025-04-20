@@ -24,7 +24,7 @@ export default function TextArea({ value, onChange, placeholder = "Enter your si
             value={value} // Controlled input: textarea content comes from React state
             onChange={onChange} // Trigger parent handler when user types
             rows={4} // Start with 1 visible row
-            className="w-full p-4 text-base text-gray-200 placeholder-gray-400 border rounded-xl focus:outline-none focus:ring-2  focus:border-transparent resize-none shadow-sm transition-all duration-200 overflow-hidden"
+            className="w-full mt-4 p-4 text-base text-gray-200 placeholder-gray-400 border rounded-xl focus:outline-none focus:ring-2  focus:border-transparent resize-none shadow-sm transition-all duration-200 overflow-hidden"
         />
     );
 }
