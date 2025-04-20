@@ -25,7 +25,7 @@ export default function PageLayout({ children, footer, showBack = true, onBack, 
     >
       {/* Top Back Arrow */}
       {showBack && (
-        <div className="w-full flex justify-start pt-4 sticky top-0 z-10 bg-[#1C2124]">
+        <div className="w-full flex justify-start pl-2 pt-4 sticky top-0 z-10 bg-[#1C2124]">
           <BackArrow onClick={handleBack} />
         </div>
       )}
