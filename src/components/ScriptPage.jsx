@@ -34,7 +34,7 @@ export default function ScriptPage() {
 
   return (
     <PageLayout
-      footer={
+    footer={
         <PageFooter>
           <MainButton onClick={handleNewRequest} label="New Request" />
           <div className="h-18">
