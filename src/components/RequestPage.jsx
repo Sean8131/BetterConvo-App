@@ -32,6 +32,37 @@ export default function RequestPage() {
 
   // Use a ref to ensure the component doesn't re-render and the redirect happens only once
   const hasRedirected = useRef(false);
+  
+  // State for the loading indicator
+  const [loading, setLoading] = useState(false);
+
+  const loadingMessages = [
+    "Crafting your script now - this won't take long.",
+    "Crafting your script now... almost there!",
+    "Hang tight - we're pulling your thoughts together.",
+    "Hang tight - your script is on its way!",
+    "Hang tight - this won't take long.",
+    "Hang tight - creating your script",
+    "One moment - shaping your words with care.",
+    "One moment - pulling together your script.",
+    "One moment - crafting your script.",
+    "Give us a sec - your script is on its way.",
+    "Give us a sec - crafting your script.",
+    "Give us a sec - pulling together your script.",
+    "Pulling together your script… almost there!",
+    "Pulling together your words... almost there!",
+  ];
+
+  const [loadingMessage, setLoadingMessage] = useState("");
+
+useEffect(() => {
+  if (loading) {
+    const randomIndex = Math.floor(Math.random() * loadingMessages.length);
+    setLoadingMessage(loadingMessages[randomIndex]);
+  }
+}, [loading]);
+
+  
 
   // Redirect the user if required data is missing
   useEffect(() => {
@@ -59,8 +90,6 @@ export default function RequestPage() {
   // Once we receive a GPT-generated message, we'll store it in "response" and display it
   const [response, setResponse] = useState("");
 
-  // State for the loading indicator
-  const [loading, setLoading] = useState(false);
 
   // State to hold any error message
   const [errorMessage, setErrorMessage] = useState("");
@@ -229,6 +258,13 @@ export default function RequestPage() {
       }
     >
       <div className="text-left max-w-xl w-full mx-auto px-4 pt-20">
+        {/* Display message when loading */}
+        {loading ? (
+          <div>
+          <MainHeader title={loadingMessage || "Generating script..."} />
+          </div>
+        ) : (
+          <>
         <MainHeader title="What would you like to happen?" />
         <div className="text-left flex flex-col mb-4 text-white">
           <p className="font-display break-words text-base md:text-lg mb-2">
@@ -238,6 +274,8 @@ export default function RequestPage() {
             {feelings.length > 1 ? "Feelings: " : "Feeling: "} {feeling}
           </p>
         </div>
+        </>
+        )}
 
         {loading ? (
           <div className="spinner" />
