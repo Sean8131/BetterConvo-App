@@ -1,6 +1,6 @@
 export default function FeelingsGrid({ feelings, selectedFeelings, onFeelingClick }) {
     return (
-      <div className="grid grid-cols-3 md:grid-cols-4 gap-2 max-w-sm md:max-w-lg mx-auto py-6 md:py-2">
+      <div className="grid grid-cols-3 md:grid-cols-4 gap-2 max-w-sm md:max-w-lg mx-auto">
         {feelings.map(({ label, emoji }) => (
           <button
             key={label}
