@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import BackArrow from "./BackArrow";
 import useLockViewportHeight from "../hooks/useLockViewportHeight.js";
+import ProgressBar from "./ProgressBar.jsx";
 
 export default function PageLayout({ children, footer, showBack = true, onBack, scrollable = false }) {
   useLockViewportHeight();
@@ -26,6 +27,8 @@ export default function PageLayout({ children, footer, showBack = true, onBack, 
       </div>
     </div>
   )}
+
+<ProgressBar />
 
   {/* Animate only the content */}
   <motion.div
