@@ -8,7 +8,7 @@ import PageFooter from "./PageFooter";
 import StepDots from "./StepDots";
 
 // Config flag to turn onboarding on and off
-// Set to false to re-enablel onboarding
+// Set to false to re-enable onboarding
 const SKIP_ONBOARDING = false;
 
 const onboardingScreens = [

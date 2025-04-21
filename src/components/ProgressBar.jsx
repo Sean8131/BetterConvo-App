@@ -2,9 +2,13 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 
 const steps = ["/situation", "/feelings", "/request", "/script"];
+const hideOnRoutes = ["/", "/onboardingScreens",]
 
 export default function ProgressBar() {
   const { pathname } = useLocation();
+
+  if (hideOnRoutes.includes(pathname)) return null;
+  
   const stepIndex = steps.indexOf(pathname);
   const progress = ((stepIndex + 1) / steps.length) * 100;
 
