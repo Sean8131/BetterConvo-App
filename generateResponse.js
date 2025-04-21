@@ -36,7 +36,7 @@ export async function generateResponse(situation, feeling, request) {
           
           Avoid any phrasing that implies the other person is responsible for the user's feelings — such as 'you made me feel' or 'that makes me feel.'
 
-          Do not include any of the following words: "abandoned, abused, (not) accepted, attacked, belittled, betrayed, blamed, bullied, cheated, coerced, cornered, criticized, deceived, discounted, disliked, distrusted, dumped on, harassed, hassled, ignored, insulted, interrupted, intimidated, invalidated, invisible, isolated, left out, let down, manipulated, misled, mistrusted, misunderstood, neglected, overpowered, overworked, patronized, pressured, provoked, put down, rejected, ripped off/screwed, smothered/suffocated, taken for granted, trampled, tricked, unappreciated, unheard, unloved, unseen, unsupported, unwanted, used, victimized, violated, wronged."
+          Do not include any of the following words: "abandoned, abused, (not) accepted, attacked, belittled, betrayed, blamed, bullied, cheated, coerced, cornered, criticized, deceived, discounted, disliked, dismissed, distrusted, dumped on, harassed, hassled, ignored, insulted, interrupted, intimidated, invalidated, invisible, isolated, left out, let down, manipulated, misled, mistrusted, misunderstood, neglected, overpowered, overworked, patronized, pressured, provoked, put down, rejected, ripped off/screwed, smothered/suffocated, taken for granted, trampled, tricked, unappreciated, unheard, unloved, unseen, unsupported, unwanted, used, victimized, violated, wronged."
           
           Avoid vague time phrases like 'recently,' 'sometimes,' or 'often,' even if the user includes them. Be concrete.
           
