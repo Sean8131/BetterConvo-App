@@ -5,7 +5,7 @@ import BackArrow from "./BackArrow";
 import useLockViewportHeight from "../hooks/useLockViewportHeight.js";
 import ProgressBar from "./ProgressBar.jsx";
 
-export default function PageLayout({ children, footer, showBack = true, onBack, scrollable = false }) {
+export default function PageLayout({ children, footer, showBack = true, onBack, scrollable = false, loading = false }) {
   useLockViewportHeight();
   const navigate = useNavigate();
 
@@ -28,7 +28,7 @@ export default function PageLayout({ children, footer, showBack = true, onBack, 
     </div>
   )}
 
-<ProgressBar />
+{!loading && <ProgressBar />} {/* only show when not loading */}
 
   {/* Animate only the content */}
   <motion.div

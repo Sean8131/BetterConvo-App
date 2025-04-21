@@ -212,6 +212,7 @@ export default function RequestPage() {
 
   return (
     <PageLayout
+    loading={loading} // Pass the loading state to PageLayout
       footer={
         <PageFooter>
       <MainButton
