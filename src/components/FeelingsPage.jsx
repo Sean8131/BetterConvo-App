@@ -18,24 +18,23 @@ export default function FeelingsPage() {
   const navigate = useNavigate();
 
   // Predefined list of feelings with emojis (unsorted initially)
-const predefinedFeelings = [
-  { label: "Angry", emoji: "😠" },
-  { label: "Annoyed", emoji: "😒" },
-  { label: "Confused", emoji: "😕" },
-  { label: "Frustrated", emoji: "😤" },
-  { label: "Sorry", emoji: "🥺" },
-  { label: "Upset", emoji: "😢" },
-  { label: "Hurt", emoji: "💔" },
-  { label: "Worried", emoji: "😟" },
-  { label: "Sad", emoji: "😞" },
-  { label: "Guilty", emoji: "😬" },
-  { label: "Stressed", emoji: "😣" },
-  { label: "Curious", emoji: "🤔" },
-];
+  const predefinedFeelings = [
+    { label: "Angry", emoji: "😠" },
+    { label: "Annoyed", emoji: "😒" },
+    { label: "Confused", emoji: "😕" },
+    { label: "Frustrated", emoji: "😤" },
+    { label: "Sorry", emoji: "🥺" },
+    { label: "Upset", emoji: "😢" },
+    { label: "Hurt", emoji: "💔" },
+    { label: "Worried", emoji: "😟" },
+    { label: "Sad", emoji: "😞" },
+    { label: "Guilty", emoji: "😬" },
+    { label: "Stressed", emoji: "😣" },
+    { label: "Curious", emoji: "🤔" },
+  ];
 
-// Sort alphabetically by label
-predefinedFeelings.sort((a, b) => a.label.localeCompare(b.label));
-
+  // Sort alphabetically by label
+  predefinedFeelings.sort((a, b) => a.label.localeCompare(b.label));
 
   // State to track selected feelings (maximum 3)
   const [selectedFeelings, setSelectedFeelings] = useState(["Annoyed"]);
@@ -89,14 +88,23 @@ predefinedFeelings.sort((a, b) => a.label.localeCompare(b.label));
         </PageFooter>
       }
     >
-      <div className="text-left max-w-xl w-full mx-auto px-4 pt-5">
-        <MainHeader title="How did you feel?" />
-        <SubHeader copy="Select 1-3 feelings" />
-        <FeelingsGrid
-          feelings={predefinedFeelings}
-          selectedFeelings={selectedFeelings}
-          onFeelingClick={handleFeelingClick}
-        />
+      <div className="flex flex-col justify-between flex-grow text-left max-w-xl w-full mx-auto px-4 pt-5">
+        {/* Header Section */}
+        <div className="flex flex-col gap-2">
+          <MainHeader title="How did you feel?" />
+          <SubHeader copy="Select 1-3 feelings" />
+        </div>
+
+        {/* Centered Grid Section */}
+        <div className="flex-grow flex items-center justify-center">
+          <div className="w-full max-h[340px]">
+            <FeelingsGrid
+              feelings={predefinedFeelings}
+              selectedFeelings={selectedFeelings}
+              onFeelingClick={handleFeelingClick}
+            />
+          </div>
+        </div>
       </div>
     </PageLayout>
   );
