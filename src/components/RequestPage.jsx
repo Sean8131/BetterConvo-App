@@ -83,7 +83,7 @@ useEffect(() => {
   // Initialize a state variable called "request" with a default string
   // The "setRequest" function is used to update the "request" state
   // Allows the user to edit the request in the <textarea> and for us to track those changes
-  const [request, setRequest] = useState("Please let me finish");
+  const [request, setRequest] = useState("");
 
   // Initialize a state variable called "response" with an empty string
   // The "response" state varialbe holds whatever the API sends back
