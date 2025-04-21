@@ -17,24 +17,25 @@ export default function FeelingsPage() {
   // Hook for navigating to the RequestPage with state
   const navigate = useNavigate();
 
-  // Predefined list of feelings (unsorted initially)
-  const predefinedFeelings = [
-    "Angry",
-    "Annoyed",
-    "Confused",
-    "Frustrated",
-    "Sorry",
-    "Upset",
-    "Hurt",
-    "Worried",
-    "Sad",
-    "Guilty",
-    "Stressed",
-    "Curious",
-  ];
+  // Predefined list of feelings with emojis (unsorted initially)
+const predefinedFeelings = [
+  { label: "Angry", emoji: "😠" },
+  { label: "Annoyed", emoji: "😒" },
+  { label: "Confused", emoji: "😕" },
+  { label: "Frustrated", emoji: "😤" },
+  { label: "Sorry", emoji: "🥺" },
+  { label: "Upset", emoji: "😢" },
+  { label: "Hurt", emoji: "💔" },
+  { label: "Worried", emoji: "😟" },
+  { label: "Sad", emoji: "😞" },
+  { label: "Guilty", emoji: "😬" },
+  { label: "Stressed", emoji: "😣" },
+  { label: "Curious", emoji: "🤔" },
+];
 
-  // Sort the feelings alphabetically
-  predefinedFeelings.sort((a, b) => a.localeCompare(b));
+// Sort alphabetically by label
+predefinedFeelings.sort((a, b) => a.label.localeCompare(b.label));
+
 
   // State to track selected feelings (maximum 3)
   const [selectedFeelings, setSelectedFeelings] = useState(["Annoyed"]);
@@ -42,10 +43,10 @@ export default function FeelingsPage() {
   // Handler for when a predefined feeling button is clicked.
   // If the feeling is already selected, it toggles it off.
   // Otherwise, it adds it if the maximum (3) has not been reached.
-  const handleFeelingClick = (feeling) => {
-    if (selectedFeelings.includes(feeling)) {
+  const handleFeelingClick = (label) => {
+    if (selectedFeelings.includes(label)) {
       // Remove the feeling if it's already selected
-      setSelectedFeelings(selectedFeelings.filter((f) => f !== feeling));
+      setSelectedFeelings(selectedFeelings.filter((f) => f !== label));
     } else {
       // Check if the maximum of 3 feelings has been reached
       if (selectedFeelings.length >= 3) {
@@ -54,7 +55,7 @@ export default function FeelingsPage() {
       }
 
       // Add the selected feeling to the state
-      setSelectedFeelings([...selectedFeelings, feeling]);
+      setSelectedFeelings([...selectedFeelings, label]);
     }
   };
 
@@ -88,7 +89,7 @@ export default function FeelingsPage() {
         </PageFooter>
       }
     >
-      <div className="text-left max-w-xl w-full mx-auto px-4 pt-20">
+      <div className="text-left max-w-xl w-full mx-auto px-4 pt-5">
         <MainHeader title="How did you feel?" />
         <SubHeader copy="Select 1-3 feelings" />
         <FeelingsGrid
