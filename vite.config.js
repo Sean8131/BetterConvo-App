@@ -14,5 +14,9 @@ export default defineConfig({
         secure: false,
       },
     },
+    watch: {
+      // Ignore example env file so it doesn't trigger on reload
+      ignored: ["**/.env.example"],
+    }
   },
 });
