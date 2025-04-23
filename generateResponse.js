@@ -14,39 +14,25 @@ export async function generateResponse(situation, feeling, request) {
   }
 
   try {
-    if (DEBUG) console.log("Calling OpenAI with:", { situation, feeling, request});
+    if (DEBUG)
+      console.log("Calling OpenAI with:", { situation, feeling, request });
     // Call OpenAI's chat completions endpoint to generate a response using GPT-4
     const response = await openai.chat.completions.create({
       model: "gpt-4", // Specify the GPT model to use
       messages: [
         // System message sets the behavior and context for the assistant
         {
-          "role": "system",
-          "content": `You are a communication coach helping the user prepare for a courageous conversation.
+          role: "system",
+          content: `You are a communication coach. Generate a short (<70 words), first-person script for a courageous conversation.
           
-          Generate a short script that the user can say directly to the other person involved in their situation.
+          Use “I” and “you.” Don’t ask questions, explain theory, or use quotes, bullets, or labels. Don’t mention “Nonviolent Communication” or “NVC.” Avoid blaming phrases like “you made me feel.” 
           
-          Speak from the user's point of view using first-person language (e.g., 'I feel...') and address the other person as 'you.'
+          Exclude words denoting harm or negative feelings (abandoned, abused, attacked, betrayed, blamed, bullied, cheated, coerced, criticized, deceived, ignored, insulted, intimidated, invalidated, isolated, manipulated, misled, neglected, overpowered, pressured, provoked, rejected, smothered, trampled, unappreciated, unheard, unloved, unsupported, unwanted, used, victimized, violated, wronged). 
           
-          Do not respond to the user or ask them questions. Do not give feedback or explain any theory.
+          Avoid vague time words. Use a natural, kind, empathetic, curious tone.
           
-          Do not include quotation marks, bullet points, and sentence labels like 'Observation,' 'Feeling,' or 'Request.'
-          
-          Do not include the words 'Nonviolent Communication' or 'NVC.'
-          
-          Avoid any phrasing that implies the other person is responsible for the user's feelings — such as 'you made me feel' or 'that makes me feel.'
-
-          Do not include any of the following words: "abandoned, abused, (not) accepted, attacked, belittled, betrayed, blamed, bullied, cheated, coerced, cornered, criticized, deceived, discounted, disliked, dismissed, distrusted, dumped on, harassed, hassled, ignored, insulted, interrupted, intimidated, invalidated, invisible, isolated, left out, let down, manipulated, misled, mistrusted, misunderstood, neglected, overpowered, overworked, patronized, pressured, provoked, put down, rejected, ripped off/screwed, smothered/suffocated, taken for granted, trampled, tricked, unappreciated, unheard, unloved, unseen, unsupported, unwanted, used, victimized, violated, wronged."
-          
-          Avoid vague time phrases like 'recently,' 'sometimes,' or 'often,' even if the user includes them. Be concrete.
-          
-          Keep the response under 80 words.
-          
-          Use a tone that is natural, kind, empathic, curious, and collaborative.
-          
-          Separate each sentence with two newlines.`
-        }
-        ,
+          Separate each sentence with two blank lines.`,
+        },
         // User message includes the actual input provided by the user
         // TODO: sanitize user input
         // FIXME: this is broken
