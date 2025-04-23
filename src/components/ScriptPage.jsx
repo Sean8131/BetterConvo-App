@@ -46,7 +46,7 @@ export default function ScriptPage() {
         </PageFooter>
       }
     >
-      <div className="max-w-xl w-full mx-auto px-4 pt-5">
+      <div className="max-w-xl w-full mx-auto px-4 pt-10">
         {/* Display the generated GPT response */}
         <MainHeader title="How about saying..." />
           <div className="text-lg md:text-xl text-left">
