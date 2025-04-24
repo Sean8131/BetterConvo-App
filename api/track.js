@@ -21,6 +21,7 @@ async function connectToDatabase() {
 
 export default async function handler(req, res) {
   const { action, step, session_id, details } = req.body;
+  console.log(req.body);
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method Not Allowed' });
   }
